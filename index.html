@@ -1,0 +1,23 @@
+---
+layout: default
+title: Home
+---
+<section class="profile">
+    <img src="{{ '/public/image/ZKW MSR.jpeg' | relative_url }}" alt="Kris" class="profile-picture">
+    <h1>Your Name</h1>
+    <p>Short introduction about yourself and your skills.</p>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+        {% for project in site.projects %}
+        <div class="project-thumbnail">
+            <a href="{{ project.url | relative_url }}">
+                <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}">
+                <h3>{{ project.title }}</h3>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
