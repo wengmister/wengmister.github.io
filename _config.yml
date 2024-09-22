@@ -19,7 +19,7 @@ plugins:
   - jekyll-feed
 
 # File structure settings
-image_path:         /public/images
+image_path:         /assets/images
 
 # Build settings
 markdown:           kramdown
