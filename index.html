@@ -2,22 +2,32 @@
 layout: default
 title: Home
 ---
-<section class="profile">
-    <img src="{{ '/assets/image/ZKW MSR.jpeg' | relative_url }}" alt="Kris" class="profile-picture">
+<section class="introduction">
     <h1>Your Name</h1>
-    <p>Short introduction about yourself and your skills.</p>
+    <p>Welcome to my portfolio! I'm a [your profession/title] passionate about [your interests/skills]. With [X] years of experience in [your field], I specialize in [your key skills or areas of expertise].</p>
+</section>
+
+<section class="image-carousel">
+    <div class="carousel-container">
+        <img src="{{ 'assets/images/ZKW MSR.jpeg' | relative_url }}" alt="Zhengyang Kris Weng" class="carousel-image">
+        <img src="{{ 'assets/images/ZKW NEOCIS1.JPG' | relative_url }}" alt="While working at Neocis" class="carousel-image">
+        <img src="{{ 'assets/images/ZKW JNJ.jpg' | relative_url }}" alt="While working at Auris Health/JnJ" class="carousel-image">
+        <img src="{{ 'assets/images/ZKW HB.JPG' | relative_url }}" alt="While working at Harmonic Bionics" class="carousel-image">
+        <!-- Add more images as needed -->
+    </div>
 </section>
 
 <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
+    <h2>My Projects</h2>
+    <ul class="project-list">
         {% for project in site.projects %}
-        <div class="project-thumbnail">
+        <li class="project-item">
             <a href="{{ project.url | relative_url }}">
                 <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}">
                 <h3>{{ project.title }}</h3>
+                <p>{{ project.excerpt | strip_html | truncatewords: 30 }}</p>
             </a>
-        </div>
+        </li>
         {% endfor %}
-    </div>
-</section>  
+    </ul>
+</section>
