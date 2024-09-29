@@ -18,7 +18,10 @@ title: Home
             <button class="carousel-button prev" onclick="changeImage(-1)">❮</button>
             <button class="carousel-button next" onclick="changeImage(1)">❯</button>
         </div>
+        <div id="carousel-caption" class="carousel-caption">Zhengyang Kris Weng</div> <!-- Caption element moved outside -->
     </section>
+    
+    
     
 </section>
 
@@ -38,27 +41,30 @@ title: Home
     </ul>
 </section>
 
+
 <script>
-    let currentIndex = 0;
-    const images = document.querySelectorAll('.carousel-image');
+    let captionIndex = 0; // Renamed variable
+    const captionImages = document.querySelectorAll('.carousel-image'); // Renamed variable
+    const caption = document.getElementById('carousel-caption'); // Get the caption element
     
     function showImage(index) {
-        images.forEach((image, i) => {
+        captionImages.forEach((image, i) => {
             image.classList.remove('active');
             if (i === index) {
                 image.classList.add('active');
+                caption.textContent = image.alt; // Update the caption text
             }
         });
     }
     
     function changeImage(direction) {
-        currentIndex += direction;
-        if (currentIndex < 0) {
-            currentIndex = images.length - 1; // Loop back to last image
-        } else if (currentIndex >= images.length) {
-            currentIndex = 0; // Loop back to first image
+        captionIndex += direction; // Renamed variable
+        if (captionIndex < 0) {
+            captionIndex = captionImages.length - 1; // Loop back to last image
+        } else if (captionIndex >= captionImages.length) {
+            captionIndex = 0; // Loop back to first image
         }
-        showImage(currentIndex);
+        showImage(captionIndex); // Use renamed variable
     }
     
     // Auto-scroll functionality (optional)
@@ -66,4 +72,3 @@ title: Home
         changeImage(1);
     }, 5000); // Change image every 5 seconds
     </script>
-    
