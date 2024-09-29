@@ -13,11 +13,12 @@ title: Home
         <div class="carousel-container">
             <img src="{{ 'assets/images/ZKW MSR.jpeg' | relative_url }}" alt="Zhengyang Kris Weng" class="carousel-image active">
             <img src="{{ 'assets/images/ZKW NEOCIS1.JPG' | relative_url }}" alt="While working at Neocis" class="carousel-image">
-            <img src="{{ 'assets/images/ZKW JNJ.jpg' | relative_url }}" alt="While working at Auris Health/JnJ" class="carousel-image">
+            <img src="{{ 'assets/images/ZKW JNJ.jpg' | relative_url }}" alt="While working at Auris Health, a Johnson & Johnson Company" class="carousel-image">
             <img src="{{ 'assets/images/ZKW HB.JPG' | relative_url }}" alt="While working at Harmonic Bionics" class="carousel-image">
             <button class="carousel-button prev" onclick="changeImage(-1)">❮</button>
             <button class="carousel-button next" onclick="changeImage(1)">❯</button>
         </div>
+        <p id="image-caption" class="image-caption"></p>
     </section>
     
 </section>
@@ -41,12 +42,14 @@ title: Home
 <script>
     let currentIndex = 0;
     const images = document.querySelectorAll('.carousel-image');
+    const caption = document.getElementById('image-caption');
     
     function showImage(index) {
         images.forEach((image, i) => {
             image.classList.remove('active');
             if (i === index) {
                 image.classList.add('active');
+                caption.textContent = image.alt; // Update the caption with alt text
             }
         });
     }
@@ -61,9 +64,11 @@ title: Home
         showImage(currentIndex);
     }
     
+    // Initialize the caption with the first image's alt text
+    showImage(currentIndex);
+    
     // Auto-scroll functionality (optional)
     setInterval(() => {
         changeImage(1);
     }, 5000); // Change image every 5 seconds
     </script>
-    
