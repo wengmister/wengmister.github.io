@@ -55,18 +55,30 @@ nav ul li {
     transition: opacity 1s ease-in-out;
 }
 
-.carousel-image:first-child {
-    opacity: 1;
+.carousel-image.active {
+    opacity: 1; /* Show the active image */
 }
 
-@keyframes carousel {
-    0%, 25% { opacity: 1; }
-    33%, 100% { opacity: 0; }
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    z-index: 100; /* Ensure buttons are on top of images */
 }
 
-.carousel-container img {
-    animation: carousel 12s infinite;
+.carousel-button.prev {
+    left: 10px; /* Position left button */
 }
+
+.carousel-button.next {
+    right: 10px; /* Position right button */
+}
+
 
 .carousel-container img:nth-child(1) { animation-delay: 4s; }
 .carousel-container img:nth-child(2) { animation-delay: 8s; }

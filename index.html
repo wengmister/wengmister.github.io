@@ -9,14 +9,17 @@ title: Home
         <p>My passion lies in robotic system development, with solid experiences spanning across mechanical, electrical, system integration and design. Throughout the years working in robotics R&D, I have acquired a skillset suited for turning product design inputs into engineering results. I'm looking forward to pushing the boundaries of robot-assisted surgery and transform the future of healthcare.</p>
     </div>
 
-    <div class="image-carousel">
+    <section class="image-carousel">
         <div class="carousel-container">
-            <img src="{{ 'assets/images/ZKW MSR.jpeg' | relative_url }}" alt="Zhengyang Kris Weng" class="carousel-image">
+            <img src="{{ 'assets/images/ZKW MSR.jpeg' | relative_url }}" alt="Zhengyang Kris Weng" class="carousel-image active">
             <img src="{{ 'assets/images/ZKW NEOCIS1.JPG' | relative_url }}" alt="While working at Neocis" class="carousel-image">
             <img src="{{ 'assets/images/ZKW JNJ.jpg' | relative_url }}" alt="While working at Auris Health/JnJ" class="carousel-image">
             <img src="{{ 'assets/images/ZKW HB.JPG' | relative_url }}" alt="While working at Harmonic Bionics" class="carousel-image">
+            <button class="carousel-button prev" onclick="changeImage(-1)">❮</button>
+            <button class="carousel-button next" onclick="changeImage(1)">❯</button>
         </div>
-    </div>
+    </section>
+    
 </section>
 
 
@@ -34,3 +37,33 @@ title: Home
         {% endfor %}
     </ul>
 </section>
+
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel-image');
+    
+    function showImage(index) {
+        images.forEach((image, i) => {
+            image.classList.remove('active');
+            if (i === index) {
+                image.classList.add('active');
+            }
+        });
+    }
+    
+    function changeImage(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1; // Loop back to last image
+        } else if (currentIndex >= images.length) {
+            currentIndex = 0; // Loop back to first image
+        }
+        showImage(currentIndex);
+    }
+    
+    // Auto-scroll functionality (optional)
+    setInterval(() => {
+        changeImage(1);
+    }, 5000); // Change image every 5 seconds
+    </script>
+    
