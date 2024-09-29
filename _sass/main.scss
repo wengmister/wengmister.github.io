@@ -33,6 +33,33 @@ nav ul li {
     flex: 2; // Takes more space
 }
 
+.contact-list {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1em;
+}
+
+.contact-item {
+    color: #2b779b;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+    color: #007bff;
+}
+
+@media (max-width: 600px) {
+    .contact-list {
+        font-size: 0.9em;
+    }
+    
+    .contact-item {
+        margin: 0 5px;
+    }
+}
+
 .image-carousel {
     flex: 1; // Takes less space
     margin-top: 30px; // Move down by 20 pixels
