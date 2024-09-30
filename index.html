@@ -31,20 +31,75 @@ title: Home
 </section>
 
 
-<section id="projects">
-    <h2>Projects</h2>
+<section id="company-projects">
+    <h2>Work Projects</h2>
     <ul class="project-list">
-        {% for project in site.projects %}
+        <!-- Project 1 -->
         <li class="project-item">
-            <a href="{{ project.url | relative_url }}">
-                <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}">
-                <h3>{{ project.title }}</h3>
-                <p>{{ project.excerpt | strip_html | truncatewords: 30 }}</p>
+            <div class="project-content">
+                <img src="assets/images/project_images/Auris1.png" alt="Project 1 Thumbnail">
+                <div class="project-details">
+                    <h3>Auris Health/Johnson & Johnson MedTech</h3>
+                    <p>As a senior mechancial engineer currently working at J&J, I am mainly responsible for system design on the Monarch Surgical Platform, the first robotic platform for minimally invasive diagnostic and therapeutic procedures in the lungs and kidneys.</p>
+                    <p>I worked on many projects related to the robotic arm and instrument manipulator, both on the hardware and software front. I'm not able to disclose too much details on these project at this moment, I will be glad to share my experience when the legal effect expires.</p>
+                </div>
+            </div>
+        </li>
+        
+        <!-- Project 2 -->
+        <li class="project-item">
+            <a href="https://example.com/project2">
+                <div class="project-content">
+                    <img src="assets/images/project2-thumbnail.jpg" alt="Project 2 Thumbnail">
+                    <div class="project-details">
+                        <h3>Project 2: AI-Assisted Diagnostics Tool</h3>
+                        <p>In collaboration with medical professionals, this project resulted in an AI-powered diagnostics tool capable of analyzing medical images to assist doctors in identifying early-stage diseases with high accuracy.</p>
+                    </div>
+                </div>
             </a>
         </li>
-        {% endfor %}
+        
+        <!-- Project 3 -->
+        <li class="project-item">
+            <a href="https://example.com/project3">
+                <div class="project-content">
+                    <img src="assets/images/project3-thumbnail.jpg" alt="Project 3 Thumbnail">
+                    <div class="project-details">
+                        <h3>Project 3: Autonomous Drone Navigation</h3>
+                        <p>This project involved building an autonomous drone navigation system that uses computer vision and sensor fusion to fly through complex environments without human intervention.</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        
+        <!-- Project 4 -->
+        <li class="project-item">
+            <a href="https://example.com/project4">
+                <div class="project-content">
+                    <img src="assets/images/project4-thumbnail.jpg" alt="Project 4 Thumbnail">
+                    <div class="project-details">
+                        <h3>Project 4: Robotic Exoskeleton for Rehabilitation</h3>
+                        <p>A cutting-edge exoskeleton designed to assist in rehabilitation for patients recovering from stroke or spinal cord injuries. The exoskeleton adapts to the patient's needs to optimize their recovery process.</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        
+        <!-- Project 5 -->
+        <li class="project-item">
+            <a href="https://example.com/project5">
+                <div class="project-content">
+                    <img src="assets/images/project5-thumbnail.jpg" alt="Project 5 Thumbnail">
+                    <div class="project-details">
+                        <h3>Project 5: Robotic Surgery Simulation</h3>
+                        <p>This simulation project developed a virtual platform for training surgeons in robot-assisted surgeries. It includes haptic feedback and realistic modeling to provide a true-to-life learning environment.</p>
+                    </div>
+                </div>
+            </a>
+        </li>
     </ul>
 </section>
+
 
 <script>
     let currentIndex = 0;

@@ -8,7 +8,7 @@ body {
 }
 
 header, footer {
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     padding: 1rem;
     text-align: center;
 }
@@ -123,41 +123,62 @@ nav ul li {
     list-style-type: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1rem;
 }
 
 .project-item {
-    border: 1px solid #ddd;
+    border: none;
     border-radius: 5px;
     overflow: hidden;
     transition: transform 0.3s ease;
+    padding: 1rem;
 }
 
 .project-item:hover {
     transform: translateY(-5px);
 }
 
-.project-item a {
-    text-decoration: none;
-    color: inherit;
+.project-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-.project-item img {
-    width: 100%;
-    height: 150px;
+.project-content img {
+    width: 150px;
+    height: auto;
     object-fit: cover;
+    border-radius: 5px;
 }
 
-.project-item h3 {
-    margin: 0.5rem;
+.project-details {
+    flex: 1;
 }
 
-.project-item p {
-    margin: 0.5rem;
+.project-details h3 {
+    margin: 0.5rem 0;
+}
+
+.project-details p {
+    margin: 0.5rem 0;
     font-size: 0.9rem;
     color: #666;
 }
+
+/* Responsive design: stack the image and text vertically on smaller screens */
+@media (max-width: 768px) {
+    .project-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .project-content img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 
 /* Responsive design */
 @media (max-width: 768px) {
