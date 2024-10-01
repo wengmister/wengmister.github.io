@@ -1,17 +1,11 @@
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
 title: ZKWeng
 author: Zhengyang Kris Weng
 email: wengmister@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- 
   Welcome! This is ZKW's project portfolio page.
-baseurl: "/portfolio" # the subpath of your site, e.g. /blog
-url: "http://localhost:4000" # for local hosts: http://localhost:4000
-github_username:  zkweng
+baseurl: "/portfolio" # change if your repo name is different
+url: "https://zkweng.github.io" # use your actual GitHub Pages URL
+github_username: zkweng
 
 # Build settings
 theme: minima
@@ -19,11 +13,11 @@ plugins:
   - jekyll-feed
 
 # File structure settings
-image_path:         /assets/images
+image_path: /assets/images
 
 # Build settings
-markdown:           kramdown
-permalink:          pretty
+markdown: kramdown
+permalink: pretty
 
 collections:
   projects:
