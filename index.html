@@ -3,31 +3,38 @@ layout: default
 title: Home
 ---
 <section id="home" class="intro-carousel-container">
-    <div class="introduction">
-        <h1>About</h1>
-        <p>I'm a versatile engineer with heavy interest in medical and surgical robots. A team player with strong analytical and problem solving skills, I thrive in cross functional teams to leverage solid mechanical design and prototyping expertise to find creative solutions to engineering challenges.</p>
-        <p>My passion lies in robotic system development, with solid experiences spanning across mechanical, electrical, system integration and design. Throughout the years working in robotics R&D, I have acquired a skillset suited for turning product design inputs into engineering results. I'm looking forward to pushing the boundaries of robot-assisted surgery and transform the future of healthcare.</p>
-        
-        <div class="contact-list">
-            <a href="mailto:wengmister@gmail.com" class="contact-item">email</a> |
-            <a href="https://www.linkedin.com/in/zkweng/" class="contact-item">LinkedIn</a> |
-            <a href="https://github.com/wengmister" class="contact-item">github</a> |
-            <a href="assets/pdf/zkw_resume.pdf" class="contact-item">resume</a>
+    <div class="content-wrapper">
+        <div class="introduction">
+            <h1>About</h1>
+            <p>I'm a versatile engineer with heavy interest in medical and surgical robots. A team player with strong analytical and problem solving skills, I thrive in cross functional teams to leverage solid mechanical design and prototyping expertise to find creative solutions to engineering challenges.</p>
+            <p>My passion lies in robotic system development, with solid experiences spanning across mechanical, electrical, system integration and design. Throughout the years working in robotics R&D, I have acquired a skillset suited for turning product design inputs into engineering results. I'm looking forward to pushing the boundaries of robot-assisted surgery and transform the future of healthcare.</p>
+            
+            <div class="contact-list">
+                <a href="mailto:wengmister@gmail.com" class="contact-item">email</a> |
+                <a href="https://www.linkedin.com/in/zkweng/" class="contact-item">LinkedIn</a> |
+                <a href="https://github.com/wengmister" class="contact-item">github</a> |
+                <a href="assets/pdf/zkw_resume.pdf" class="contact-item">resume</a>
+            </div>
+        </div>
+
+        <div class="carousel-wrapper">
+            <section class="image-carousel">
+                <div class="carousel-container">
+                    <img src="{{ 'assets/images/ZKW MSR.jpeg' | relative_url }}" alt="---" class="carousel-image active">
+                    <img src="{{ 'assets/images/ZKW NEOCIS1.JPG' | relative_url }}" alt="While working at Neocis" class="carousel-image">
+                    <img src="{{ 'assets/images/ZKW JNJ.jpg' | relative_url }}" alt="While working at Auris Health/J&J" class="carousel-image">
+                    <img src="{{ 'assets/images/ZKW HB.JPG' | relative_url }}" alt="While working at Harmonic Bionics" class="carousel-image">
+                    <button class="carousel-button prev" onclick="changeImage(-1)">❮</button>
+                    <button class="carousel-button next" onclick="changeImage(1)">❯</button>
+                </div>
+                <p id="image-caption" class="image-caption"></p>
+            </section>
+            
+            <h2 class="name-print"><strong>Zhengyang Kris Weng</strong></h2>
+            <p class="short-intro1">Senior Mechanical Engineer | Johnson & Johnson MedTech</p>
+            <p class="short-intro2">MS Robotics Student | Northwestern University</p>
         </div>
     </div>
-
-    <section class="image-carousel">
-        <div class="carousel-container">
-            <img src="{{ 'assets/images/ZKW MSR.jpeg' | relative_url }}" alt="Zhengyang Kris Weng" class="carousel-image active">
-            <img src="{{ 'assets/images/ZKW NEOCIS1.JPG' | relative_url }}" alt="While working at Neocis" class="carousel-image">
-            <img src="{{ 'assets/images/ZKW JNJ.jpg' | relative_url }}" alt="While working at Auris Health/J&J" class="carousel-image">
-            <img src="{{ 'assets/images/ZKW HB.JPG' | relative_url }}" alt="While working at Harmonic Bionics" class="carousel-image">
-            <button class="carousel-button prev" onclick="changeImage(-1)">❮</button>
-            <button class="carousel-button next" onclick="changeImage(1)">❯</button>
-        </div>
-        <p id="image-caption" class="image-caption"></p>
-    </section>
-    
 </section>
 
 

@@ -79,13 +79,64 @@ nav ul li {
 }
 
 .intro-carousel-container {
+    width: 100%;
+    max-width: 1000px;  /* Adjust as needed */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content-wrapper {
     display: flex;
-    gap: 2rem; // Space between introduction and carousel
-    margin-bottom: 2rem;
+    flex-direction: row;
+    gap: 80px;  /* Adjust space between introduction and carousel */
 }
 
 .introduction {
-    flex: 2; // Takes more space
+    flex: 1.2;  /* Takes up available space */
+}
+
+.carousel-wrapper {
+    flex: 1;  /* Takes up available space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-carousel {
+    width: 100%;
+    flex: 2;
+    margin-top: 30px;
+    height: 500px; /* Fixed height */
+}
+
+.name-print {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #333; /* Adjust this color as needed */
+}
+
+.short-intro1 {
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 0px;
+    color: #76797a;
+    font-size: 12px;
+}
+
+.short-intro2 {
+    text-align: center;
+    margin-top: 0px;
+    color: #76797a;
+    font-size: 12px;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
 }
 
 .contact-list {
@@ -115,15 +166,12 @@ nav ul li {
     }
 }
 
-.image-carousel {
-    flex: 1; // Takes less space
-    margin-top: 30px; // Move down by 20 pixels
-}
-
 .image-caption {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 0px;
     font-style: italic;
+    color: #8e9599;
+    font-size: 12px;
 }
 
 .carousel-container {
@@ -173,13 +221,6 @@ nav ul li {
 .carousel-container img:nth-child(2) { animation-delay: 8s; }
 .carousel-container img:nth-child(3) { animation-delay: 12s; }
 .carousel-container img:nth-child(4) { animation-delay: 16s; }
-
-.name-print {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    color: #333; /* Adjust this color as needed */
-}
 
 .project-list {
     list-style-type: none;
