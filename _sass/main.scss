@@ -5,17 +5,18 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0;
+    padding-top: 60px;
 }
 
 .site-header {
     background-color: #4a5b6c;
-    padding: 1rem 0;
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    position: fixed;
+    top: 0;
+    padding: 0.5rem 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
   
 .header-container {
