@@ -2,7 +2,7 @@
 layout: default
 title: Home
 ---
-<section class="intro-carousel-container">
+<section id="home" class="intro-carousel-container">
     <div class="introduction">
         <h1>About</h1>
         <p>I'm a versatile engineer with heavy interest in medical and surgical robots. A team player with strong analytical and problem solving skills, I thrive in cross functional teams to leverage solid mechanical design and prototyping expertise to find creative solutions to engineering challenges.</p>
@@ -151,3 +151,24 @@ title: Home
         changeImage(1);
     }, 5000); // Change image every 5 seconds
     </script>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            const headerHeight = document.querySelector('.site-header').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+</script>

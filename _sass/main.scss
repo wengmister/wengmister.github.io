@@ -174,6 +174,13 @@ nav ul li {
 .carousel-container img:nth-child(3) { animation-delay: 12s; }
 .carousel-container img:nth-child(4) { animation-delay: 16s; }
 
+.name-print {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: #333; /* Adjust this color as needed */
+}
+
 .project-list {
     list-style-type: none;
     padding: 0;
