@@ -3,7 +3,7 @@ author: Zhengyang Kris Weng
 email: wengmister@gmail.com
 description: >- 
   Welcome! This is ZKW's project portfolio page.
-baseurl: "/portfolio" # change if your repo name is different
+baseurl: "" # change if your repo name is different
 url: "https://wengmister.github.io" # use your actual GitHub Pages URL
 github_username: wengmister
 
