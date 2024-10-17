@@ -1,0 +1,42 @@
+Reverse the order of paragraphs in intro
+
+Neocis short intro
+- a little too listy and packs too much info
+- Could be more narrative given that there's a resume
+
+HB intro
+- third paragraph a little listy - GT context not very necessary
+    - perhaps put it with the timing to contextualize it
+
+LIDAR lab
+- Context first
+    - we used linear acutator .... emulate
+
+EPIC
+- Last sentence currently feels dangling - could make it into the full page description
+
+GAP
+- Add some more details on how I did it
+
+
+
+# resume
+JNJ - REMOVE ENGINEERING SUPPORT
+- remove "implementing"
+- "other documentation"
+
+Neocis - 
+Senior position - reduce the technical details in resume
+- Impacts - leave the important ones, 
+ME role - cut down neocis intro -> a little repeatetive with the senior role.
+- Focus the first parts into the robot arm project
+- OEM part - take away second sentence
+- Probably take away the engg SUPPORT
+- Combine the mentor one with the senior role
+
+Patents - highlight them in projects - not necessarily numbers
+
+LIDAR - 
+- Put integration part in portfolio
+
+Consider taking the GT Motorsports and older htings away
