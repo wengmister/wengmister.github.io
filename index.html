@@ -50,7 +50,7 @@ title: Home
     <h2>Work Projects</h2>
     <ul class="project-list">
         <!-- Project 1 -->
-        <li class="project-item">
+        <li class="project-item" data-project-id="monarch">
             <div class="project-content">
                 <img src="assets/images/project_images/Auris1.png" alt="Working at J&J">
                 <div class="project-details">
@@ -65,7 +65,7 @@ title: Home
         
         
         <!-- Project 2 -->
-        <li class="project-item">
+        <li class="project-item" data-project-id="yomi">
             <div class="project-content">
                 <img src="assets/images/project_images/Neocis1.png" alt="Working at Neocis">
                 <div class="project-details">
@@ -80,7 +80,7 @@ title: Home
         </li>
         
         <!-- Project 3 -->
-        <li class="project-item">
+        <li class="project-item" data-project-id="harmony">
             <div class="project-content">
                 <img src="assets/images/project_images/HB1.png" alt="Working at Harmonic Bionics">
                 <div class="project-details">
@@ -101,7 +101,7 @@ title: Home
     <h2>Research Projects</h2>
     <ul class="project-list">
         <!-- Project 1 -->
-        <li class="project-item">
+        <li class="project-item" data-project-id="athena">
             <div class="project-content">
                 <img src="assets/images/project_images/LIDAR1.png" alt="Research at LIDAR Lab">
                 <div class="project-details">
@@ -117,7 +117,7 @@ title: Home
         
         
         <!-- Project 2 -->
-        <li class="project-item">
+        <li class="project-item" data-project-id="hip-exo">
             <div class="project-content">
                 <img src="assets/images/project_images/EPIC1.png" alt="Research at EPIC Lab">
                 <div class="project-details">
@@ -215,6 +215,130 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 top: targetPosition,
                 behavior: 'smooth'
             });
+        }
+    });
+});
+</script>
+
+<!-- Modal window -->
+<div id="project-modal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+            <h2 class="modal-title"></h2>
+            <div class="modal-description"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+const projectDetails = {
+    'monarch': {
+        title: 'Monarch Endoscopic Surgical Platform',
+        description: `
+            <p>The Monarch Platform represents a significant advancement in robotic-assisted surgery, particularly in minimally invasive procedures for lung and kidney applications. As a senior mechanical engineer at Johnson & Johnson MedTech, I contribute to various aspects of the system's development:</p>
+            <ul>
+                <li>Lead mechanical design initiatives for critical components of the robotic arm and instrument manipulator</li>
+                <li>Develop and implement system-level improvements to enhance surgical precision and user experience</li>
+                <li>Collaborate with cross-functional teams to integrate hardware and software solutions</li>
+                <li>Participate in verification and validation activities to ensure system reliability and safety</li>
+            </ul>
+            <p>The platform combines traditional endoscopic views with computer-aided navigation based on 3D models of the patient's own anatomy to create a continuous bronchoscopic vision. This enables physicians to diagnose and treat lung disease with improved reach, vision, and control.</p>
+        `
+    },
+    'yomi': {
+        title: 'Yomi Dental Surgical Robot',
+        description: `
+            <p>At Neocis, I was instrumental in developing the second generation of the Yomi surgical system, the only FDA-cleared robotic device for dental implant surgery. My contributions included:</p>
+            <ul>
+                <li>Design and development of joint actuators for a 7-DOF robotic arm</li>
+                <li>Creation of compact actuator systems and collaboration with OEMs for customization</li>
+                <li>Implementation of kinematic analysis and simulation for joint load optimization</li>
+                <li>Development of calibration algorithms and inverse kinematics solver with obstacle avoidance capabilities</li>
+            </ul>
+            <p>The Yomi system provides haptic guidance to dental surgeons while maintaining their direct control of the surgical instruments, combining the precision of robotic technology with the expertise of human practitioners.</p>
+        `
+    },
+    'harmony': {
+        title: 'Harmony SHR Exoskeleton',
+        description: `
+            <p>During my time at Harmonic Bionics, I contributed to the development of the Harmony SHR, an advanced upper extremity rehabilitation robot. My responsibilities included:</p>
+            <ul>
+                <li>Design of major mechanical components using various manufacturing techniques</li>
+                <li>Development of handheld interface devices and custom linear actuator systems</li>
+                <li>Material validation through simulation and experimental testing</li>
+                <li>Integration of mechanical and electrical systems for prototype development</li>
+            </ul>
+            <p>The Harmony SHR is designed to facilitate natural movement patterns during rehabilitation, allowing therapists to deliver high quality care while collecting objective patient data.</p>
+        `
+    },
+    'athena': {
+        title: 'Athena Biomimetic Robot',
+        description: `
+            <p>As team lead for the Athena project at Georgia Tech's LIDAR Lab, I managed the development of a complex biomimetic upper body robot:</p>
+            <ul>
+                <li>Led a team of 12 undergraduate students in system design and integration</li>
+                <li>Implemented a 28-DOF system using linear actuators to mimic human muscle architecture</li>
+                <li>Managed CAD repositories and performed topology optimization for weight reduction</li>
+                <li>Developed control systems for coordinated movement of multiple actuators</li>
+            </ul>
+            <p>The Athena project aims to advance our understanding of human-like movement and control in robotic systems, with potential applications in prosthetics and human-robot interaction.</p>
+        `
+    },
+    'hip-exo': {
+        title: 'Assistive Hip Exoskeleton',
+        description: `
+            <p>Working in the EPIC Lab at Georgia Tech, I contributed to the development of an assistive hip exoskeleton designed to reduce the metabolic cost of walking:</p>
+            <ul>
+                <li>Design and fabrication of series elastic actuator housings and components</li>
+                <li>Development of experimental protocols for system characterization</li>
+                <li>Collection and analysis of metabolic cost data under various conditions</li>
+                <li>Integration of sensors and control systems for real-time assistance</li>
+            </ul>
+            <p>This research aimed to develop more effective assistive devices for individuals with mobility impairments, with a focus on improving energy efficiency during walking.</p>
+        `
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('project-modal');
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalDescription = modal.querySelector('.modal-description');
+    const closeButton = modal.querySelector('.modal-close');
+    const overlay = modal.querySelector('.modal-overlay');
+
+    function openModal(projectId) {
+        const project = projectDetails[projectId];
+        if (project) {
+            modalTitle.textContent = project.title;
+            modalDescription.innerHTML = project.description;
+            modal.classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    }
+
+    // Add click listeners to project items
+    document.querySelectorAll('.project-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const projectId = item.getAttribute('data-project-id');
+            openModal(projectId);
+        });
+    });
+
+    // Close modal when clicking close button or overlay
+    closeButton.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+
+    // Close modal on escape key press
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
         }
     });
 });
