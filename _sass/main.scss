@@ -268,6 +268,11 @@ nav ul li {
     transform: translateY(-5px);
 }
 
+.project-title h3 a {
+    color: #24617e;
+    text-decoration: none; /* Remove underline */
+}
+
 .project-content {
     display: flex;
     align-items: center;
