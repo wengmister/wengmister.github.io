@@ -379,6 +379,29 @@ nav ul li {
     transform: scale(1.05);
 }
 
+.overview-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.overview-text {
+    flex: 1;
+    max-width: 60%;
+}
+
+.overview-image {
+    flex: 1;
+    max-width: 40%;
+}
+
+.overview-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
 /* Modal sections */
 .modal-section {
     margin: 25px 0;

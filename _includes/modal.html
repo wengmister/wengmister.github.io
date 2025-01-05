@@ -12,37 +12,37 @@
 
 <script>
     const projectDetails = {
-        'monarch': {
-            title: 'Monarch Endoscopic Surgical Platform',
-            images: [
-                'assets/images/project_images/Auris1.png',
-                'assets/images/project_images/Auris2.png',
-                'assets/images/project_images/Auris3.png'
-            ],
-            technologies: [
-                'Robotic Control Systems',
-                'Medical Device Design',
-                'Surgical Instruments',
-                'Precision Mechanics',
-                'System Integration'
-            ],
-            keyFeatures: [
-                'Robotic-assisted bronchoscopy',
-                'Computer-aided navigation',
-                'Continuous vision system',
-                'Precise instrument control'
-            ],
-            description: `
-                <p>The Monarch Platform represents a significant advancement in robotic-assisted surgery, particularly in minimally invasive procedures for lung and kidney applications. As a senior mechanical engineer at Johnson & Johnson MedTech, I contribute to various aspects of the system's development:</p>
-                <ul>
-                    <li>Lead mechanical design initiatives for critical components of the robotic arm and instrument manipulator</li>
-                    <li>Develop and implement system-level improvements to enhance surgical precision and user experience</li>
-                    <li>Collaborate with cross-functional teams to integrate hardware and software solutions</li>
-                    <li>Participate in verification and validation activities to ensure system reliability and safety</li>
-                </ul>
-                <p>The platform combines traditional endoscopic views with computer-aided navigation based on 3D models of the patient's own anatomy to create a continuous bronchoscopic vision. This enables physicians to diagnose and treat lung disease with improved reach, vision, and control.</p>
-            `
-        },
+        // 'monarch': {
+        //     title: 'Monarch Endoscopic Surgical Platform',
+        //     images: [
+        //         'assets/images/project_images/Auris1.png',
+        //         'assets/images/project_images/Auris2.png',
+        //         'assets/images/project_images/Auris3.png'
+        //     ],
+        //     technologies: [
+        //         'Robotic Control Systems',
+        //         'Medical Device Design',
+        //         'Surgical Instruments',
+        //         'Precision Mechanics',
+        //         'System Integration'
+        //     ],
+        //     keyFeatures: [
+        //         'Robotic-assisted bronchoscopy',
+        //         'Computer-aided navigation',
+        //         'Continuous vision system',
+        //         'Precise instrument control'
+        //     ],
+        //     description: `
+        //         <p>The Monarch Platform represents a significant advancement in robotic-assisted surgery, particularly in minimally invasive procedures for lung and kidney applications. As a senior mechanical engineer at Johnson & Johnson MedTech, I contribute to various aspects of the system's development:</p>
+        //         <ul>
+        //             <li>Lead mechanical design initiatives for critical components of the robotic arm and instrument manipulator</li>
+        //             <li>Develop and implement system-level improvements to enhance surgical precision and user experience</li>
+        //             <li>Collaborate with cross-functional teams to integrate hardware and software solutions</li>
+        //             <li>Participate in verification and validation activities to ensure system reliability and safety</li>
+        //         </ul>
+        //         <p>The platform combines traditional endoscopic views with computer-aided navigation based on 3D models of the patient's own anatomy to create a continuous bronchoscopic vision. This enables physicians to diagnose and treat lung disease with improved reach, vision, and control.</p>
+        //     `
+        // },
         'yomi': {
             title: 'Yomi Dental Surgical Robot',
             images: [
@@ -51,17 +51,9 @@
                 'assets/images/project_images/Neocis3.png'
             ],
             technologies: [
-                '7-DOF Robotics',
-                'Haptic Control',
-                'Medical Imaging',
-                'Surgical Planning',
+                'Robotic Actuator Design',
+                'Robot Calibration',
                 'System Integration'
-            ],
-            keyFeatures: [
-                'Haptic Guidance System',
-                'Real-time Navigation',
-                'Dental Implant Planning',
-                'Safety Monitoring'
             ],
             description: `
                 <p>At Neocis, I was instrumental in developing the second generation of the Yomi surgical system, the only FDA-cleared robotic device for dental implant surgery. My contributions included:</p>
@@ -167,81 +159,69 @@
     };
     
     document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('project-modal');
-    const modalTitle = modal.querySelector('.modal-title');
-    const modalDescription = modal.querySelector('.modal-description');
-    const closeButton = modal.querySelector('.modal-close');
-    const overlay = modal.querySelector('.modal-overlay');
+        const modal = document.getElementById('project-modal');
+        const modalTitle = modal.querySelector('.modal-title');
+        const modalDescription = modal.querySelector('.modal-description');
+        const closeButton = modal.querySelector('.modal-close');
+        const overlay = modal.querySelector('.modal-overlay');
 
-    function openModal(projectId) {
-        const project = projectDetails[projectId];
-        if (project) {
-            modalTitle.textContent = project.title;
-            
-            // Create modal content
-            let modalContent = `
-                <div class="modal-gallery">
-                    ${project.images ? project.images.map(img => 
-                        `<img src="${img}" alt="${project.title}" loading="lazy">`
-                    ).join('') : ''}
-                </div>
+        function openModal(projectId) {
+            const project = projectDetails[projectId];
+            if (project) {
+                modalTitle.textContent = project.title;
 
-                <div class="modal-section">
-                    <h3 class="modal-section-title">Overview</h3>
-                    ${project.description}
-                </div>
-
-                ${project.technologies ? `
-                <div class="modal-section">
-                    <h3 class="modal-section-title">Technologies Used</h3>
-                    <div class="tech-list">
-                        ${project.technologies.map(tech => 
-                            `<span class="tech-item">${tech}</span>`
-                        ).join('')}
+                // Create modal content
+                let modalContent = `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <h3 class="modal-section-title">Overview</h3>
+                            ${project.description}
+                        </div>
+                        <div class="overview-image">
+                            <img src="${project.images[0]}" alt="${project.title}" loading="lazy">
+                        </div>
                     </div>
-                </div>
-                ` : ''}
 
-                ${project.keyFeatures ? `
-                <div class="modal-section">
-                    <h3 class="modal-section-title">Key Features</h3>
-                    <div class="key-features">
-                        ${project.keyFeatures.map(feature => 
-                            `<div class="feature-item">${feature}</div>`
-                        ).join('')}
+                    ${project.technologies ? `
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Technology Stack</h3>
+                        <div class="tech-list">
+                            ${project.technologies.map(tech => 
+                                `<span class="tech-item">${tech}</span>`
+                            ).join('')}
+                        </div>
                     </div>
-                </div>
-                ` : ''}
-            `;
-            
-            modalDescription.innerHTML = modalContent;
-            modal.classList.add('active');
-            document.body.classList.add('modal-open');
+                    ` : ''}
+                `;
+
+                modalDescription.innerHTML = modalContent;
+                modal.classList.add('active');
+                document.body.classList.add('modal-open');
+            }
         }
-    }
 
-    function closeModal() {
-        modal.classList.remove('active');
-        document.body.classList.remove('modal-open');
-    }
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
 
-    // Add click listeners to project items
-    document.querySelectorAll('.project-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const projectId = item.getAttribute('data-project-id');
-            openModal(projectId);
+        // Add click listeners to project items
+        document.querySelectorAll('.project-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const projectId = item.getAttribute('data-project-id');
+                openModal(projectId);
+            });
+        });
+
+        // Close modal when clicking close button or overlay
+        closeButton.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+
+        // Close modal on escape key press
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
         });
     });
-
-    // Close modal when clicking close button or overlay
-    closeButton.addEventListener('click', closeModal);
-    overlay.addEventListener('click', closeModal);
-
-    // Close modal on escape key press
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-    });
-});
 </script>
