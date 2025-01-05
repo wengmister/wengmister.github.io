@@ -174,8 +174,9 @@ nav ul li {
 .contact-item {
     color: #2b779b;
     text-decoration: none;
-    margin: 0 10px;
+    // margin: 0 5px;
     transition: color 0.3s ease;
+    font-weight: bold;
 }
 
 .contact-item:hover {
