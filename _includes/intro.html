@@ -1,0 +1,74 @@
+<div class="content-wrapper">
+    <div class="introduction">
+        <h1>About</h1>
+        <p>I'm a versatile engineer with heavy interest in medical and surgical robots. A team player with strong analytical and problem solving skills, I thrive in cross functional teams to leverage solid mechanical design and prototyping expertise to find creative solutions to engineering challenges.</p>
+        <p>My passion lies in robotic system development, with solid experiences spanning across mechanical, electrical, system integration and design. Throughout the years working in robotics R&D, I have acquired a skillset suited for turning product design inputs into engineering results. I'm looking forward to pushing the boundaries of robot-assisted surgery and transform the future of healthcare.</p>
+        <p>I'm currently studying MS in Robotics at Northwestern University, while working part-time for my employer, Johnson & Johnson MedTech.</p>
+        <div class="contact-list">
+            <a href="mailto:wengmister@gmail.com" class="contact-item">email</a> |
+            <a href="https://www.linkedin.com/in/zkweng/" class="contact-item">LinkedIn</a> |
+            <a href="https://github.com/wengmister" class="contact-item">github</a> |
+            <a href="assets/pdf/zkw_resume_1p.pdf" class="contact-item">resume</a>
+        </div>
+    </div>
+
+    <div class="carousel-wrapper">
+        <section class="image-carousel">
+            <div class="carousel-container">
+                <img src="assets/images/ZKW MSR.jpeg" alt="---" class="carousel-image active">
+                <img src="assets/images/ZKW NEOCIS1.JPG" alt="While working at Neocis" class="carousel-image">
+                <img src="assets/images/ZKW JNJ.jpg" alt="While working at Auris Health/J&J" class="carousel-image">
+                <img src="assets/images/ZKW HB.JPG" alt="While working at Harmonic Bionics" class="carousel-image">
+                <button class="carousel-button prev" onclick="changeImage(-1)">❮</button>
+                <button class="carousel-button next" onclick="changeImage(1)">❯</button>
+            </div>
+            <p id="image-caption" class="image-caption"></p>
+        </section>
+        
+        <h2 class="name-print"><strong>Zhengyang Kris Weng</strong></h2>
+        <div class="affiliations">
+            <div class="affiliation">
+                <img src="assets/images/jjmt_logo.png" alt="Johnson & Johnson MedTech" class="affiliation-logo">
+                <p>Senior Mechanical Engineer</p>
+            </div>
+            <div class="affiliation">
+                <img src="assets/images/northwestern-logo.png" alt="Northwestern University" class="affiliation-logo">
+                <p>MS in Robotics Student</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel-image');
+    const caption = document.getElementById('image-caption');
+    
+    function showImage(index) {
+        images.forEach((image, i) => {
+            image.classList.remove('active');
+            if (i === index) {
+                image.classList.add('active');
+                caption.textContent = image.alt; // Update the caption with alt text
+            }
+        });
+    }
+    
+    function changeImage(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1; // Loop back to last image
+        } else if (currentIndex >= images.length) {
+            currentIndex = 0; // Loop back to first image
+        }
+        showImage(currentIndex);
+    }
+    
+    // Initialize the caption with the first image's alt text
+    showImage(currentIndex);
+    
+    // Auto-scroll functionality (optional)
+    setInterval(() => {
+        changeImage(1);
+    }, 5000); // Change image every 5 seconds
+</script>
