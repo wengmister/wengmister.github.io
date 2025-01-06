@@ -14,169 +14,213 @@
     const projectDetails = {
         'monarch': {
             title: 'Monarch Endoscopic Surgical Platform',
-            images: [
-                'assets/images/project_images/Auris1.png',
-                'assets/images/project_images/Auris2.png',
-                'assets/images/project_images/Auris3.png'
-            ],
-            technologies: [
-                'Robotic Arm Design',
-                'Medical Device Design',
-                'Robot Arm Calibration',
-                'NPS Software Development',
-                'System Integration'
-            ],
-            keyFeatures: [
-                'Robotic-assisted bronchoscopy',
-                'Computer-aided navigation',
-                'Continuous vision system',
-                'Precise instrument control'
-            ],
-            overview: `
-                <p>The Monarch Platform represents a significant advancement in robotic-assisted surgery, particularly in minimally invasive procedures for lung and kidney applications.</p>
-                <p>As a senior mechanical engineer currently working at J&J, I am mainly responsible for system design on the Monarch Surgical Platform, the first robotic platform for minimally invasive diagnostic and therapeutic procedures in the lungs and kidneys.</p>
-                <p>I work on many projects related to the robotic arm and instrument manipulator, both on the hardware and software front. I'm not able to disclose too many details on these projects at the moment, but I will be glad to share my experience when the legal effect expires.</p>
-            `
+            sections: {
+                overview: `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <h3 class="modal-section-title">Overview</h3>
+                            <p>The Monarch Platform represents a significant advancement in robotic-assisted surgery, particularly in minimally invasive procedures for lung and kidney applications.</p>
+                            <p>As a senior mechanical engineer currently working at J&J, I am mainly responsible for system design on the Monarch Surgical Platform, the first robotic platform for minimally invasive diagnostic and therapeutic procedures in the lungs and kidneys.</p>
+                            <p>I work on many projects related to the robotic arm and instrument manipulator, both on the hardware and software front. I'm not able to disclose too many details on these projects at the moment, but I will be glad to share my experience when the legal effect expires.</p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/Auris1.png" alt="Monarch Platform" loading="lazy">
+                        </div>
+                    </div>
+                `,
+                technology: [
+                    'Robotic Arm Design',
+                    'Medical Device Design',
+                    'Robot Arm Calibration',
+                    'NPS Software Development',
+                    'System Integration'
+                ],
+                // development: `
+                //     <p>Development of the Monarch Platform involved extensive cross-disciplinary collaboration...</p>
+                // `,
+                // description: `
+                //     <p>The Monarch Platform combines advanced robotics and intuitive user interfaces...</p>
+                // `
+            }
         },
         'yomi': {
             title: 'Yomi Dental Surgical Robot',
-            images: [
-                'assets/images/project_images/Neocis1.png',
-                'assets/images/project_images/Neocis2.png',
-                'assets/images/project_images/Neocis3.png'
-            ],
-            technologies: [
-                'Robotic Actuator Design',
-                'Precision Mechatronics',
-                'Robot Calibration',
-                'System Integration'
-            ],
-            overview: `
-                <p>At Neocis, I was instrumental in developing the second generation of the Yomi surgical system, the only FDA-cleared robotic device for dental implant surgery. My contributions included:</p>
-                <ul>
-                    <li>Design and development of joint actuators for a 7-DOF robotic arm</li>
-                    <li>Creation of compact actuator systems and collaboration with OEMs for customization</li>
-                    <li>Implementation of kinematic analysis and simulation for joint load optimization</li>
-                    <li>Development of calibration algorithms and inverse kinematics solver with obstacle avoidance capabilities</li>
-                </ul>
-                <p>The Yomi system provides haptic guidance to dental surgeons while maintaining their direct control of the surgical instruments, combining the precision of robotic technology with the expertise of human practitioners.</p>
-            `
+            sections: {
+                overview: `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <h3 class="modal-section-title">Overview</h3>
+                                <p>At Neocis, I was instrumental in developing the second generation of the Yomi surgical system, the only FDA-cleared robotic device for dental implant surgery. My contributions included:</p>
+                                <ul>
+                                    <li>Design and development of joint actuators for a 7-DOF robotic arm</li>
+                                    <li>Creation of compact actuator systems and collaboration with OEMs for customization</li>
+                                    <li>Implementation of kinematic analysis and simulation for joint load optimization</li>
+                                    <li>Development of calibration algorithms and inverse kinematics solver with obstacle avoidance capabilities</li>
+                                </ul>
+                                <p>The Yomi system provides haptic guidance to dental surgeons while maintaining their direct control of the surgical instruments, combining the precision of robotic technology with the expertise of human practitioners.</p>  
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/Neocis1.png" alt="Yomi Dental Robot" loading="lazy">
+                        </div>
+                    </div>
+                `,
+                technology: [
+                    'Robotic Actuator Design',
+                    'Precision Mechatronics',
+                    'Robot Calibration',
+                    'System Integration'
+                ],
+                // development: `
+                //     <p>Development of the Yomi Robot emphasized precision and haptic feedback...</p>
+                // `,
+                // description: `
+                //     <p>The Yomi Robot provides haptic guidance to dental surgeons...</p>
+                // `
+            }
         },
         'harmony': {
             title: 'Harmony SHR Exoskeleton',
-            images: [
-                'assets/images/project_images/HB1.png',
-                'assets/images/project_images/HB2.png',
-                'assets/images/project_images/HB3.png'
-            ],
-            technologies: [
-                'Exoskeleton Design',
-                'Rehabilitation Robotics',
-                'Linear Actuators',
-                'Human-Robot Interface'
-            ],
-            keyFeatures: [
-                'Upper Extremity Rehabilitation',
-                'Custom Linear Actuators',
-                'Patient Data Collection',
-                'Natural Movement Patterns'
-            ],
-            overview: `
-                <p>During my time at Harmonic Bionics, I contributed to the development of the Harmony SHR, an advanced upper extremity rehabilitation robot. My responsibilities included:</p>
-                <ul>
-                    <li>Design of major mechanical components using various manufacturing techniques</li>
-                    <li>Development of handheld interface devices and custom linear actuator systems</li>
-                    <li>Material validation through simulation and experimental testing</li>
-                    <li>Integration of mechanical and electrical systems for prototype development</li>
-                </ul>
-                <p>The Harmony SHR is designed to facilitate natural movement patterns during rehabilitation, allowing therapists to deliver high quality care while collecting objective patient data.</p>
-            `
+            sections:{
+                overview: `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <h3 class="modal-section-title">Overview</h3>
+                                <p>During my time at Harmonic Bionics, I contributed to the development of the Harmony SHR, an advanced upper extremity rehabilitation robot. My responsibilities included:</p>
+                                <ul>
+                                    <li>Design of major mechanical components using various manufacturing techniques</li>
+                                    <li>Development of handheld interface devices and custom linear actuator systems</li>
+                                    <li>Material validation through simulation and experimental testing</li>
+                                    <li>Integration of mechanical and electrical systems for prototype development</li>
+                                </ul>
+                                <p>The Harmony SHR is designed to facilitate natural movement patterns during rehabilitation, allowing therapists to deliver high quality care while collecting objective patient data.</p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/HB1.png" alt="Harmony SHR" loading="lazy">
+                        </div>
+                    </div>
+                    `,
+                technology: [
+                    'Exoskeleton Design',
+                    'Rehabilitation Robotics',
+                    'Linear Actuators',
+                    'Human-Robot Interface'
+                ],
+                // keyFeatures: [
+                //     'Upper Extremity Rehabilitation',
+                //     'Custom Linear Actuators',
+                //     'Patient Data Collection',
+                //     'Natural Movement Patterns'
+                // ]
+            }
         },
         'athena': {
             title: 'Athena Biomimetic Robot',
-            images: [
-                'assets/images/project_images/LIDAR1.png',
-                'assets/images/project_images/LIDAR2.png',
-                'assets/images/project_images/LIDAR3.png'
-            ],
-            technologies: [
-                'Biomimetic Design',
-                'Linear Actuation',
-                'CAD Optimization',
-                'System Integration'
-            ],
-            keyFeatures: [
-                '28-DOF System',
-                'Muscle-like Actuation',
-                'Topology Optimization',
-                'Team Leadership'
-            ],
-            overview: `
-                <p>As team lead for the Athena project at Georgia Tech's LIDAR Lab, I managed the development of a complex biomimetic upper body robot:</p>
-                <ul>
-                    <li>Led a team of 12 undergraduate students in system design and integration</li>
-                    <li>Implemented a 28-DOF system using linear actuators to mimic human muscle architecture</li>
-                    <li>Managed CAD repositories and performed topology optimization for weight reduction</li>
-                    <li>Developed control systems for coordinated movement of multiple actuators</li>
-                </ul>
-                <p>The Athena project aims to advance our understanding of human-like movement and control in robotic systems, with potential applications in prosthetics and human-robot interaction.</p>
-            `
+            sections: {
+                overview: `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <h3 class="modal-section-title">Overview</h3>
+                            <p>As team lead for the Athena project at Georgia Tech's LIDAR Lab, I managed the development of a complex biomimetic upper body robot:</p>
+                            <ul>
+                                <li>Led a team of 12 undergraduate students in system design and integration</li>
+                                <li>Implemented a 28-DOF system using linear actuators to mimic human muscle architecture</li>
+                                <li>Managed CAD repositories and performed topology optimization for weight reduction</li>
+                                <li>Developed control systems for coordinated movement of multiple actuators</li>
+                            </ul>
+                            <p>The Athena project aims to advance our understanding of human-like movement and control in robotic systems, with potential applications in prosthetics and human-robot interaction.</p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/LIDAR1.png" alt="Athena Biomimetic Robot" loading="lazy">
+                        </div>
+                    </div>
+                `,
+                technology: [
+                    'Biomimetic Design',
+                    'Linear Actuation',
+                    'CAD Optimization',
+                    'System Integration'
+                ],
+                keyFeatures: [
+                    '28-DOF System',
+                    'Muscle-like Actuation',
+                    'Topology Optimization',
+                    'Team Leadership'
+                ]
+            }
         },
         'hip-exo': {
             title: 'Assistive Hip Exoskeleton',
-            images: [
-                'assets/images/project_images/EPIC1.png',
-                'assets/images/project_images/EPIC2.png',
-                'assets/images/project_images/EPIC3.png'
-            ],
-            technologies: [
-                'Exoskeleton Design',
-                'Series Elastic Actuators',
-                'Biomechanics',
-                'Data Collection'
-            ],
-            keyFeatures: [
-                'Metabolic Cost Reduction',
-                'Custom Actuator Design',
-                'Performance Analysis',
-                'User Testing'
-            ],
-            overview: `
-                <p>Working in the EPIC Lab at Georgia Tech, I contributed to the development of an assistive hip exoskeleton designed to reduce the metabolic cost of walking:</p>
-                <ul>
-                    <li>Design and fabrication of series elastic actuator housings and components</li>
-                    <li>Development of experimental protocols for system characterization</li>
-                    <li>Collection and analysis of metabolic cost data under various conditions</li>
-                    <li>Integration of sensors and control systems for real-time assistance</li>
-                </ul>
-                <p>This research aimed to develop more effective assistive devices for individuals with mobility impairments, with a focus on improving energy efficiency during walking.</p>
-            `
+            sections: {
+                overview: `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <h3 class="modal-section-title">Overview</h3>
+                            <p>Working in the EPIC Lab at Georgia Tech, I contributed to the development of an assistive hip exoskeleton designed to reduce the metabolic cost of walking:</p>
+                            <ul>
+                                <li>Design and fabrication of series elastic actuator housings and components</li>
+                                <li>Development of experimental protocols for system characterization</li>
+                                <li>Collection and analysis of metabolic cost data under various conditions</li>
+                                <li>Integration of sensors and control systems for real-time assistance</li>
+                            </ul>
+                            <p>This research aimed to develop more effective assistive devices for individuals with mobility impairments, with a focus on improving energy efficiency during walking.</p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/EPIC1.png" alt="Assistive Hip Exoskeleton" loading="lazy">
+                        </div>
+                    </div>
+                `,
+                technology: [
+                    'Exoskeleton Design',
+                    'Series Elastic Actuators',
+                    'Biomechanics',
+                    'Data Collection'
+                ],
+                keyFeatures: [
+                    'Metabolic Cost Reduction',
+                    'Custom Actuator Design',
+                    'Performance Analysis',
+                    'User Testing'
+                ]
+            }
         },
         'dexterous-hand': {
             title: 'Biomimetic Dexterous Hand',
-            images: [
-                'assets/images/project_images/Hand.gif',
-                'assets/images/project_images/EPIC2.png',
-                'assets/images/project_images/EPIC3.png'
-            ],
-            technologies: [
-                'Mechatronics Design',
-                'Cable Driven Actuators',
-                'Rapid Prototyping',
-                'Sensor Fusion'
-            ],
-            keyFeatures: [
-                'Low cost design'
-            ],
-            overview: `
-                <p>The Biomimetic cable-driven dexterous hand is my winter 2025 project work-in-progress.</p>
-                <p>The goal is to develop a hand that mimics human dexterity, using cable-driven phalangeal joints to minimize distal inertia.</p>
-                <p>As of today, I've completed some single digit prototypes for open-loop control and motorized it.</p>
-                <p>Stay tuned for updates on this exciting project!</p>
-            `
+            sections: {
+                overview: `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <h3 class="modal-section-title">Overview</h3>
+                            <p>The Biomimetic cable-driven dexterous hand is my winter 2025 project work-in-progress.</p>
+                            <p>The goal is to develop a hand that mimics human dexterity, using cable-driven phalangeal joints to minimize distal inertia.</p>
+                            <p>As of today, I've completed some single digit prototypes for open-loop control and motorized it. Stay tuned for updates on this exciting project!</p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/hand.gif" alt="Biomimetic Dexterous Hand" loading="lazy">
+                        </div>
+                    </div>
+                `,
+                development: `
+                    <div class="modal-section overview-section">
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/hand.gif" alt="Biomimetic Dexterous Hand" loading="lazy">
+                        </div>
+                        <div class="overview-text">
+                            <p>Development of the Hand involves heavy iterative design and testing.</p>
+                            <p>to be populated...</p>
+                        </div>
+                    </div>
+                `,
+                technology: [
+                    'Mechatronics Design',
+                    'Cable Driven Actuators',
+                    'Rapid Prototyping',
+                    'Sensor Fusion'
+                ],
+            }
         }
     };
     
+    // Updated openModal function
     document.addEventListener('DOMContentLoaded', () => {
         const modal = document.getElementById('project-modal');
         const modalTitle = modal.querySelector('.modal-title');
@@ -189,29 +233,29 @@
             if (project) {
                 modalTitle.textContent = project.title;
 
-                // Create modal content
-                let modalContent = `
-                    <div class="modal-section overview-section">
-                        <div class="overview-text">
-                            <h3 class="modal-section-title">Overview</h3>
-                            ${project.overview}
-                        </div>
-                        <div class="overview-image">
-                            <img src="${project.images[0]}" alt="${project.title}" loading="lazy">
-                        </div>
-                    </div>
-
-                    ${project.technologies ? `
-                    <div class="modal-section">
-                        <h3 class="modal-section-title">Technology Stack</h3>
-                        <div class="tech-list">
-                            ${project.technologies.map(tech => 
-                                `<span class="tech-item">${tech}</span>`
-                            ).join('')}
-                        </div>
-                    </div>
-                    ` : ''}
-                `;
+                // Generate modal content dynamically
+                let modalContent = '';
+                for (const [sectionKey, sectionValue] of Object.entries(project.sections)) {
+                    if (sectionKey === 'overview') {
+                        modalContent += sectionValue; // Use the overview's preformatted structure
+                    } else if (sectionKey === 'technology') {
+                        modalContent += `
+                            <div class="modal-section">
+                                <h3 class="modal-section-title">Technology Stack</h3>
+                                <div class="tech-list">
+                                    ${sectionValue.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        modalContent += `
+                            <div class="modal-section">
+                                <h3 class="modal-section-title">${capitalize(sectionKey)}</h3>
+                                <div>${sectionValue}</div>
+                            </div>
+                        `;
+                    }
+                }
 
                 modalDescription.innerHTML = modalContent;
                 modal.classList.add('active');
@@ -222,6 +266,10 @@
         function closeModal() {
             modal.classList.remove('active');
             document.body.classList.remove('modal-open');
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
         }
 
         // Add click listeners to project items
