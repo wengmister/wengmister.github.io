@@ -237,20 +237,44 @@
                 Vision: `
                     <div class="modal-section overview-section">
                         <div class="overview-image">
-                            <img src="assets/images/project_images/Hand/linkage.png" alt="4 bar linkage" loading="lazy">
+                            <img src="assets/images/project_images/Apex-Putter/AP_vision2.png" alt="Apriltag system" loading="lazy">
                         </div>
                         <div class="overview-text">
                             <p>Vision module is one of the two major modules of this robot. Using a single RealSense D435 camera, this module needs to achieve 2 major functions: register the robot base in the camera frame, and track the ball and hole in the camera frame. </p>
-                            <p>In order to achieve this, I used OpenCV to process the camera image, and used AprilTags to locate the position of the robot base. I kabsch calibration</p>
+                            <p>In order to achieve this, I used OpenCV to process the camera image, and used AprilTags to locate the position of the robot base. I created a AprilTag mount to provide an initial guess to the robot base transformation, and performed an optical calibration using Kabsch algorithm to improve its accuracy.</p>
                         </div>
                     </div>
                     <div class="modal-section overview-section">
                         <div class="overview-text">
-                            <p>Vision module is one of the two major modules of this robot. Using a single RealSense D435 camera, this module needs to achieve 2 major functions: register the robot base in the camera frame, and track the ball and hole in the camera frame. </p>
-                            <p>In order to achieve this, I used OpenCV to process the camera image, and used AprilTags to locate the position of the robot base. I kabsch calibration</p>
+                            <p>After finding initial robot base transformation, I used a YOLOv8 model to detect the ball and hole in the camera frame. </p>
+                            <p>In order to improve it's prediction result, I trained the model using a custom dataset with pictures taken using the very camera, and used the model to predict the position of the ball and hole in the camera frame. </p>
+                            <p>Since we now have the camera frame position of all the frames I need, I registered them all together using tf2 and this allows me to look up any transformation as needed.</p>
                         </div>
                         <div class="overview-image">
-                            <img src="assets/images/project_images/Hand/linkage.png" alt="4 bar linkage" loading="lazy">
+                            <img src="assets/images/project_images/Apex-Putter/AP_vision3.png" alt="YOLO" loading="lazy">
+                        </div>
+                    </div>
+                `,
+                'Mechanical Integration': `
+                    <div class="modal-section overview-section">
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/Apex-Putter/AP_mech1.png" alt="Mechanical Integration" loading="lazy">
+                        </div>
+                        <div class="overview-text">
+                            <p>In order to better integrate with the Franka FER arm, I designed a custom end-effector for the robot. </p>
+                            <p>This custom end-effector directly interfaces with an off-the-shelf putter components. The design was iterated a few times to improve clocking to simplify kinematic planning and optimize putting face to make the motion smoother.</p>
+                        </div>
+                    </div>
+                `,
+                'Motion Control': `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <p>For the motion control module, I used ROS2 to create a package that interfaces with the robot and the vision module. </p>
+                            <p>Using the vision module's output, the motion control module calculates the robot's end-effector position and orientation, and plans a vector path to move the putter to the ball and hole. </p>
+                            <p>After the path is planned, the module sends the path to the robot and executes the motion. </p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/Apex-Putter/apex-putter.gif" alt="Motion Control" loading="lazy">
                         </div>
                     </div>
                 `,
