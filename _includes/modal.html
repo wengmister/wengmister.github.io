@@ -217,6 +217,50 @@
                     'Sensor Fusion'
                 ],
             }
+        },
+        'robotic-mini-golf': {
+            title: 'Apex Putter - Robotic Mini-golf',
+            sections: {
+                overview: `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <h3 class="modal-section-title">Overview</h3>
+                            <p>Mini golf presents an intriguing challenge for robotics. While kids rely on intuition and practice, programming a robot to achieve the same feat requires precise control of position and timing. A child needs just a putter, ball, and hole to make a hole-in-one, while a robot needs careful planning.</p>
+                            <p>For a Franka Panda robot, the task is more complex. It may not feel competition, but a poorly planned Cartesian path can create significant challenges. In this setup, the robot attempts to putt the ball with just the right force to reach the hole.</p>
+                            <p>For this project, I worked on the vision module for the robot, and created mechanical designs for the putter end-effector. In addition, I wrote the demo tasks and created the ROS2 package for Apex-Putter. </p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/Apex-Putter/AP.png" alt="Robotic mini-golf" loading="lazy">
+                        </div>
+                    </div>
+                `,
+                Vision: `
+                    <div class="modal-section overview-section">
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/Hand/linkage.png" alt="4 bar linkage" loading="lazy">
+                        </div>
+                        <div class="overview-text">
+                            <p>Vision module is one of the two major modules of this robot. Using a single RealSense D435 camera, this module needs to achieve 2 major functions: register the robot base in the camera frame, and track the ball and hole in the camera frame. </p>
+                            <p>In order to achieve this, I used OpenCV to process the camera image, and used AprilTags to locate the position of the robot base. I kabsch calibration</p>
+                        </div>
+                    </div>
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <p>Vision module is one of the two major modules of this robot. Using a single RealSense D435 camera, this module needs to achieve 2 major functions: register the robot base in the camera frame, and track the ball and hole in the camera frame. </p>
+                            <p>In order to achieve this, I used OpenCV to process the camera image, and used AprilTags to locate the position of the robot base. I kabsch calibration</p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/Hand/linkage.png" alt="4 bar linkage" loading="lazy">
+                        </div>
+                    </div>
+                `,
+                technology: [
+                    'Kinematic Control',
+                    'Computer Vision',
+                    'Machine Learning',
+                    'YOLO'
+                ],
+            }
         }
     };
     
