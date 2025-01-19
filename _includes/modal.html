@@ -332,6 +332,51 @@
                     'Kinematic control'
                 ],
             }
+        },
+        'mobile-manipulation': {
+            title: 'Mobile Manipulation - ME449 Robotic Manipulation',
+            sections: {
+                overview: `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <h3 class="modal-section-title">Overview</h3>
+                            <p> Mobile Manipulation was the final challenge of the ME449: Robotic Manipulation course at Northwestern University.</p>
+                            <p> Using robotic manipulation, forward kinematics, and linear control that we learned in the classroom, I created a simulation in CoppeliaSim that showcased a KUKA youBot moving a box from one location to another with precision and efficiency.</p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/mobile-manipulation/youbot.jpg" alt="Kuka youBot" loading="lazy">
+                        </div>
+                    </div>
+                `,
+                'Path Planning': `
+                    <div class="modal-section overview-section">
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/mobile-manipulation/gripper.png" alt="Youbot gripper configuration" loading="lazy">
+                        </div>
+                        <div class="overview-text">
+                            <p>Given a desired initial and end target position and orientation, I first generated desired trajectory of the target using quintic polynomial interpolation.</p>
+                            <p>Then, I constructed the body jacobian of the KUKA youBot and used its pseudoinverse to calculate the configurations required to reach the target position from the actual initial robot configuration.</p>
+                        </div>
+                    </div>
+                `,
+                'Feedforward Control': `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <p>Using the calculated joint configurations, I designed a PI controller to move the robot from its initial configuration to the desired configuration. The controller was tuned to minimize the 6-dimensional motion control errors and ensure smooth motion.</p>
+                            <p>The simulation works by taking the difference between the desired and actual joint configurations, and using the PI controller to generate the control signal to move the robot to the desired configuration through Euler integration.</p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/mobile-manipulation/errors.png" alt="Control errors" loading="lazy">
+                        </div>
+                    </div>
+                `,
+                technology: [
+                    'Robotic Manipulation',
+                    'Forward Kinematics',
+                    'Linear Control',
+                    'Simulation'
+                ],
+            }
         }
     };
     
