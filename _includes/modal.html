@@ -50,12 +50,12 @@
                     <div class="modal-section overview-section">
                         <div class="overview-text">
                             <h3 class="modal-section-title">Overview</h3>
-                                <p>At Neocis, I was instrumental in developing the second generation of the Yomi surgical system, the only FDA-cleared robotic device for dental implant surgery. My contributions included:</p>
+                                <p>At Neocis, I was instrumental in developing the second generation of the Yomi surgical system, the only FDA-cleared robotic device for dental implant surgery. My major contributions included:</p>
                                 <ul>
                                     <li>Design and development of joint actuators for a 7-DOF robotic arm</li>
-                                    <li>Creation of compact actuator systems and collaboration with OEMs for customization</li>
+                                    <li>Creation of compact robot end-effector for tool integration and user interaction</li>
                                     <li>Implementation of kinematic analysis and simulation for joint load optimization</li>
-                                    <li>Development of calibration algorithms and inverse kinematics solver with obstacle avoidance capabilities</li>
+                                    <li>Development of calibration algorithms and inverse kinematics solver to enable obstacle avoidance capabilities</li>
                                 </ul>
                                 <p>The Yomi system provides haptic guidance to dental surgeons while maintaining their direct control of the surgical instruments, combining the precision of robotic technology with the expertise of human practitioners.</p>  
                         </div>
@@ -122,10 +122,9 @@
                             <h3 class="modal-section-title">Overview</h3>
                             <p>As team lead for the Athena project at Georgia Tech's LIDAR Lab, I managed the development of a complex biomimetic upper body robot:</p>
                             <ul>
-                                <li>Led a team of 12 undergraduate students in system design and integration</li>
+                                <li>Led a team of 7 undergraduate students in system design and integration</li>
                                 <li>Implemented a 28-DOF system using linear actuators to mimic human muscle architecture</li>
                                 <li>Managed CAD repositories and performed topology optimization for weight reduction</li>
-                                <li>Developed control systems for coordinated movement of multiple actuators</li>
                             </ul>
                             <p>The Athena project aims to advance our understanding of human-like movement and control in robotic systems, with potential applications in prosthetics and human-robot interaction.</p>
                         </div>
@@ -140,12 +139,12 @@
                     'CAD Optimization',
                     'System Integration'
                 ],
-                keyFeatures: [
-                    '28-DOF System',
-                    'Muscle-like Actuation',
-                    'Topology Optimization',
-                    'Team Leadership'
-                ]
+                // keyFeatures: [
+                //     '28-DOF System',
+                //     'Muscle-like Actuation',
+                //     'Topology Optimization',
+                //     'Team Leadership'
+                // ]
             }
         },
         'hip-exo': {
@@ -160,7 +159,6 @@
                                 <li>Design and fabrication of series elastic actuator housings and components</li>
                                 <li>Development of experimental protocols for system characterization</li>
                                 <li>Collection and analysis of metabolic cost data under various conditions</li>
-                                <li>Integration of sensors and control systems for real-time assistance</li>
                             </ul>
                             <p>This research aimed to develop more effective assistive devices for individuals with mobility impairments, with a focus on improving energy efficiency during walking.</p>
                         </div>
@@ -175,12 +173,12 @@
                     'Biomechanics',
                     'Data Collection'
                 ],
-                keyFeatures: [
-                    'Metabolic Cost Reduction',
-                    'Custom Actuator Design',
-                    'Performance Analysis',
-                    'User Testing'
-                ]
+                // keyFeatures: [
+                //     'Metabolic Cost Reduction',
+                //     'Custom Actuator Design',
+                //     'Performance Analysis',
+                //     'User Testing'
+                // ]
             }
         },
         'dexterous-hand': {
@@ -190,9 +188,9 @@
                     <div class="modal-section overview-section">
                         <div class="overview-text">
                             <h3 class="modal-section-title">Overview</h3>
-                            <p>The Biomimetic cable-driven dexterous hand is my winter 2025 robotic project work-in-progress.</p>
-                            <p>The goal is to develop a hand that mimics human dexterity, using cable-driven phalangeal joints to minimize distal inertia.</p>
-                            <p>As of today, I've completed a few iterations of prototypes. Stay tuned for updates on this exciting project!</p>
+                            <p>The Biomimetic cable-driven dexterous hand is my winter 2025 robotic project, currently a work-in-progress.</p>
+                            <p>The goal is to develop a hand that mimics human dexterity, using cable-driven phalangeal joints to reduce distal inertia.</p>
+                            <p>So far, I’ve completed several prototype iterations. Stay tuned for more updates on this exciting project!</p>
                         </div>
                         <div class="overview-image">
                             <img src="assets/images/project_images/Hand/phalanx.gif" alt="Biomimetic Dexterous Hand" loading="lazy">
@@ -205,18 +203,18 @@
                             <img src="assets/images/project_images/Hand/iterations.png" alt="Phalanx iterations" loading="lazy">
                         </div>
                         <div class="overview-text">
-                            <p>Development of the Hand involves heavy iterative design and testing. To design and develop the optimal phalanx, I used a 4-bar linkage system to mimic coupled movement of distal and middle interphalangeal joints.</p>
-                            <p>In addition, I used a tendon-driven system to actuate the phalanx, which allows for a more compact design and better control over the joint movement. I have completed 5 iterations fo the phalanx design and am aiming to freeze the design before the 7th iteration.</p>
-                            <p>More to come on its way!</p>
+                            <p>Developing the Hand involves a heavy iterative design and testing process. For the phalanx design, I used a 4-bar linkage system to replicate the coupled movement of the distal and middle interphalangeal joints.</p>
+                            <p>I also employed a tendon-driven system to actuate the phalanx, allowing for a more compact design and better control of joint movement. To date, I have completed five iterations of the phalanx design and plan to finalize it by the seventh iteration.</p>
+                            <p>More updates to come!</p>
                         </div>
                     </div>
                 `,
-                'Cable-driven Mechanism':`
+                'Cable-driven Mechanism': `
                     <div class="modal-section overview-section">
                         <div class="overview-text">
-                            <p>The cable-driven mechanism is the core of the hand design. It allows for precise control over the joint movement and minimizes the inertia at the distal end of the finger.</p>
-                            <p>By using a tendon-drive system, I can actuate the phalanx with minimal force and achieve a more natural movement pattern. The cable-driven mechanism is designed to be compact and lightweight, making it suitable for a dexterous hand.</p>
-                            <p>I'm using miniatruized motors and PTFE tubing based cable routing to achieve the desired movement. Stay tuned for more updates!</p>
+                            <p>The cable-driven mechanism is the heart of the hand design. It provides precise control over joint movement while minimizing distal inertia.</p>
+                            <p>By using a tendon-driven system, I can actuate the phalanx with minimal force, achieving a more natural movement pattern. The mechanism is designed to be compact and lightweight, ideal for a dexterous hand.</p>
+                            <p>To achieve the desired movement, I’m using miniaturized motors and PTFE tubing-based cable routing. Stay tuned for more updates!</p>
                         </div>
                         <div class="overview-image">
                             <img src="assets/images/project_images/Hand/hand.gif" alt="Cable driven mechanism" loading="lazy">
@@ -306,9 +304,9 @@
                     <div class="modal-section overview-section">
                         <div class="overview-text">
                             <h3 class="modal-section-title">Overview</h3>
-                            <p>As the final challenge of the MSR Hackathon, we were presented a challenge to use a RealSense 435D RGBD camera, and a Trossen PincherX100 robot arm to locate and grab a pen in the arm's workspace.</p>
-                            <p>Although the task seemed simple, it required thorough understanding of the robot's kinematics, the camera's calibration, and the integration of the two systems.</p>
-                            <p>For this project, I developed a custom calibration system for the robot arm and the camera, and write up the motion control sequence in Python. As a bonus, I worked with my cohort mate <a href="https://absrat.com/">Zhengxiao Han</a> and passed the pen between our robotic arms.</p>                           
+                            <p>For the final challenge of the MSR Hackathon, we were tasked with using a RealSense 435D RGBD camera and a Trossen PincherX100 robot arm to locate and grab a pen within the arm's workspace.</p>
+                            <p>Though the task seemed straightforward, it required a thorough understanding of the robot's kinematics, the camera's calibration, and the integration of both systems.</p>
+                            <p>For this project, I developed a custom calibration system for both the robot arm and the camera, and wrote the motion control sequence in Python. As a bonus, I collaborated with my cohort mate <a href="https://absrat.com/">Zhengxiao Han</a> to pass the pen between our robotic arms.</p>                           
                         </div>
                         <div class="overview-image">
                             <img src="assets/images/project_images/grab-a-pen/setup.png" alt="MSR Challenge" loading="lazy">
@@ -321,17 +319,17 @@
                             <img src="assets/images/project_images/grab-a-pen/calibration.gif" alt="Optical calibration" loading="lazy">
                         </div>
                         <div class="overview-text">
-                            <p>To acquire the position of the pen in the camera frame, I used the OpenCV library to process the camera image and locate the pen through HSV color thresholding. This allows me to deproject the position of the centroid of the pen in purple in the 3D space</p>
-                            <p>In order to register the camera frame to the robot base frame, I used the pen itself as a marker, and performed an optical calibration by moving the pen around in the robot end-effector. Having collected a set of corresponding robot points and camera points, I then registered them together using Kabsch algorithm to get the optimal transformation between the camera and the robot.</p>
+                            <p>To determine the position of the pen in the camera's frame, I used the OpenCV library to process the camera image and locate the pen using HSV color thresholding. This enabled me to deproject the centroid of the pen (highlighted in purple) into 3D space.</p>
+                            <p>To register the camera frame with the robot base frame, I used the pen itself as a marker. By moving the pen within the robot's end-effector, I performed an optical calibration. After collecting corresponding points from both the robot and the camera, I applied the Kabsch algorithm to calculate the optimal transformation between the two frames.</p>
                         </div>
                     </div>
                 `,
                 'Motion Control': `
                     <div class="modal-section overview-section">
                         <div class="overview-text">
-                            <p>Trossen Robotics provides a Python API for the PincherX100 robot arm, which allows me to send joint commands to the robot arm directly.</p>
-                            <p>Using the camera frame position of the pen, I calculated the inverse kinematics of the robot arm to reach the pen position. I then sent the joint commands to the robot arm to move the end-effector to the pen position.</p>
-                            <p>After the robot arm reached the pen, I programmed the robot to grasp the pen and pass it to another robot arm. This required precise control over the robot's end-effector and joint positions.</p>
+                            <p>Trossen Robotics provides a Python API for the PincherX100 robot arm, which I used to send joint commands directly to the robot.</p>
+                            <p>Using the pen's position in the camera frame, I calculated the inverse kinematics needed for the robot arm to reach the pen. I then sent joint commands to the robot to position the end-effector at the pen's location.</p>
+                            <p>Once the robot arm reached the pen, I programmed it to grasp the pen and pass it to another robot arm. This required precise control over both the end-effector and joint positions.</p>
                         </div>
                         <div class="overview-image">
                             <img src="assets/images/project_images/grab-a-pen/execute.gif" alt="Motion Control" loading="lazy">
@@ -353,8 +351,8 @@
                     <div class="modal-section overview-section">
                         <div class="overview-text">
                             <h3 class="modal-section-title">Overview</h3>
-                            <p> Mobile Manipulation was the final challenge of the ME449: Robotic Manipulation course at Northwestern University.</p>
-                            <p> Using robotic manipulation, forward kinematics, and linear control that we learned in the classroom, I created a simulation in CoppeliaSim that showcased a KUKA youBot moving a box from one location to another with precision and efficiency.</p>
+                            <p>Mobile Manipulation was the final challenge of the ME449: Robotic Manipulation course at Northwestern University.</p>
+                            <p>Using robotic manipulation, forward kinematics, and linear control techniques we learned in class, I created a simulation in CoppeliaSim. The simulation demonstrated a KUKA youBot moving a box from one location to another with precision and efficiency.</p>
                         </div>
                         <div class="overview-image">
                             <img src="assets/images/project_images/mobile-manipulation/youbot.jpg" alt="Kuka youBot" loading="lazy">
@@ -367,16 +365,16 @@
                             <img src="assets/images/project_images/mobile-manipulation/gripper.png" alt="Youbot gripper configuration" loading="lazy">
                         </div>
                         <div class="overview-text">
-                            <p>Given a desired initial and end target position and orientation, I first generated desired trajectory of the target using quintic polynomial interpolation.</p>
-                            <p>Then, I constructed the body jacobian of the KUKA youBot and used its pseudoinverse to calculate the configurations required to reach the target position from the actual initial robot configuration.</p>
+                            <p>Given the desired initial and final target positions and orientations, I first generated the target trajectory using quintic polynomial interpolation.</p>
+                            <p>Next, I constructed the body Jacobian for the KUKA youBot and used its pseudoinverse to calculate the necessary configurations to move the robot from its current state to the target position.</p>
                         </div>
                     </div>
                 `,
                 'Feedforward Control': `
                     <div class="modal-section overview-section">
                         <div class="overview-text">
-                            <p>Using the calculated joint configurations, I designed a PI controller to move the robot from its initial configuration to the desired configuration. The controller was tuned to minimize the 6-dimensional motion control errors and ensure smooth motion.</p>
-                            <p>The simulation works by taking the difference between the desired and actual joint configurations, and using the PI controller to generate the control signal to move the robot to the desired configuration through Euler integration.</p>
+                            <p>Using the calculated joint configurations, I designed a PI controller to move the robot from its initial to its desired configuration. The controller was tuned to minimize 6-dimensional motion control errors and ensure smooth motion.</p>
+                            <p>The simulation works by computing the difference between the desired and actual joint configurations. The PI controller then generates a control signal to move the robot to the desired configuration through Euler integration.</p>
                         </div>
                         <div class="overview-image">
                             <img src="assets/images/project_images/mobile-manipulation/errors.png" alt="Control errors" loading="lazy">
