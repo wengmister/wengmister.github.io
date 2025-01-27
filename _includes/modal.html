@@ -431,12 +431,18 @@
                 modalDescription.innerHTML = modalContent;
                 modal.classList.add('active');
                 document.body.classList.add('modal-open');
+
+                // Update the URL
+                history.pushState({ projectId: projectId }, '', `#${projectId}`);
             }
         }
 
         function closeModal() {
             modal.classList.remove('active');
             document.body.classList.remove('modal-open');
+
+            // Revert the URL
+            history.pushState(null, '', window.location.pathname);
         }
 
         function capitalize(str) {
@@ -461,5 +467,20 @@
                 closeModal();
             }
         });
+
+        // Handle back button
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.projectId) {
+                openModal(event.state.projectId);
+            } else {
+                closeModal();
+            }
+        });
+
+        // Check URL on page load
+        const initialProjectId = window.location.hash.substring(1);
+        if (initialProjectId && projectDetails[initialProjectId]) {
+            openModal(initialProjectId);
+        }
     });
 </script>
