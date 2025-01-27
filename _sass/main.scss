@@ -88,11 +88,11 @@ nav ul li {
 .content-wrapper {
     display: flex;
     flex-direction: row;
-    gap: 80px;  /* Adjust space between introduction and carousel */
+    gap: 60px;  /* Adjust space between introduction and carousel */
 }
 
 .introduction {
-    flex: 1.2;  /* Takes up available space */
+    flex: 1;  /* Takes up available space */
 }
 
 .carousel-wrapper {
@@ -147,7 +147,7 @@ nav ul li {
 }
 
 .affiliation-logo {
-    width: 200px; /* Adjust as needed */
+    width: 180px; /* Adjust as needed */
     height: auto;
     margin-bottom: 0.5rem;
 }
