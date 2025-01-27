@@ -80,9 +80,10 @@ nav ul li {
 
 .intro-carousel-container {
     width: 100%;
-    max-width: 1000px;  /* Adjust as needed */
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 20px;
+    padding-top: 20px;    /* Adds padding to the top */
+    padding-bottom: 20px; /* Adds padding to the bottom */
 }
 
 .content-wrapper {
