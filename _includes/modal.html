@@ -5,6 +5,7 @@
         <button class="modal-close">&times;</button>
         <div class="modal-body">
             <h2 class="modal-title"></h2>
+            <div class="modal-external-links"></div>
             <div class="modal-description"></div>
         </div>
     </div>
@@ -35,6 +36,9 @@
                     'NPS Software Development',
                     'System Integration'
                 ],
+                externalLinks: [
+                    { text: 'Company Website', url: 'https://www.company1.com' }
+                ]
                 // development: `
                 //     <p>Development of the Monarch Platform involved extensive cross-disciplinary collaboration...</p>
                 // `,
@@ -391,96 +395,108 @@
         }
     };
     
-    // Updated openModal function
     document.addEventListener('DOMContentLoaded', () => {
         const modal = document.getElementById('project-modal');
         const modalTitle = modal.querySelector('.modal-title');
+        const modalExternalLinks = modal.querySelector('.modal-external-links');
         const modalDescription = modal.querySelector('.modal-description');
         const closeButton = modal.querySelector('.modal-close');
         const overlay = modal.querySelector('.modal-overlay');
 
         function openModal(projectId) {
-            const project = projectDetails[projectId];
-            if (project) {
-                modalTitle.textContent = project.title;
+        const project = projectDetails[projectId];
+        if (project) {
+            // Set modal title
+            modalTitle.textContent = project.title;
 
-                // Generate modal content dynamically
-                let modalContent = '';
-                for (const [sectionKey, sectionValue] of Object.entries(project.sections)) {
-                    if (sectionKey === 'overview') {
-                        modalContent += sectionValue; // Use the overview's preformatted structure
-                    } else if (sectionKey === 'technology') {
-                        modalContent += `
-                            <div class="modal-section">
-                                <h3 class="modal-section-title">Technology Stack</h3>
-                                <div class="tech-list">
-                                    ${sectionValue.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
-                                </div>
-                            </div>
-                        `;
-                    } else {
-                        modalContent += `
-                            <div class="modal-section">
-                                <h3 class="modal-section-title">${capitalize(sectionKey)}</h3>
-                                <div>${sectionValue}</div>
-                            </div>
-                        `;
-                    }
-                }
-
-                modalDescription.innerHTML = modalContent;
-                modal.classList.add('active');
-                document.body.classList.add('modal-open');
-
-                // Update the URL
-                history.pushState({ projectId: projectId }, '', `#${projectId}`);
+            // Render external links (if available) right below the title
+            if (project.sections.externalLinks) {
+            modalExternalLinks.innerHTML = project.sections.externalLinks
+                .map(link => `<a href="${link.url}" target="_blank" class="contact-item">${link.text}</a>`)
+                .join(' ');
+            } else {
+            modalExternalLinks.innerHTML = '';
             }
+
+            // Generate the remaining modal content dynamically
+            let modalContent = '';
+            for (const [sectionKey, sectionValue] of Object.entries(project.sections)) {
+            // Skip externalLinks since it's handled separately
+            if (sectionKey === 'externalLinks') continue;
+
+            if (sectionKey === 'overview') {
+                modalContent += sectionValue; // Use preformatted overview
+            } else if (sectionKey === 'technology') {
+                modalContent += `
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technology Stack</h3>
+                    <div class="tech-list">
+                    ${sectionValue.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
+                    </div>
+                </div>
+                `;
+            } else {
+                modalContent += `
+                <div class="modal-section">
+                    <h3 class="modal-section-title">${capitalize(sectionKey)}</h3>
+                    <div>${sectionValue}</div>
+                </div>
+                `;
+            }
+            }
+            modalDescription.innerHTML = modalContent;
+
+            modal.classList.add('active');
+            document.body.classList.add('modal-open');
+
+            // Update the URL hash
+            history.pushState({ projectId: projectId }, '', `#${projectId}`);
+        }
         }
 
         function closeModal() {
-            modal.classList.remove('active');
-            document.body.classList.remove('modal-open');
-
-            // Revert the URL
-            history.pushState(null, '', window.location.pathname);
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        // Revert the URL
+        history.pushState(null, '', window.location.pathname);
         }
 
         function capitalize(str) {
-            return str.charAt(0).toUpperCase() + str.slice(1);
+        return str.charAt(0).toUpperCase() + str.slice(1);
         }
 
         // Add click listeners to project items
         document.querySelectorAll('.project-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const projectId = item.getAttribute('data-project-id');
-                openModal(projectId);
-            });
+        item.addEventListener('click', () => {
+            const projectId = item.getAttribute('data-project-id');
+            openModal(projectId);
+        });
         });
 
-        // Close modal when clicking close button or overlay
+        // Close modal when clicking the close button or overlay
         closeButton.addEventListener('click', closeModal);
         overlay.addEventListener('click', closeModal);
 
         // Close modal on escape key press
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
+        if (e.key === 'Escape') {
+            closeModal();
+        }
         });
 
         // Handle back button
         window.addEventListener('popstate', (event) => {
-            if (event.state && event.state.projectId) {
-                openModal(event.state.projectId);
-            } else {
-                closeModal();
-            }
+        if (event.state && event.state.projectId) {
+            openModal(event.state.projectId);
+        } else {
+            closeModal();
+        }
         });
 
-        // Check URL on page load
+        // Check URL hash on page load
         const initialProjectId = window.location.hash.substring(1);
         if (initialProjectId && projectDetails[initialProjectId]) {
-            openModal(initialProjectId);
+        openModal(initialProjectId);
         }
     });
 </script>
