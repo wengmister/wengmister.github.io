@@ -219,18 +219,17 @@
                         </div>
                         <div class="overview-text">
                             <p>Developing the Hand involves a heavy iterative design process. </p>
-                            <p>For the phalanx design, I designed a 4-bar linkage system to replicate the coupled movement of the distal and middle interphalangeal joints. This feature not only represents finger distal and proximal interphalangeal joint rhythm, but also reduces the actuator count by one per phalanx.</p>
-                            <p>I also employed a tendon-driven system to actuate the phalanx. Cable-driven mechanism, although challenging to design and assemble, provides the unique advantage of proximal inertia placement that allows better control and allowing for a more compact design.
-                            <p>I have iterated the prototype 6 times to reach to the the current phalanx design that balances good strength and range of motion.</p>
+                            <p>For the phalanx design, I designed a 4-bar linkage system to replicate the coupled movement of the distal and middle interphalangeal joints. This mechanism faithfully mimics the natural rhythm of the human finger while reducing the actuator count by one per phalanx, thereby streamlining the design without sacrificing functionality.</p>
+                            <p>After six iterations, I arrived at the current phalanx design that balances robust strength with an extensive range of motion. Each prototype iteration provided critical feedback, allowing for adjustments that enhance the hand’s reliability and dynamic performance in real-world applications.</p>
                         </div>
                     </div>
                 `,
                 'Cable-driven Mechanism': `
                     <div class="modal-section overview-section">
                         <div class="overview-text">
-                            <p>The cable-driven mechanism is the heart of the hand design. It provides precise control over joint movement while minimizing distal inertia.</p>
+                            <p>The cable-driven mechanism is the heart of the hand design. It provides precise control over joint movement while minimizing distal inertia - a crucial factor for achieving human-like dexterity.</p>
                             <p>By using a tendon-driven system, I can actuate the phalanx with minimal force, achieving a more natural movement pattern. The mechanism is designed to be compact and lightweight, ideal for a dexterous hand.</p>
-                            <p>To achieve the desired movement, I'm using miniaturized motors and PTFE tubing-based cable routing.</p>
+                            <p>To achieve the desired movement, I'm using miniaturized motors and PTFE tubing-based cable routing. This combination minimizes friction, enhances durability, and maintains a design that is both modular and efficient for executing complex tasks.</p>
                         </div>
                         <div class="overview-image">
                             <img src="assets/images/project_images/Hand/phalanx.gif" alt="Biomimetic Dexterous Hand" loading="lazy">
@@ -244,8 +243,8 @@
                         </div>
                         <div class="overview-text">
                             <p>One of the key features of the Hand is its ability to shadow human hand movements. By using computer vision and machine learning algorithms, the Hand can mimic human gestures with high precision.</p>
-                            <p>To implement this feature, I wrote a ROS2 node that uses Google's MediaPipe to acquire hand landmark position and calculate joint angles via vector math. The calculated joint angles were then published to the Hand's servo controller subscribing to the angle topic to replicate the movement.</p>
-                            <p>Stay tuned for more updates!</p>
+                            <p>To implement this feature, I wrote a ROS2 node that uses Google's MediaPipe framework to acquire hand landmark position and calculate joint angles via vector math. These computed angles are then published to the Hand's servo controller through a hand angle topic, ensuring seamless synchronization between human intent and robotic motion.</p>
+                            <p>Stay tuned for more updates on this exciting journey!</p>
                         </div>
                     </div>
                 `,
