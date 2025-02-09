@@ -8,6 +8,12 @@ body {
     padding-top: 60px;
 }
 
+@media (max-width: 768px) {
+    body {
+        padding-left: 30px;
+    }
+}
+
 .site-header {
     background-color: #4a5b6c;
     position: fixed;
@@ -69,12 +75,10 @@ body {
         text-align: center;
     }
     
-    /* Stack navigation items vertically */
-    .site-nav ul {
-        flex-direction: column;
-        margin-top: 0.5rem;
+    .site-nav ul{
+        gap: 1rem;
     }
-    
+
     .site-nav li {
         margin: 0.5rem 0;
     }
@@ -594,7 +598,7 @@ body.modal-open {
 /* Responsive adjustments for modal */
 @media (max-width: 768px) {
     .modal-content {
-        width: 95%;
+        width: 80%;
         margin: 20px auto;
         padding: 20px;
     }
