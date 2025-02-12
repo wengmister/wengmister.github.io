@@ -231,7 +231,6 @@
                         <div class="overview-text">
                             <p>One of the key features of the Hand is its ability to shadow human hand movements. By using computer vision and machine learning algorithms, the Hand can mimic human gestures with high precision.</p>
                             <p>To implement this feature, I wrote a ROS2 node that uses Google's MediaPipe framework to acquire hand landmark position and calculate joint angles via vector math. These computed angles are then published to the Hand's servo controller through a hand angle topic, ensuring seamless synchronization between human intent and robotic motion.</p>
-                            <p>Stay tuned for more updates on this exciting journey!</p>
                         </div>
                     </div>
                 `,
@@ -240,7 +239,7 @@
                         <div class="overview-text">
                             <p>The control architecture for the Hand is designed and implemented with ROS2, allowing for easy integration with the pub-sub systems.</p>
                             <p>A few ROS2 nodes work together to implement the control: vision node integrates MediaPipe and processes camera input; application node processes joint angles and compensates them according to robot calibration; and finally the servo node sends the corresponding commands to the Hand's servo controller via serial comms.</p>
-                            <p>By decoupling the control logic from the hardware, I ensure that the Hand can be easily adapted to different applications and environments. This flexibility is essential for future development and integration with other robotic systems.</p>
+                            <p>Stay tuned for more updates on this exciting journey!</p>
                         </div>
                         <div class="overview-image">
                             <img src="assets/images/project_images/Hand/control_architecture.png" alt="Control Architecture" loading="lazy">
