@@ -195,7 +195,7 @@
                             <p>Started in January 2025, the Biomimetic Dexterous Hand project is a work-in-progress. I will continue to post updates to the project here as it develops.</p>
                         </div>
                         <div class="overview-image">
-                            <img src="assets/images/project_images/Hand/hand_intro.png" alt="Biomimetic Dexterous Hand" loading="lazy">
+                            <img src="assets/images/project_images/Hand/hand_intro.gif" alt="Biomimetic Dexterous Hand" loading="lazy">
                         </div>
                     </div>
                 `,
@@ -233,6 +233,29 @@
                             <p>To implement this feature, I wrote a ROS2 node that uses Google's MediaPipe framework to acquire hand landmark position and calculate joint angles via vector math. These computed angles are then published to the Hand's servo controller through a hand angle topic, ensuring seamless synchronization between human intent and robotic motion.</p>
                         </div>
                     </div>
+                `,
+                'Alternative Input Modality':`
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <p>While the Hand can shadow human movements, it also supports alternative input modalities. By using a Meta Quest 3s VR Headset, I am able to capture hand gesture using the built-in hand tracking feature with synthetic hand overlay, enabling very intuitive control over the robotic hand.</p> 
+                            <p>With this feature, the Hand can be used in a variety of applications, from teleoperation to virtual reality experiences. The Hand's flexibility in input modalities ensures seamless integration into diverse environments and use cases.</p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/Hand/vr_control.gif" alt="VR Control" loading="lazy">          
+                        </div>
+                    </div>  
+                `,
+                'V2 Improvements':`
+                    <div class="modal-section overview-section">    
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/Hand/v2_improvements.gif" alt="V2 Improvements" loading="lazy">
+                        </div>
+                    <div class="overview-text">
+                        <p>During the later half of the project, I focused on mechanically revemping the phalanx architecture to improve joint range of motion and hysteresis. <p>
+                        <p>By redesigning cable routing inside the phalanx linkages, I was able to expand the MCP joint range of motion by more than 100%. This improvement significantly enhances the Hand's dexterity and control bandwidth, making it more versatile for a wide range of applications.</p>
+                        <p>I realized in the previous build that greater tendon path variability leads to greater joint angle hysteresis. Therefore, I implemented a novel cable tensioning system that maintains consistent tension across the tendon path in addition to constraining the PTFE tubes, reducing hysteresis and improving joint accuracy.</p>  
+                    </div>
+                </div>
                 `,
                 'Control Architecture':`
                     <div class="modal-section overview-section">
