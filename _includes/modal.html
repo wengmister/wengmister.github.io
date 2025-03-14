@@ -191,7 +191,14 @@
                     <div class="modal-section overview-section">
                         <div class="overview-text">
                             <h3 class="modal-section-title">Overview</h3>
-                            <p>The human hand, with its 27 bones, intricate network of tendons and muscles, and over 20 degrees of freedom, is a marvel of dexterity and adaptability. It seamlessly transitions between delicate tasks, like threading a needle, and powerful actions, such as gripping heavy objects. Inspired by this remarkable complexity, I aim to design a robotic hand that not only replicates its functionality but also captures its versatility and precision.</p>
+                            <p>The human hand, with its 27 bones, intricate network of tendons and muscles, and over 20 degrees of freedom, is a marvel of dexterity and adaptability. Inspired by this remarkable complexity, I aim to design a robotic hand in an attempt to replicate its functionality and look.</p>
+                            <p>The key features of this Dexterous Hand include:</p>
+                            <ul>
+                                <li>Phalanx design that replicates human finger movement with 15+ total DoF</li> 
+                                <li><strong>Cable-driven</strong> mechanism for precise control and minimal inertia</li> 
+                                <li>Motion shadowing to mimic human hand gestures with multi-modal input</li> 
+                                <li>Control architecture based on <strong>ROS2</strong> framework for seamless integration</li>
+                            </ul>
                             <p>Started in January 2025, the Biomimetic Dexterous Hand project is a work-in-progress. I will continue to post updates to the project here as it develops.</p>
                         </div>
                         <div class="overview-image">
@@ -205,20 +212,20 @@
                             <img src="assets/images/project_images/Hand/phalanx_evolution.gif" alt="Phalanx design" loading="lazy">
                         </div>
                         <div class="overview-text">
-                            <p>I designed a 4-bar linkage system to replicate the coupled movement of the distal and middle interphalangeal joints. The design decision was made to mimic the natural rhythm of the human finger while reducing the actuator count by one per phalanx, streamlining the design without sacrificing functionality.</p>
-                            <p>After five iterations, I arrived at the current phalanx design that balances robust strength with an extensive range of motion. Each prototype iteration provided critical feedback, allowing for adjustments that enhance the hand's reliability and dynamic performance in real-world applications.</p>
+                            <p>I designed an anti-parallelogram 4-bar linkage system to replicate the coupled movement of the distal and middle interphalangeal joints. The design decision was made to mimic the natural rhythm of the human finger while reducing the actuator count by one per phalanx, streamlining the design without sacrificing functionality.</p>
+                            <p>After five iterations, I arrived at the current phalanx design that balances robust strength with an extensive range of motion. Each prototype iteration provided critical feedback, allowing for adjustments that enhance the hand's reliability and dynamic performance in interacting with its environment.</p>
                         </div>
                     </div>
                 `,
                 'Cable-driven Mechanism': `
                     <div class="modal-section overview-section">
                         <div class="overview-text">
-                            <p>The cable-driven mechanism is the heart of the hand design. It provides precise control over joint movement while minimizing distal inertia - a crucial factor for achieving human-like dexterity.</p>
-                            <p>By using a tendon-driven system, I can actuate the phalanx with minimal force, achieving a more natural movement pattern. The mechanism is designed to be compact and lightweight, ideal for a dexterous hand.</p>
-                            <p>To achieve the desired movement, I'm using miniaturized motors and PTFE tubing-based cable routing. This combination minimizes friction, enhances durability, and maintains a design that is both modular and efficient for executing complex tasks.</p>
+                            <p>The cable-driven mechanism is the heart of the hand design. It provides precise control over joint movement while minimizing distal inertia - a crucial factor for achieving anthropomorphic dexterity.</p>
+                            <p>I used an <strong>'N-configuration'</strong> tendon routing system that allows for a compact layout. While this tendon configuration is not antagonistic, I designed a tensioning system to ensure that the wires are always under tension, reducing backlash and improving joint accuracy.</p>
+                            <p>To achieve the desired movement, I'm using miniaturized motors and PTFE tubing-based cable routing. This combination balances between friction and path complexity, and maintains a design that is both modular and efficient for executing complex tasks.</p>
                         </div>
                         <div class="overview-image">
-                            <img src="assets/images/project_images/Hand/phalanx.gif" alt="Biomimetic Dexterous Hand" loading="lazy">
+                            <img src="assets/images/project_images/Hand/tendon_drive.gif" alt="Biomimetic Dexterous Hand" loading="lazy">
                         </div>
                     </div>
                 `,
@@ -233,10 +240,10 @@
                         </div>
                     </div>
                 `,
-                'Alternative Input Modality':`
+                'Dual Input Modality':`
                     <div class="modal-section overview-section">
                         <div class="overview-text">
-                            <p>While the Hand can shadow human movements, it also supports alternative input modalities. By using a Meta Quest 3s VR Headset, I am able to capture hand gesture using the built-in hand tracking feature with synthetic hand overlay, enabling very intuitive control over the robotic hand.</p> 
+                            <p>While the Hand can shadow human movements, it also supports different input modalities. By using a Meta Quest 3s VR Headset, I am able to capture hand gesture using the built-in hand tracking feature with synthetic hand overlay, enabling very intuitive control over the robotic hand.</p> 
                             <p>With this feature, the Hand can be used in a variety of applications, from teleoperation to virtual reality experiences. The Hand's flexibility in input modalities ensures seamless integration into diverse environments and use cases.</p>
                         </div>
                         <div class="overview-image">
@@ -244,27 +251,55 @@
                         </div>
                     </div>  
                 `,
+                'Control Architecture':`
+                    <div class="modal-section overview-section">
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/Hand/control_architecture.png" alt="Control Architecture" loading="lazy">
+                        </div>
+                        <div class="overview-text">
+                            <p>The control architecture for the Hand is designed and implemented with ROS2, allowing for easy integration with the pub-sub systems.</p>
+                            <p>A few ROS2 nodes work together to implement the control: vision node integrates MediaPipe (or other motion input source) and processes camera input; application node processes joint angles and compensates them according to robot calibration; and finally the servo node sends the corresponding commands to the Hand's servo controller via serial comms.</p>
+                        </div>
+                    </div>
+                `,
                 'V2 Improvements':`
                     <div class="modal-section overview-section">    
                         <div class="overview-image">
                             <img src="assets/images/project_images/Hand/v2_improvements.gif" alt="V2 Improvements" loading="lazy">
                         </div>
                     <div class="overview-text">
-                        <p>During the later half of the project, I focused on mechanically revemping the phalanx architecture to improve joint range of motion and hysteresis. <p>
+                        <p>In the later half of the project, I revemped the mechanical architecture to improve joint range of motion and accuracy. <p>
                         <p>By redesigning cable routing inside the phalanx linkages, I was able to expand the MCP joint range of motion by more than 100%. This improvement significantly enhances the Hand's dexterity and control bandwidth, making it more versatile for a wide range of applications.</p>
-                        <p>I realized in the previous build that greater tendon path variability leads to greater joint angle hysteresis. Therefore, I implemented a novel cable tensioning system that maintains consistent tension across the tendon path in addition to constraining the PTFE tubes, reducing hysteresis and improving joint accuracy.</p>  
+                        <p>Also, I realized in the previous build that <strong>greater tendon path variability leads to greater joint angle hysteresis</strong>. Therefore, I implemented a novel cable tensioning system that maintains consistent tension across the tendon path in addition to constraining the PTFE tubes, greatly reducing hysteresis and improving joint accuracy.</p>  
                     </div>
                 </div>
                 `,
-                'Control Architecture':`
+                'Future Works':`
+                    <p>Although the winter quarter is wrapping up, I have planned out a roadmap for future developments on this project.</p>
                     <div class="modal-section overview-section">
                         <div class="overview-text">
-                            <p>The control architecture for the Hand is designed and implemented with ROS2, allowing for easy integration with the pub-sub systems.</p>
-                            <p>A few ROS2 nodes work together to implement the control: vision node integrates MediaPipe and processes camera input; application node processes joint angles and compensates them according to robot calibration; and finally the servo node sends the corresponding commands to the Hand's servo controller via serial comms.</p>
+                            <p>For the next phase, I will focus on:</p>
+                            <ul>
+                                <li>Mechanical Improvments</li>
+                                <ul>
+                                    <li>Improvement on thumb RoM</li>
+                                    <li>Additional DoF on palm</li>
+                                </ul>
+                                <li><strong>Vision-based</strong> closed-loop position control</li>
+                                <ul>
+                                    <li>Servo calibration</li>
+                                    <ul>
+                                        <li>Joint angle mapping</li>
+                                        <li>Dead zone compensation</li>
+                                    </ul>
+                                    <li>Key-point based joint pose estimation</li>
+                                </ul>
+                                <li>Integrating the Hand with a <strong>Franka Panda robot</strong> for dexterous manipulation tasks</li>
+                            </ul>
                             <p>Stay tuned for more updates on this exciting journey!</p>
                         </div>
                         <div class="overview-image">
-                            <img src="assets/images/project_images/Hand/control_architecture.png" alt="Control Architecture" loading="lazy">
+                            <img src="assets/images/project_images/Hand/future_dev.png" alt="Franka integration" loading="lazy">
                         </div>
                     </div>
                 `,
@@ -275,7 +310,7 @@
                         </div>
                         <div class="overview-text">
                             <p>This project was delivered through a heavily iterative design process. With each new prototype I've gaind valuable insights and feedback that have helped me refine the Hand's design and functionality.</p> 
-                            <p>Special thanks to Northwestern University's <a href="https://design.northwestern.edu/info-by-audience/current-students/rapid-prototyping-lab.html" target="_blank">RP Lab</a> for support in 3D printing, and my friend <a href="https://www.linkedin.com/in/jinnigui/" target="_blank">Jinni Gui</a> for helping me building prototypes for this project.</p>
+                            <p>Special thanks to Northwestern University's <a href="https://design.northwestern.edu/info-by-audience/current-students/rapid-prototyping-lab.html" target="_blank">RP Lab</a> for their support in 3D printing, and my friend <a href="https://www.linkedin.com/in/jinnigui/" target="_blank">Jinni Gui</a> for helping me building prototypes for this project.</p>
                         </div>
                     </div>
                 `,
@@ -283,7 +318,9 @@
                     'Mechatronics Design',
                     'Cable Driven Actuators',
                     'Rapid Prototyping',
-                    'Computer Vision'
+                    'Computer Vision',
+                    'Virtual Reality',
+                    'ROS2'
                 ],
                 externalLinks: [
                     { text: 'Project Repo', url: 'https://github.com/wengmister/Dex_Hand_MSR' }
