@@ -608,3 +608,13 @@ body.modal-open {
         font-size: 1.5rem;
     }
 }
+
+.custom-link {
+    color: #2b779b;
+    text-decoration: none;
+}
+
+.custom-link:hover {
+    color: #007bff;/* optional: different color on hover */
+    text-decoration: underline;
+}
