@@ -289,8 +289,9 @@
                 'Benchmarking: Force and Dexterity Evaluation':`
                     <div class="modal-section overview-section">
                         <div class="overview-text">
-                            <p>To assess how well BiDexHand performs in real-world tasks, I ran a series of dexterity benchmarks focused on grasping and thumb motion.</p>
-                            <p>First, I used the GRASP Taxonomy — a set of 33 common human grasps — to test how the hand adapts to different objects and tasks. Then, I evaluated thumb mobility using the Kapandji score, which checks how well the thumb can reach key points across the palm and fingers. Together, these tests give a well-rounded picture of BiDexHand’s dexterous capabilities.</p>
+                            <p>To assess BiDexHand's real-world performance, I ran a series of benchmarks targeting both dexterity and force capabilities.</p>
+                            <p>For dexterity, I used the GRASP Taxonomy to evaluate the hand's ability to perform 33 common grasp types and the Kapandji score to measure thumb reach across 11 positions. BiDexHand successfully achieved all 33 grasps and 9 out of 11 thumb poses, highlighting its flexibility and range of motion.</p>
+                            <p>Though not specifically built for high force output, the hand demonstrated solid performance in force tests - it was able to lift a 10lb dumbbell using a hook grasp and deliver an average fingertip force of 2.14N per phalanx.</p>
                         </div>
                         <div class="overview-image">
                             <img src="assets/images/project_images/Hand/benchmarking.gif" alt="Dexterity Evaluation" loading="lazy">
@@ -353,7 +354,7 @@
                     'ROS2'
                 ],
                 externalLinks: [
-                    { text: 'Project Repo', url: 'https://github.com/wengmister/Dex_Hand_MSR' }
+                    { text: 'Github Repo', url: 'https://github.com/wengmister/Dex_Hand_MSR' },
                 ]
             }
         },
