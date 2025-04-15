@@ -185,7 +185,7 @@
             }
         },
         'dexterous-hand': {
-            title: 'Biomimetic Dexterous Hand',
+            title: 'BiDexHand: 16-DoF Open-Source Biomimetic Dexterous Hand',
             sections: {
                 overview: `
                     <div class="modal-section overview-section">
@@ -194,7 +194,7 @@
                             <p>The human hand, with a complex tendon-muscle network, and over 20 degrees of freedom, is exceptionally dexterous. Inspired by this marvel, I'm designing a robotic hand to replicate its form and function.</p>
                             <p>Key features:</p>
                             <ul>
-                                <li>Anthropomorphic phalanx design with <strong>16 total DoF</strong></li> 
+                                <li>Anthropomorphic phalanx design with <strong>16 total DoF</strong> and 21 Joints</li> 
                                 <li><strong>Cable-driven</strong> mechanism for precise control and minimal inertia</li> 
                                 <li>Motion shadowing to mimic hand gestures with multi-modal input</li> 
                                 <li><strong>ROS2</strong> based control framework for seamless integration</li>
@@ -202,7 +202,7 @@
                             <p>Started in January 2025, the Biomimetic Dexterous Hand project is a work-in-progress. I will continue to post updates to the project here as it develops.</p>
                         </div>
                         <div class="overview-image">
-                            <img src="assets/images/project_images/Hand/hand_intro_3.gif" alt="Biomimetic Dexterous Hand" loading="lazy">
+                            <iframe width="400" height="400" src="https://www.youtube.com/embed/X8zVKlZNorc?si=oCd5qKsHgr6xLeVZ&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
                 `,
@@ -285,6 +285,17 @@
                             <p>With the popularity of the FER arm, and the open-source nature of this project, I created a relatively low-cost yet easily accessible dexterity platform for research and development in robotics and automation.</p>
                         </div>
                     </div>  
+                `,
+                'Benchmarking: Force and Dexterity Evaluation':`
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <p>To assess how well BiDexHand performs in real-world tasks, I ran a series of dexterity benchmarks focused on grasping and thumb motion.</p>
+                            <p>First, I used the GRASP Taxonomy — a set of 33 common human grasps — to test how the hand adapts to different objects and tasks. Then, I evaluated thumb mobility using the Kapandji score, which checks how well the thumb can reach key points across the palm and fingers. Together, these tests give a well-rounded picture of BiDexHand’s dexterous capabilities.</p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/Hand/benchmarking.gif" alt="Dexterity Evaluation" loading="lazy">
+                        </div>
+                    </div>
                 `,
                 'Control Architecture':`
                     <div class="modal-section overview-section">
