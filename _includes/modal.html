@@ -351,6 +351,7 @@
                 ],
                 externalLinks: [
                     { text: 'Github Repo', url: 'https://github.com/wengmister/Dex_Hand_MSR' },
+                    { text: '      arXiv', url: 'https://arxiv.org/abs/2504.14712'}
                 ]
             }
         },
@@ -595,7 +596,7 @@
             // Render external links (if available) right below the title
             if (project.sections.externalLinks) {
             modalExternalLinks.innerHTML = project.sections.externalLinks
-                .map(link => `<a href="${link.url}" target="_blank" class="contact-item">${link.text}</a>`)
+                .map(link => `<a href="${link.url}" target="_blank" class="contact-item" style="margin-right: 20px;">${link.text}</a>`)
                 .join(' ');
             } else {
             modalExternalLinks.innerHTML = '';
