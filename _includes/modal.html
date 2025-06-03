@@ -601,7 +601,105 @@
                     { text: 'Project Repo', url: 'https://github.com/wengmister/franka-vr-teleop'}
                 ]
             }
-            
+        },
+        'bdbach':{
+            title: 'B.D. Bach - BiDexHand Plays J.S. Bach',
+            sections: {
+                overview: `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <h3 class="modal-section-title">Overview</h3>
+                            <p>I've played the piano since childhood, and have long dreamed of building a robot that could share the keyboard with me. This project, while still an naive attempt, strives to capture such dexterous maneuvers.</p>
+                            <p>Building on the <a href="https://wengmister.github.io/#dexterous-hand" target="_blank">BiDexHand</a> project, I programmed the robot hand to play classical music using MusicXML scores as its guide.</p>
+                            <p>Playing the piano does raise some new requirements for the robotic hand:
+                                <ul>
+                                    <li>Close-loop/calibrated position control accurate to +/-3mm tip positioning</li>
+                                    <li>High bandwidth and low latency position control</li>
+                                </ul>
+                            </p>
+                            <p>I'll talk about how I augmented the BiDexHand to meet these requirements, and how I implemented the control architecture to play J.S. Bach's Prelude in C Major.</p>                           
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/bdbach/hand.png" alt="B.D. Bach" loading="lazy">
+                        </div>
+                    </div>`,
+                'Hardware Update': `
+                    <div class="modal-section overview-section">
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/bdbach/bdh+phalanx.png" alt="phalanx update" loading="lazy">
+                        </div>
+                        <div class="overview-text">
+                            <h3 class="modal-section-title">Phalanx Update</h3>
+                            <p>In order to achieve the required accuracy and increase structure robustness, I redesigned the BiDexHand phalanges.</p>
+                            <p>In the new design, I used single-shear 4-bar linkage for the PIP-DIP coupling. This design avoids defining coaxial joints, eliminating the risk of tolerancing induced joint binding, while also making more room for the placement of AprilTags.<p>
+                            <p>In addition, I redesigned the components with precision shoulder screws and sleeve bearings, which results in better, and more determined shaft fits.</p>
+                    </div>
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <h3 class="modal-section-title">Mechatronics</h3>
+                            <p>To achieve the required accuracy and bandwidth, I updated the servo control system for the BiDexHand.</p>
+                            <p>The servo control system now uses FeeTech's SCS series servos. Utilizing its half duplex asynchronous serial bus, I can index and control servos with higher precision and greater torque capabilities. In addition, I created some simple PCB breakout boards to daisy-chain the servos, helping managing the cable routing inside the BiDexHand.</p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/bdbach/scs_bus.png" alt="Servo Control" loading="lazy">
+                        </div>
+                    </div>`,
+                Calibration: `
+                    <div class="modal-section overview-section">
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/bdbach/calibrate.gif" alt="Calibration" loading="lazy">
+                        </div>
+                        <div class="overview-text">
+                            <p>To achieve the required accuracy, I implemented a closed-loop position control system with a custom calibration procedure.</p>
+                            <p>Using the AprilTag fiducials, I calibrated the robot hand by placing AprilTags on the phalanges and using them to determine the joint angles and positions of each phalanx. This calibration process ensures that the hand can accurately position its fingers to play the piano.</p>
+                        </div>
+                    </div>`,
+                'Inverse Kinematics': `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <p>To play the piano, the robot hand needs to be able to move its fingers to specific positions and orientations. I implemented an inverse kinematics algorithm that calculates the joint angles required to achieve a desired end-effector position and orientation.</p>
+                            <p>This algorithm takes into account the hand's kinematic structure and the constraints imposed by the piano keys, allowing the hand to accurately position its fingers on the keys.</p>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/bdbach/playing_notes.gif" alt="Inverse Kinematics" loading="lazy">
+                        </div>
+                    </div>`,    
+                'FER Robot Arm Control': `
+                    <div class="modal-section overview-section">
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/bdbach/arm_control.gif" alt="Robot Arm Control" loading="lazy">
+                        </div>
+                        <div class="overview-text">
+                            <p>To control the robot arm, I used MoveIt!2 control system that allows the arm to move its end-effector to specific positions and orientations.</p>
+                            <p>This layer of control will deliver the hand to a close-enough position relative to the keyboard, allowing the hand to then carry out IK and move the fingers to play the piano.</p>
+                        </div>
+                    </div>`,
+                'Continued Improvements': `
+                    <div class="modal-section overview-section">
+                        <div class="overview-text">
+                            <p>This is still a project under development. In the future, I plan to implement:</p>
+                            <ul>
+                                <li>Learning-based whole arm control</li>
+                                <li>More complex wrist movements to support transitions</li>
+                                <li>More expressive playing with dynamics and articulation</li>
+                            </ul>
+                        </div>
+                        <div class="overview-image">
+                            <img src="assets/images/project_images/bdbach.gif" alt="B.D. Bach Playing" loading="lazy">
+                        </div>
+                    </div>
+                `,
+                technology: [
+                    'Robot Calibration',
+                    'Kinematic Control',
+                    'Rapid Prototyping',
+                    'ROS2',
+                    'Computer Vision'
+                ],
+                externalLinks: [
+                    { text: 'Project Repo', url: 'https://github.com/wengmister/midi2json'}
+                ]
+            }
         }
     };
     
