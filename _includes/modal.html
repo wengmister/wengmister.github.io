@@ -613,12 +613,12 @@
                             <p>Building on the <a href="https://wengmister.github.io/#dexterous-hand" target="_blank">BiDexHand</a> project, I programmed the robotic hand to play classical music by interpreting MIDI scores.</p>
                             <p>Enabling a robot to play the piano introduces several new technical challenges:
                                 <ul>
-                                    <li>Closed-loop, calibrated position control with +/-3mm fingertip accuracy</li>
+                                    <li>Closed-loop, calibrated position control with +/-5mm fingertip accuracy</li>
                                     <li>High-bandwidth, low-latency motion control</li>
                                     <li>Efficient task scheduling and execution</li>
                                 </ul>
                             </p>
-                            <p>In the following sections, I'll discuss how I augmented the BiDexHand to meet these demands, and walk through the control architecture I designed to perform Baroque Music.</p>
+                            <p>In the following sections, I'll discuss how I augmented the BiDexHand to meet these requirements, and walk through the control architecture I designed for the robot to perform music.</p>
                         </div>
                         <div class="overview-image">
                             <img src="assets/images/project_images/bdbach/hand.png" alt="B.D. Bach" loading="lazy">
@@ -698,7 +698,9 @@
                     'Kinematic Control',
                     'Rapid Prototyping',
                     'ROS2',
-                    'Computer Vision'
+                    'Computer Vision',
+                    'Mechatronics Design',
+                    'C++'
                 ],
                 externalLinks: [
                     { text: 'Project Repo', url: 'https://github.com/wengmister/midi2json'}
