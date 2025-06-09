@@ -1,0 +1,58 @@
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Overview</h3>
+        <p>I have been interested in exploring ways how human could establish telepresence with robots.</p>
+        <p>In this project, I explored the feasibility of teleoperating the Franka Emika Research (FER) 
+            robot using a few different methods - game controller, and VR headset.</p>
+        <p>This project was inspired by <a href="https://graham-clifford.com/Robot-Arm-Teleoperation-Through-Computer-Vision-Hand-Tracking/" target="_blank" rel="noopener noreferrer">Graham Clifford's work</a> on using computer vision hand tracking to teleoperate a robot arm.</p>
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/franka-teleop/teleop_modes.png" alt="Teleop Input Modes" loading="lazy">
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Controller Teleoperation</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/franka-teleop/controller_teleop.gif" alt="Controller Teleoperation" loading="lazy">
+        </div>
+        <div class="overview-text">
+            <p>
+                To initially explore the feasibility of teleoperating the robot,
+                I implemented a simple controller teleoperation with a XBox controller. 
+            </p>
+            <p>
+                ROS2 provides a simple interface to provide joystick input to the robot - <code>joy_node</code>.
+                This node allows me to bridge the input from the joystick to differential commands - which is then
+                mapped to the robot's end-effector movement.
+            </p>
+            <p>
+                However, joystick input is limited to the 4 tilting axes on the two joysticks - which is lacking
+                compared to the 6-DOF of the robot's end-effector. Nonetheless, this is a good starting point to
+                explore the feasibility of teleoperating the robot using low level controller.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">VR Teleoperation</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-text">
+            <p>
+                In order to teleoperate the robot using VR headset, I used the OXR Hand Tracking rig to track 
+                the hand's pose and orientation. Using this pose and orientation information, I computed a wrist vector
+                and used it to command the robot's end-effector movement.
+            </p>
+            <p>
+                This is currently a WIP prototype built with <code>moveit-servo</code> package in ROS2. Since this isn't
+                deployed on a realtime computer, it's performance is currently suboptimal.
+                I plan to reimplement it with lower level API on a realtime PC soon.
+            </p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/franka-vr-teleop.gif" alt="VR Teleoperation" loading="lazy">
+        </div>
+    </div>
+</div>

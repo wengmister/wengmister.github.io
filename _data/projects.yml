@@ -114,7 +114,7 @@ point-cloud-classification:
     - text: "Project Repo"
       url: "https://github.com/msr-in-msai/msai-349-final-project"
 
-franka-vr-teleop:
+franka-teleop:
   title: "Teleoperating Franka FER Robot with Meta Quest 3S"
   technology:
     - "Virtual Reality"
