@@ -384,7 +384,7 @@
                     <div class="modal-section overview-section">
                         <div class="overview-text">
                             <p>After determining the initial robot base transformation, I used a YOLOv8 model to detect the ball and hole in the camera frame.</p>
-                            <p>To enhance the model’s prediction accuracy, I trained it on a custom dataset created with images captured by the same camera. The trained model then identified the ball and hole positions in the camera frame.</p>
+                            <p>To enhance the model's prediction accuracy, I trained it on a custom dataset created with images captured by the same camera. The trained model then identified the ball and hole positions in the camera frame.</p>
                             <p>With the camera frame positions of all necessary elements established, I registered them using tf2, enabling me to retrieve any required transformation with a single command.</p>
                         </div>
                         <div class="overview-image">
@@ -407,7 +407,7 @@
                     <div class="modal-section overview-section">
                         <div class="overview-text">
                             <p>The motion control module leverages ROS2 to interface with the robot and the vision module.</p>
-                            <p>Using data from the vision module, the motion control module calculates the robot’s end-effector position and orientation, then plans a precise vector path to move the putter toward the ball and hole.</p>
+                            <p>Using data from the vision module, the motion control module calculates the robot's end-effector position and orientation, then plans a precise vector path to move the putter toward the ball and hole.</p>
                             <p>As the path is planned, the node uses MoveIt2! package to send the kinematic planning to the robot, which executes the motion accordingly.</p>
                         </div>
                         <div class="overview-image">
@@ -609,7 +609,7 @@
                     <div class="modal-section overview-section">
                         <div class="overview-text">
                             <h3 class="modal-section-title">Overview</h3>
-                            <p>I've played the piano since childhood and have long dreamed of building a robot capable of sharing the keyboard with me. While still an early attempt, this project aims to capture the nuances of dexterous piano performance.</p>
+                            <p>I've played the piano since childhood and have long wanted to build a robot capable of sharing the keyboard with me. While still an early attempt, this project aims to capture the nuances of dexterous piano performance.</p>
                             <p>Building on the <a href="https://wengmister.github.io/#dexterous-hand" target="_blank">BiDexHand</a> project, I programmed the robotic hand to play classical music by interpreting MIDI scores.</p>
                             <p>Enabling a robot to play the piano introduces several new technical challenges:
                                 <ul>
@@ -621,7 +621,7 @@
                             <p>In the following sections, I'll discuss how I augmented the BiDexHand to meet these requirements, and walk through the control architecture I designed for the robot to perform music.</p>
                         </div>
                         <div class="overview-image">
-                            <img src="assets/images/project_images/bdbach/hand.png" alt="B.D. Bach" loading="lazy">
+                            <iframe width="400" height="450" src="https://www.youtube.com/embed/3TNHTjh7_L4?si=5oqtpg4i6PREGAlJ&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>`,
                 'Hardware Update': `
