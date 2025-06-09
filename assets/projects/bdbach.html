@@ -1,0 +1,181 @@
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Overview</h3>
+        <p>
+            I've played the piano since childhood and have long wanted to build a robot capable 
+            of sharing the keyboard with me. While still an early attempt, this project aims to 
+            capture the nuances of dexterous piano performance.
+        </p>
+        
+        <p>
+            Building on the 
+            <a href="https://wengmister.github.io/#dexterous-hand" target="_blank">BiDexHand</a> 
+            project, I programmed the robotic hand to play classical music by interpreting MIDI scores.
+        </p>
+        
+        <p>Enabling a robot to play the piano introduces several new technical challenges:</p>
+        <ul>
+            <li>Closed-loop, calibrated position control with +/-5mm fingertip accuracy</li>
+            <li>High-bandwidth, low-latency motion control</li>
+            <li>Efficient task scheduling and execution</li>
+        </ul>
+        
+        <p>
+            In the following sections, I'll discuss how I augmented the BiDexHand to meet these 
+            requirements, and walk through the control architecture I designed for the robot to 
+            perform music.
+        </p>
+    </div>
+    <div class="overview-image">
+        <iframe 
+            width="400" 
+            height="450" 
+            src="https://www.youtube.com/embed/3TNHTjh7_L4?si=5oqtpg4i6PREGAlJ&amp;controls=0" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Hardware Update</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img 
+                src="assets/images/project_images/bdbach/phalanx++ 2.gif" 
+                alt="phalanx update" 
+                loading="lazy">
+        </div>
+        <div class="overview-text">
+            <h2 class="modal-section-sub-title">Phalanx Redesign</h2>
+            <p>
+                In order to achieve the required accuracy and increase structure robustness, 
+                I redesigned the BiDexHand phalanges.
+            </p>
+            <p>
+                In the new design, I used single-shear 4-bar linkage for the PIP-DIP coupling. 
+                This design avoids defining coaxial joints, eliminating the risk of tolerancing 
+                induced joint binding, while also making more room for the placement of AprilTags.
+            </p>
+            <p>
+                In addition, I redesigned the components with precision shoulder screws and sleeve 
+                bearings, which results in better, and more determined shaft fits.
+            </p>
+        </div>
+    </div>
+    
+    <div class="modal-section overview-section">
+        <div class="overview-text">
+            <h2 class="modal-section-sub-title">Mechatronics Overhaul</h2>
+            <p>
+                To achieve the required accuracy and bandwidth, I upgraded the servo control 
+                system for the BiDexHand.
+            </p>
+            <p>
+                The servo control system now uses FeeTech's SCS series servos. Utilizing its 
+                half duplex asynchronous serial bus, I can index and control servos with higher 
+                precision, greater torque capabilities and wider range of motion. In addition, 
+                I created some simple PCB breakout boards to daisy-chain the servos, helping 
+                managing the cable routing inside the BiDexHand.
+            </p>
+            <p>
+                As an added bonus, the SCS servos also exposes a range of sensor feedback, which 
+                allows me to monitor load, position and temperature on the servos.
+            </p>
+        </div>
+        <div class="overview-image">
+            <img 
+                src="assets/images/project_images/bdbach/scs_bus.png" 
+                alt="Servo Control" 
+                loading="lazy">
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Joint Calibration</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img 
+                src="assets/images/project_images/bdbach/calibration.gif" 
+                alt="Calibration" 
+                loading="lazy">
+        </div>
+        <div class="overview-text">
+            <p>
+                To achieve the required accuracy, I design a calibration algorithm to approximate 
+                cable-driven joints with linear models.
+            </p>
+            <p>
+                Using the AprilTag fiducials, I calibrated the robot hand by mapping servo 
+                commands to relative joint angles. Finding transformations between successive 
+                tag readings helps to generate a good enough model that describes joint motion.
+            </p>
+            <p>
+                Leveraging on the fact that the tags are normal to the attached plane, we can 
+                also find the ideal offset to the nominal positions.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Inverse Kinematics</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-text">
+            <p>To play the piano, the robot hand needs to be able to hit the desired key with 
+                the best finger tip accurately. Since BiDexHand has underactuated fingers with 
+                mechanical linkages, I developed an IK module that numerically solves the IK problem.
+            </p>
+            <p>Using parsed robot URDF as reference, the kinematics module keeps a tree of 
+                available kinematic chains and exposes a few kinematics services to other modules.
+                 When called, the module can solve for ideal finger/thumb joint angles to reach a 
+                 target position within 10ms.
+            </p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/bdbach/IK.gif" alt="Inverse Kinematics" loading="lazy">
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">FER Robot Arm Control</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/bdbach/arm_control.gif" alt="Robot Arm Control" loading="lazy">
+        </div>
+        <div class="overview-text">
+            <p>To command the Franka FER Robot arm, I used MoveIt!2 to kinematically control the position and 
+                orientation of the end-effector flange.
+            </p>
+            <p>This layer of control will deliver the hand to a close-enough position relative to the keyboard,
+                 allowing the hand to then carry out IK and move the fingers to play the piano.
+            </p>
+            <p>While playing music, the robot arm will dynamically adjust the end-effector position following 
+                average position calculated from notes within a timed window, making sure that the desired key 
+                is always within the hand's reach.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Continued Improvements</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-text">
+            <p>This is still a project under development. In the near future, I plan to experiment with and implement:</p>
+            <ul>
+                <li>Learning-based whole arm control</li>
+                <li>More complex wrist movements to support transitions</li>
+                <li>More expressive playing with dynamics and articulation</li>
+            </ul>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/bdbach.gif" alt="B.D. Bach Playing" loading="lazy">
+        </div>
+    </div>
+</div>

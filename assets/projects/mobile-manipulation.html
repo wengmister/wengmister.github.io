@@ -1,0 +1,36 @@
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Overview</h3>
+        <p>Mobile Manipulation was the final challenge of the ME449: Robotic Manipulation course at Northwestern University.</p>
+        <p>Using robotic manipulation, forward kinematics, and linear control techniques we learned in class, I created a simulation in CoppeliaSim. The simulation demonstrated a KUKA youBot moving a box from one location to another with precision and efficiency.</p>
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/mobile-manipulation/youbot.jpg" alt="Kuka youBot" loading="lazy">
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Path Planning</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/mobile-manipulation/gripper.png" alt="Youbot gripper configuration" loading="lazy">
+        </div>
+        <div class="overview-text">
+            <p>Given the desired initial and final target positions and orientations, I first generated the target trajectory using quintic polynomial interpolation.</p>
+            <p>Next, I constructed the body Jacobian for the KUKA youBot and used its pseudoinverse to calculate the necessary configurations to move the robot from its current state to the target position.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Feedforward Control</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-text">
+            <p>Using the calculated joint configurations, I designed a PI controller to move the robot from its initial to its desired configuration. The controller was tuned to minimize 6-dimensional motion control errors and ensure smooth motion.</p>
+            <p>The simulation works by computing the difference between the desired and actual joint configurations. The PI controller then generates a control signal to move the robot to the desired configuration through Euler integration.</p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/mobile-manipulation/errors.png" alt="Control errors" loading="lazy">
+        </div>
+    </div>
+</div> 

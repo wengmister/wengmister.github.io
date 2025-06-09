@@ -1,0 +1,38 @@
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Overview</h3>
+        <p>For the final challenge of the MSR Hackathon, we were tasked with using a RealSense 435D RGBD camera and a Trossen PincherX100 robot arm to locate and grab a pen within the arm's workspace.</p>
+        <p>Though the task seemed straightforward, it required a thorough understanding of the robot's kinematics, the camera's calibration, and the integration of both systems.</p>
+        <p>For this project, I developed a custom calibration system for both the robot arm and the camera, and wrote the motion control sequence in Python. As a bonus, I collaborated with my cohort mate <a href="https://absrat.com/" target="_blank">Zhengxiao Han</a> to pass the pen between our robotic arms.</p>
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/grab-a-pen/setup.png" alt="MSR Challenge" loading="lazy">
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Vision and Calibration</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/grab-a-pen/calibration.gif" alt="Optical calibration" loading="lazy">
+        </div>
+        <div class="overview-text">
+            <p>To determine the position of the pen in the camera's frame, I used the OpenCV library to process the camera image and locate the pen using HSV color thresholding. This enabled me to deproject the centroid of the pen (highlighted in purple) into 3D space.</p>
+            <p>To register the camera frame with the robot base frame, I used the pen itself as a marker. By moving the pen within the robot's end-effector, I performed an optical calibration. After collecting corresponding points from both the robot and the camera, I applied the Kabsch algorithm to calculate the optimal transformation between the two frames.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Motion Control</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-text">
+            <p>Trossen Robotics provides a Python API for the PincherX100 robot arm, which I used to send joint commands directly to the robot.</p>
+            <p>Using the pen's position in the camera frame, I calculated the inverse kinematics needed for the robot arm to reach the pen. I then sent joint commands to the robot to position the end-effector at the pen's location.</p>
+            <p>Once the robot arm reached the pen, I programmed it to grasp the pen and pass it to another robot arm. This required precise control over both the end-effector and joint positions.</p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/grab-a-pen/execute.gif" alt="Motion Control" loading="lazy">
+        </div>
+    </div>
+</div> 

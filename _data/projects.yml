@@ -1,0 +1,139 @@
+monarch:
+  title: "Monarch Endoscopic Surgical Platform"
+  technology:
+    - "Robotic Arm Design"
+    - "Medical Device"
+    - "Robot Arm Calibration" 
+    - "NPS Software Development"
+  external_links:
+    - text: "Company Website"
+      url: "https://www.jnjmedtech.com/en-US/product-family/monarch/"
+
+yomi:
+  title: "Yomi Dental Surgical Robot"
+  technology:
+    - "Robotic Actuator Design"
+    - "Precision Mechatronics"
+    - "Robot Calibration"
+    - "System Integration"
+  external_links:
+    - text: "Company Website"
+      url: "https://www.neocis.com/"
+    - text: "Media Coverage"
+      url: "https://www.bizjournals.com/southflorida/news/2022/05/12/cover-story-the-surgical-robots-are-coming.html?b=1652397044%5E22075697&utm_campaign=Corporate+Communications&utm_content=209394706&utm_medium=social&utm_source=linkedin"
+
+harmony:
+  title: "Harmony SHR Exoskeleton"
+  technology:
+    - "Exoskeleton Design"
+    - "Rehabilitation Robotics"
+    - "Linear Actuators"
+    - "Human-Robot Interface"
+  external_links:
+    - text: "Company Website"
+      url: "https://harmonicbionics.com/"
+
+athena:
+  title: "Athena Biomimetic Robot"
+  technology:
+    - "Biomimetic Design"
+    - "Linear Actuation"
+    - "CAD Optimization"
+    - "System Integration"
+  external_links:
+    - text: "Lab Homepage"
+      url: "https://lab-idar.gatech.edu/"
+
+hip-exo:
+  title: "Assistive Hip Exoskeleton"
+  technology:
+    - "Exoskeleton Design"
+    - "Series Elastic Actuators"
+    - "Biomechanics"
+    - "Data Collection"
+  external_links:
+    - text: "Lab Homepage"
+      url: "https://www.epic.gatech.edu/"
+
+dexterous-hand:
+  title: "BiDexHand: 16-DoF Open-Source Biomimetic Dexterous Hand"
+  technology:
+    - "Mechatronics Design"
+    - "Cable Driven Actuators"
+    - "Rapid Prototyping"
+    - "Computer Vision"
+    - "Virtual Reality"
+    - "ROS2"
+  external_links:
+    - text: "Github Repo"
+      url: "https://github.com/wengmister/Dex_Hand_MSR"
+    - text: "arXiv"
+      url: "https://arxiv.org/abs/2504.14712"
+
+robotic-mini-golf:
+  title: "Apex Putter - Robotic Mini-golf"
+  technology:
+    - "Kinematic Control"
+    - "Computer Vision"
+    - "Machine Learning"
+    - "YOLO"
+  external_links:
+    - text: "Project Repo"
+      url: "https://github.com/wengmister/Apex-Putter"
+
+grab-a-pen:
+  title: "Robot Arm Grab-a-pen - MSR Hackathon"
+  technology:
+    - "Computer Vision"
+    - "Kinematic calibration"
+    - "Hand-eye registration"
+    - "Kinematic control"
+  external_links:
+    - text: "Project Repo"
+      url: "https://github.com/wengmister/msr_PincherX"
+
+mobile-manipulation:
+  title: "Mobile Manipulation - ME449 Robotic Manipulation"
+  technology:
+    - "Robotic Manipulation"
+    - "Forward Kinematics"
+    - "Linear Control"
+    - "Simulation"
+  external_links:
+    - text: "Project Repo"
+      url: "https://github.com/wengmister/me449/tree/main/final_project"
+
+point-cloud-classification:
+  title: "RGB Point Cloud Classification - Machine Learning"
+  technology:
+    - "Machine Learning"
+    - "Multilayer Perceptron"
+    - "PointNet"
+    - "RGB Augmentation"
+  external_links:
+    - text: "Project Repo"
+      url: "https://github.com/msr-in-msai/msai-349-final-project"
+
+franka-vr-teleop:
+  title: "Teleoperating Franka FER Robot with Meta Quest 3S"
+  technology:
+    - "Virtual Reality"
+    - "Robot Teleoperation"
+    - "Kinematic Control"
+  external_links:
+    - text: "Project Repo"
+      url: "https://github.com/wengmister/franka-vr-teleop"
+
+bdbach:
+  title: "B.D. Bach - BiDexHand Plays J.S. Bach"
+  technology:
+    - "Robot Calibration"
+    - "Kinematic Control"
+    - "Rapid Prototyping"
+    - "ROS2"
+    - "Computer Vision"
+    - "Mechatronics Design"
+    - "C++"
+  external_links:
+    - text: "Project Repo"
+      url: "https://github.com/wengmister/midi2json" 

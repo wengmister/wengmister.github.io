@@ -1,0 +1,43 @@
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Overview</h3>
+        <p>RGB Point Cloud Classification was my final project for MSAI 349: Machine Learning.</p>
+        <p>Point clouds are a common data format used in robotics and computer vision. In this project, we implemented a custom PointNet architecture and augmented it with RGB color on the point cloud to classify objects in a custom dataset we generated.</p>
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/point-cloud/pcc-overview.gif" alt="Point Cloud Classification" loading="lazy">
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">PointNet Architecture</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/point-cloud/pcc-intro.gif" alt="PointNet Introduction" loading="lazy">
+        </div>
+        <div class="overview-text">
+            <p>PointNet is a deep learning architecture designed to process point clouds directly. It is invariant to input permutation and can learn local features from unordered point sets.</p>
+            <p>For our project, we implemented a custom PointNet architecture using PyTorch. The network was trained on a custom dataset of point clouds augmented with RGB color information.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">RGB Augmentation</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-text">
+            <p>RGB color information provides valuable context for object classification in point clouds. By augmenting our dataset with RGB values, we enhanced the network's ability to distinguish between objects of similar shape.</p>
+            <p>During training, we concatenated the RGB values with the point cloud data and fed the combined input to the PointNet architecture. This allowed the network to learn color-based features in addition to geometric features.</p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/point-cloud/pcc-architecture.png" alt="RGB Augmentation" loading="lazy">
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Acknowledgement</h3>
+    <div class="modal-section overview-section">
+        <p>Special thanks to my project partners, <a href="https://absrat.com/" target="_blank">Zhengxiao Han</a>, <a href="https://benbenyamin.github.io/" target="_blank">Ben Benyamin</a> and mentor <a href="https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/demeter-david.html" target="_blank">Prof. David Demeter</a> for their collaboration and contributions to this project.</p>
+    </div>
+</div> 

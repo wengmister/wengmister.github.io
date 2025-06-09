@@ -1,0 +1,65 @@
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Overview</h3>
+        <p>Mini golf offers a fascinating challenge for robotics. While children rely on intuition and practice to master it, programming a robot to achieve the same goal demands precise control over its movements and timing. A child needs only a putter, a ball, and a hole to score a hole-in-one, but for a robot, careful planning and execution are key.</p>
+        <p>For the Franka Panda robot, this task becomes even more intricate. Although the robot doesn't feel the pressure of competition, a poorly planned Cartesian path can create significant difficulties. In this setup, the robot must putt the ball with just the right amount of force to successfully reach the hole.</p>
+        <p>In this project, I developed the vision module for the robot, designed the mechanical components for the putter end-effector, wrote the demo tasks, and created the ROS2 package for Apex-Putter.</p>
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/Apex-Putter/AP.png" alt="Robotic mini-golf" loading="lazy">
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Vision System</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/Apex-Putter/AP_vision2.png" alt="Apriltag system" loading="lazy">
+        </div>
+        <div class="overview-text">
+            <p>The vision module is one of the two major components of this robot. Using a single RealSense D435 camera, this module fulfills two key functions: registering the robot base in the camera frame and tracking the ball and hole within the same frame.</p>
+            <p>To achieve this, I used OpenCV to process the camera image and AprilTags to locate the robot base. I designed an AprilTag mount to provide an initial estimate of the robot base transformation and performed optical calibration using the Kabsch algorithm to improve accuracy.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Ball and Hole Detection</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-text">
+            <p>After determining the initial robot base transformation, I used a YOLOv8 model to detect the ball and hole in the camera frame.</p>
+            <p>To enhance the model's prediction accuracy, I trained it on a custom dataset created with images captured by the same camera. The trained model then identified the ball and hole positions in the camera frame.</p>
+            <p>With the camera frame positions of all necessary elements established, I registered them using tf2, enabling me to retrieve any required transformation with a single command.</p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/Apex-Putter/AP_vision3.png" alt="YOLO" loading="lazy">
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Mechanical Integration</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/Apex-Putter/AP_mech1.png" alt="Mechanical Integration" loading="lazy">
+        </div>
+        <div class="overview-text">
+            <p>To integrate effectively with the Franka FER arm, I designed a custom end-effector specifically for the robot.</p>
+            <p>This end-effector seamlessly interfaces with off-the-shelf putter components. The design underwent several iterations to improve alignment, simplify kinematic planning, and optimize the putter face for smoother motion.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Motion Control</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-text">
+            <p>The motion control module leverages ROS2 to interface with the robot and the vision module.</p>
+            <p>Using data from the vision module, the motion control module calculates the robot's end-effector position and orientation, then plans a precise vector path to move the putter toward the ball and hole.</p>
+            <p>As the path is planned, the node uses MoveIt2! package to send the kinematic planning to the robot, which executes the motion accordingly.</p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/Apex-Putter/apex-putter.gif" alt="Motion Control" loading="lazy">
+        </div>
+    </div>
+</div> 

@@ -5,3 +5,9 @@
 [![Lines Of Code](https://tokei.rs/b1/github/wengmister/wengmister.github.io?category=code)](https://github.com/wengmister/wengmister.github.io)
 
 Zhengyang Kris Weng's portfolio made with jekyll.
+
+## Refactored Modal Sections
+
+To update modal views
+- Update modal data under `/_data/projects.yaml`
+- update modal sections under `/assets/projects/project_id.html`
