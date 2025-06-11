@@ -110,6 +110,23 @@ class ProjectModal {
             this.modal.classList.add('active');
             document.body.classList.add('modal-open');
 
+            // Reset scroll position to top after modal is visible
+            setTimeout(() => {
+                // Try multiple potential scrollable elements
+                const scrollableElements = [
+                    this.modal,
+                    this.modal.querySelector('.modal-content'),
+                    this.modal.querySelector('.modal-body'),
+                    this.modalDescription
+                ];
+                
+                scrollableElements.forEach(element => {
+                    if (element) {
+                        element.scrollTop = 0;
+                    }
+                });
+            }, 10);
+
             // Update the URL hash
             history.pushState({ projectId: projectId }, '', `#${projectId}`);
 
