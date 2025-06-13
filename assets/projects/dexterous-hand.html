@@ -177,15 +177,38 @@
 </div>
 
 <div class="modal-section">
+    <h3 class="modal-section-title">Wrist Camera: Point-n-Grasp</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-text">
+        <p>
+            Having a wrist camera placed at a known fixed position on the robot arm unlocks a lot of new opportunities with the Hand.
+            One of the interesting applications is the <strong>Point-n-Grasp</strong> feature, which allows the Hand to autonomously grasp objects in its environment by simply pointing at them.
+        </p>
+        <P>
+            Together with <a href="https://benbenyamin.github.io/" target="_blank" rel="noopener noreferrer" class="custom-link">Ben</a>, we developed a web-based pipeline that
+            allows users to interactively segment object via <a href="https://ai.meta.com/sam2/" target="_blank" rel="noopener noreferrer" class="custom-link">SAM2</a>, 
+            and then estimate 6D pose using a trained <a href="https://sites.google.com/view/densefusion" target="_blank" rel="noopener noreferrer" class="custom-link">DenseFusion</a> model. The estimated pose is then used to plan a grasp trajectory for the Hand to execute a force closure.
+        </P>
+        <p>
+            While this demo only uses relatively naive approaches, it showcases the potential of the Hand to perform more complicated vision assisted tasks in the future.
+        </p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/Hand/point-n-grasp.gif" alt="Grasping" loading="lazy">
+        </div>
+    </div>  
+</div>
+
+<div class="modal-section">
     <h3 class="modal-section-title">Benchmarking: Force and Dexterity Evaluation</h3>
     <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/Hand/benchmarking.gif" alt="Dexterity Evaluation" loading="lazy">
+        </div>
         <div class="overview-text">
             <p>To assess BiDexHand's real-world performance, I ran a series of benchmarks targeting both dexterity and force capabilities.</p>
             <p>For dexterity, I used the GRASP Taxonomy to evaluate the hand's ability to perform 33 common grasp types and the Kapandji score to measure thumb reach across 11 positions. BiDexHand successfully achieved all 33 grasps and 9 out of 11 thumb poses, highlighting its flexibility and range of motion.</p>
             <p>Though not specifically built for high force output, the hand demonstrated solid performance in force tests - it was able to lift a 10lb dumbbell using a hook grasp and deliver an average fingertip force of 2.14N per phalanx.</p>
-        </div>
-        <div class="overview-image">
-            <img src="assets/images/project_images/Hand/benchmarking.gif" alt="Dexterity Evaluation" loading="lazy">
         </div>
     </div>
 </div>
@@ -193,12 +216,13 @@
 <div class="modal-section">
     <h3 class="modal-section-title">Control Architecture</h3>
     <div class="modal-section overview-section">
+        <div class="overview-text">
+            <p>The control architecture for the Hand is designed and implemented with ROS2, allowing for easy integration with the pub-sub framework across distributed systems.</p>
+            <p>A few ROS2 nodes work together to implement the control: vision node integrates motion input sources and processes camera input; application node processes joint angles and compensates them according to robot calibration; and finally the servo node sends the corresponding commands to the Hand's servo controller via serial comms.</p>
+            <p>The control architecture is very extensible, allowing many functionalities to be added with ease.</p>
+        </div>
         <div class="overview-image">
             <img src="assets/images/project_images/Hand/control_architecture.png" alt="Control Architecture" loading="lazy">
-        </div>
-        <div class="overview-text">
-            <p>The control architecture for the Hand is designed and implemented with ROS2, allowing for easy integration with the pub-sub systems.</p>
-            <p>A few ROS2 nodes work together to implement the control: vision node integrates MediaPipe (or other motion input source) and processes camera input; application node processes joint angles and compensates them according to robot calibration; and finally the servo node sends the corresponding commands to the Hand's servo controller via serial comms.</p>
         </div>
     </div>
 </div>
@@ -206,6 +230,9 @@
 <div class="modal-section">
     <h3 class="modal-section-title">Future Work</h3>
     <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/Hand/future_dev.png" alt="future work" loading="lazy">
+        </div>
         <div class="overview-text">
             <p>The next phase of the project will focus on enhancing the Hand's reliability and performance, making it more intelligent and more robust. I'm planning on implementing:</p>
             <ul>
@@ -220,21 +247,18 @@
             </ul>
             <p>Stay tuned for more updates and demos on this exciting journey! If you have other interesting ideas or would like to contribute to this project, please don't hesitate to <a href="mailto:wengmister@gmail.com" class="custom-link">reach out to me</a>.</p>
         </div>
-        <div class="overview-image">
-            <img src="assets/images/project_images/Hand/future_dev.png" alt="future work" loading="lazy">
-        </div>
     </div>
 </div>
 
 <div class="modal-section">
     <h3 class="modal-section-title">Acknowledgement</h3>
     <div class="modal-section overview-section">
-        <div class="overview-image">
-            <img src="assets/images/project_images/Hand/thumbup.gif" alt="design_iterations" loading="lazy">
-        </div>
         <div class="overview-text">
             <p>This project was delivered through a heavily iterative design process. With each new prototype I've gained valuable insights and feedback that have helped me refine the Hand's design and functionality.</p> 
             <p>Special thanks to Northwestern University's <a href="https://design.northwestern.edu/info-by-audience/current-students/rapid-prototyping-lab.html" target="_blank" class="custom-link">RP Lab </a> for their support in 3D printing for this project.</p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/Hand/thumbup.gif" alt="design_iterations" loading="lazy">
         </div>
     </div>
 </div>
