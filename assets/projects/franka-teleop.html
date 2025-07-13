@@ -4,7 +4,7 @@
         <p>I have been interested in exploring ways how human could establish telepresence with robots.</p>
         <p>In this project, I explored the feasibility of teleoperating the Franka Emika Research (FER) 
             robot using a few different methods - game controller, and VR headset.</p>
-        <p>This project was inspired by <a href="https://graham-clifford.com/Robot-Arm-Teleoperation-Through-Computer-Vision-Hand-Tracking/" target="_blank" rel="noopener noreferrer">Graham Clifford's work</a> on using computer vision hand tracking to teleoperate a robot arm.</p>
+        <p>This project was inspired by <a href="https://graham-clifford.com/Robot-Arm-Teleoperation-Through-Computer-Vision-Hand-Tracking/" target="_blank" rel="noopener noreferrer" class="custom-link">Graham Clifford's work</a> on using computer vision hand tracking to teleoperate a robot arm.</p>
     </div>
     <div class="overview-image">
         <img src="assets/images/project_images/franka-teleop/teleop_modes.png" alt="Teleop Input Modes" loading="lazy">
@@ -15,7 +15,7 @@
     <h3 class="modal-section-title">Controller Teleoperation</h3>
     <div class="modal-section overview-section">
         <div class="overview-image">
-            <img src="assets/images/project_images/franka-teleop/controller_teleop.gif" alt="Controller Teleoperation" loading="lazy">
+            <img src="assets/images/project_images/franka-teleop/joystick.gif" alt="Controller Teleoperation" loading="lazy">
         </div>
         <div class="overview-text">
             <p>
@@ -24,21 +24,44 @@
             </p>
             <p>
                 ROS2 provides a simple interface to provide joystick input to the robot - <code>joy_node</code>.
-                This node allows me to bridge the input from the joystick to differential commands - which is then
-                mapped to the robot's end-effector movement.
+                This node allows me to bridge the input from the joystick (using 2x joystick and d-pad input) to
+                differential commands - which is then mapped to the robot's end-effector movement.
             </p>
             <p>
-                However, joystick input is limited to the 4 tilting axes on the two joysticks - which is lacking
-                compared to the 6-DOF of the robot's end-effector. Nonetheless, this is a good starting point to
-                explore the feasibility of teleoperating the robot using low level controller.
+                This project, while simple, was a good starting point to explore the feasibility of teleoperation
+                and to understand the limitations of the input methods.
             </p>
         </div>
     </div>
 </div>
 
 <div class="modal-section">
-    <h3 class="modal-section-title">VR Teleoperation</h3>
+    <h3 class="modal-section-title">VR App: Tracking Wrist Vector</h3>
     <div class="modal-section overview-section">
+        <div class="overview-text">
+            <p>
+                In order to teleoperate the robot using VR headset, I extended my previous work on the <a href="https://github.com/wengmister/quest-wrist-tracker" target="_blank" rel="noopener noreferrer" class="custom-link">VR tracking app</a>,
+                and added the ability to track the wrist vector in terms of position and orientation in quaternion format.
+            </p>
+            <p>
+                This wrist vector is then streamed over to ROS2 using UDP sockets, which can then be used to command the
+                robot's end-effector movement. While the tracked wrist vector is absolute in world frame, it is converted 
+                differential movement upon initial pose registration to make teleoperation more intuitive.
+            </p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/franka-teleop/wrist_tracker.gif" alt="VR Wrist Tracking" loading="lazy">
+        </div>
+    </div>
+</div>
+
+
+<div class="modal-section">
+    <h3 class="modal-section-title">VR Teleop: MoveIt Servo</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/franka-vr-teleop.gif" alt="VR Teleoperation" loading="lazy">
+        </div>
         <div class="overview-text">
             <p>
                 In order to teleoperate the robot using VR headset, I used the OXR Hand Tracking rig to track 
@@ -46,13 +69,33 @@
                 and used it to command the robot's end-effector movement.
             </p>
             <p>
-                This is currently a WIP prototype built with <code>moveit-servo</code> package in ROS2. Since this isn't
-                deployed on a realtime computer, it's performance is currently suboptimal.
-                I plan to reimplement it with lower level API on a realtime PC soon.
+                This early prototype was built with <code>moveit-servo</code> package in ROS2. Since this isn't
+                deployed on a realtime computer, it's performance is currently suboptimal. However, MoveIt Servo provides 
+                very limited control over the robot's end-effector movement. Therefore, I decided to redesign the app using lower level control API.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">VR Telop: LibFranka</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-text">
+            <p>
+                In order to teleoperate the robot with better performance, I rebuilt the real-time workstation client 
+                using the native <code>libfranka</code> C++ API.
+            </p>
+            <p>
+                The client now uses the differential wrist movement from the ROS2 server, and applies it to the robot's end-effector movement.
+                In addition, the client uses libfranka's Active Control interface with Cartesian Pose to command the robot's end-effector movement.
+            </p>
+            <p>
+                While this approach provides a working prototype, I'm still not satisfied with its performance as I have very little control 
+                over robot's kinematic with libfranka. I plan to reimplement the client using custom IK solver soon to experiment with different kinematic control methods.
             </p>
         </div>
         <div class="overview-image">
-            <img src="assets/images/project_images/franka-vr-teleop.gif" alt="VR Teleoperation" loading="lazy">
+            <img src="assets/images/project_images/franka-teleop/arm_vr_con.gif" alt="VR Teleop" loading="lazy">
         </div>
     </div>
 </div>

@@ -120,11 +120,15 @@ franka-teleop:
     - "Virtual Reality"
     - "Robot Teleoperation"
     - "Kinematic Control"
+    - "C++"
+    - "ROS2"
   external_links:
     - text: "Project Repo - VR"
       url: "https://github.com/wengmister/franka-vr-teleop"
     - text: "Project Repo - Controller"
       url: "https://github.com/wengmister/franka_joystick_teleop"
+    - text: "VR App"
+      url: "https://github.com/wengmister/quest-wrist-tracker"
 
 bdbach:
   title: "B.D. Bach - BiDexHand Plays J.S. Bach"
