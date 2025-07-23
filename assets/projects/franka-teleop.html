@@ -60,7 +60,7 @@
     <h3 class="modal-section-title">VR Teleop: MoveIt Servo</h3>
     <div class="modal-section overview-section">
         <div class="overview-image">
-            <img src="assets/images/project_images/franka-vr-teleop.gif" alt="VR Teleoperation" loading="lazy">
+            <img src="assets/images/project_images/franka-teleop/moveit_servo.gif" alt="VR Teleoperation" loading="lazy">
         </div>
         <div class="overview-text">
             <p>
@@ -70,8 +70,8 @@
             </p>
             <p>
                 This early prototype was built with <code>moveit-servo</code> package in ROS2. Since this isn't
-                deployed on a realtime computer, it's performance is currently suboptimal. However, MoveIt Servo provides 
-                very limited control over the robot's end-effector movement. Therefore, I decided to redesign the app using lower level control API.
+                deployed on a realtime computer, it's performance is suboptimal. In addition, MoveIt Servo provides 
+                very limited capability over the robot's cartesian space control. Therefore, I decided to redesign the app using lower level control API.
             </p>
         </div>
     </div>
@@ -86,8 +86,8 @@
                 using the native <code>libfranka</code> C++ API.
             </p>
             <p>
-                The client now uses the differential wrist movement from the ROS2 server, and applies it to the robot's end-effector movement.
-                In addition, the client uses libfranka's Active Control interface with Cartesian Pose to command the robot's end-effector movement.
+                The client now uses the differential wrist movement from the ROS2 server, and applies it to the robot's end-effector frame.
+                In addition, the client uses libfranka's control interface with Cartesian Pose to command the robot's end-effector movement.
             </p>
             <p>
                 While this approach provides a working prototype, I'm still not satisfied with its performance as I have very little control 
@@ -97,5 +97,25 @@
         <div class="overview-image">
             <img src="assets/images/project_images/franka-teleop/arm_vr_con.gif" alt="VR Teleop" loading="lazy">
         </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">VR Telop: Custom Weighted IK</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/franka-teleop/teleop_update.gif" alt="VR Teleop" loading="lazy">
+        </div>
+        <div class="overview-text">
+            <p>
+                As I continued to explore the capability of libfranka, I realized that the default Cartesian Pose control interface does not provide enough control for my use case.
+            </p>
+            <p>
+                Therefore, I implemented a modified version of the GeoFIK algorithm, and added robot's Yashikawa manipulability, distance from default pose, and distance from 
+                the current joints as parameters for grid searching the null space for the best IK solution. This allows me to control the robot with great flexibility while never
+                reaching the singularity.
+            </p>
+        </div>
+
     </div>
 </div>
