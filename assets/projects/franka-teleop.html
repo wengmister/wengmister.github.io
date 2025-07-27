@@ -1,9 +1,9 @@
 <div class="modal-section overview-section">
     <div class="overview-text">
         <h3 class="modal-section-title">Overview</h3>
-        <p>I have been interested in exploring ways how human could establish telepresence with robots.</p>
-        <p>In this project, I explored the feasibility of teleoperating the Franka Emika Research (FER) 
-            robot using a few different methods - game controller, and VR headset.</p>
+        <p>I have always been interested in exploring ways how human could establish telepresence with robots.</p>
+        <p>In this project, I explored various ways of teleoperating the Franka Emika Research (FER) 
+            robot using a few different methods - game controller, VR headset, leader arm, and more.</p>
         <p>This project was inspired by <a href="https://graham-clifford.com/Robot-Arm-Teleoperation-Through-Computer-Vision-Hand-Tracking/" target="_blank" rel="noopener noreferrer" class="custom-link">Graham Clifford's work</a> on using computer vision hand tracking to teleoperate a robot arm.</p>
     </div>
     <div class="overview-image">
@@ -36,9 +36,10 @@
 </div>
 
 <div class="modal-section">
-    <h3 class="modal-section-title">VR App: Tracking Wrist Vector</h3>
+    <h3 class="modal-section-title">VR Headset Teleoperation</h3>
     <div class="modal-section overview-section">
         <div class="overview-text">
+        <h2 class="modal-section-sub-title">Wrist Tracking App</h2>
             <p>
                 In order to teleoperate the robot using VR headset, I extended my previous work on the <a href="https://github.com/wengmister/quest-wrist-tracker" target="_blank" rel="noopener noreferrer" class="custom-link">VR tracking app</a>,
                 and added the ability to track the wrist vector in terms of position and orientation in quaternion format.
@@ -53,45 +54,35 @@
             <img src="assets/images/project_images/franka-teleop/wrist_tracker.gif" alt="VR Wrist Tracking" loading="lazy">
         </div>
     </div>
-</div>
 
-
-<div class="modal-section">
-    <h3 class="modal-section-title">VR Teleop: MoveIt Servo</h3>
     <div class="modal-section overview-section">
         <div class="overview-image">
             <img src="assets/images/project_images/franka-teleop/moveit_servo.gif" alt="VR Teleoperation" loading="lazy">
         </div>
         <div class="overview-text">
+        <h2 class="modal-section-sub-title">Prototype: MoveIt! Servo</h2>
             <p>
-                In order to teleoperate the robot using VR headset, I used the OXR Hand Tracking rig to track 
-                the hand's pose and orientation. Using this pose and orientation information, I computed a wrist vector
-                and used it to command the robot's end-effector movement.
-            </p>
-            <p>
-                This early prototype was built with <code>moveit-servo</code> package in ROS2. Since this isn't
+                This early prototype was built with <code>moveit-servo</code> package in ROS2 following Graham's work. Since this isn't
                 deployed on a realtime computer, it's performance is suboptimal. In addition, MoveIt Servo provides 
-                very limited capability over the robot's cartesian space control. Therefore, I decided to redesign the app using lower level control API.
+                rather limited capability over the robot's control. Therefore, I decided to redesign the app using lower level control API.
             </p>
         </div>
     </div>
-</div>
 
-<div class="modal-section">
-    <h3 class="modal-section-title">VR Telop: LibFranka</h3>
     <div class="modal-section overview-section">
         <div class="overview-text">
+        <h2 class="modal-section-sub-title">Developing with libfranka</h2>
             <p>
                 In order to teleoperate the robot with better performance, I rebuilt the real-time workstation client 
-                using the native <code>libfranka</code> C++ API.
-            </p>
-            <p>
-                The client now uses the differential wrist movement from the ROS2 server, and applies it to the robot's end-effector frame.
-                In addition, the client uses libfranka's control interface with Cartesian Pose to command the robot's end-effector movement.
+                using the native <code>libfranka</code> C++ API. This allows for more direct control over the robot's
+                kinematics and dynamics.
             </p>
             <p>
                 While this approach provides a working prototype, I'm still not satisfied with its performance as I have very little control 
-                over robot's kinematic with libfranka. I plan to reimplement the client using custom IK solver soon to experiment with different kinematic control methods.
+                over robot's kinematics with libfranka - the robot tends to reach joint limits and singularities often, which makes the robot's movement jerky and unpredictable. 
+            </p>
+            <p>
+                Therefore, I plan to reimplement the client using custom IK solver soon to experiment with different kinematic control methods.
             </p>
         </div>
         <div class="overview-image">
@@ -101,20 +92,60 @@
 </div>
 
 <div class="modal-section">
-    <h3 class="modal-section-title">VR Telop: Custom Weighted IK</h3>
     <div class="modal-section overview-section">
         <div class="overview-image">
             <img src="assets/images/project_images/franka-teleop/teleop_update.gif" alt="VR Teleop with custom IK" loading="lazy">
         </div>
         <div class="overview-text">
+        <h2 class="modal-section-sub-title">Custom weighted IK Solver</h2>
             <p>
                 As I continued to explore the capability of libfranka, I realized that the default Cartesian Pose control interface does not provide enough control for my use case.
             </p>
             <p>
-                Therefore, I implemented a modified version of the GeoFIK algorithm, and added robot's Yashikawa manipulability, distance from default pose, and distance from 
+                Therefore, I implemented a modified version of the GeoFIK algorithm, and added robot's Yoshikawa manipulability, distance from default pose, and distance from 
                 the current joints as parameters for grid searching the null space for the best IK solution. This allows me to control the robot with great flexibility while never
                 reaching the singularity.
             </p>
         </div>
     </div>
+
+    <div class="modal-section">
+        <div class="modal-section overview-section">
+            <div class="overview-text">
+            <h2 class="modal-section-sub-title">Further Optimization</h2>
+                <p>
+                    While the analytical IK solver implementation works very well, the grid search step is greatly slowing down the performance of the IK solver.
+                    Luckily, the weighted score formulation presents itself as a good 1D optimization problem, which can be solved using Brent's method very efficiently.
+                </p>
+                <p>
+                    With this optimization approach, the IK module can now evalute for the best solution consistently within 100 microseconds, which is fast enough 
+                    for real-time joint space control through libfranka.
+                </p>
+            </div>
+            <div class="overview-image">
+                <img src="assets/images/project_images/franka-teleop/Brent.png" alt="Optimization" loading="lazy">
+            </div>
+        </div>
 </div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Future Work</h3>
+    <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/franka-teleop/teleops.gif" alt="Future Work" loading="lazy">
+        </div>
+        <div class="overview-text">
+            <p>
+                This project builds infrastructure and pathways for many future explorations in robot teleoperation and control.
+                I plan to continue exploring the following areas:
+            </p>
+            <ul>
+                <li>Implement learning based control for the robotic arm and hand</li>
+                <li>Experiment with even more input modalities, EIT, IMU, and more</li>
+                <li>Further improve input delay, and establish egocentric telepresence</li>
+            </ul>
+            <p>
+                Let me know what you think!
+            </p>
+        </div>
+    </div>
