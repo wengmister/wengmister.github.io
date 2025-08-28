@@ -1,0 +1,127 @@
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Overview</h3>
+        <p>End-to-end visuoservo policies are becoming a popular way to teach robots new skills.</p>  
+
+        <p>Building on my earlier work in teleoperation and dexterous manipulation, I finally tied these projects together and set up a pipeline for a new arm and hand robot combo.</p>  
+        
+        <p>With LeRobot's framework, I collected demonstrations, fine-tuned pretrained policies, and managed to teach my robots a few new tricks - and of course, I will be open-sourcing my pipeline on GitHub too - but first, I'd like to share how I did it.</p>  
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/lefranx.gif" alt="LeFranX" loading="lazy">
+    </div>
+</div>
+
+
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">So what are visuoservo policies?</h3>
+        <p>Visuoservo policies let robots act from camera and proprioceptive inputs, skipping hand-crafted motion primitives. Instead of modeling every joint or contact, the robot learns to “see and act” in one loop - ideal for manipulation tasks where small visual details matter.</p>  
+
+        <p>Two approaches stand out. <b>ACT (Action Chunking Transformer)</b> learns from demonstrations by breaking motions into reusable chunks, like building blocks the robot can recombine. <b>Diffusion Policies (DP)</b> draw from generative AI, refining actions iteratively from noise, which makes them stable and flexible for complex control.</p>  
+
+        <p>These methods signal a shift in robotics - from rigid, engineered controllers to data-driven models that generalize better. That's the foundation I built on for my own pipeline.</p>  
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/lefranx/architectures.png" alt="VSP Architectures" loading="lazy">
+    </div>
+</div>
+
+
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">FranX: The Combo Robot</h3>
+        <p>I had previously built my own dexterous hand, but with my lab's recent acquisition of a RobotEra XHand, I set out to evaluate its performance.</p>
+
+        <p>To do this, I built a new combo robot: Franka as the arm and XHand as the end-effector. I designed a right-angle coupling to create a better-conditioned kinematic chain and mounted a RealSense D435i as a convenient wrist camera.</p>
+
+        <p>The setup yields a 54-dimensional observation space: 7 arm positions, 7 arm velocities, 16 end-effector pose values, 12 hand joint positions, and 12 hand joint torques. Control is applied through a 19-dimensional position action space.</p>
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/lefranx/lefranx-teleop.gif" alt="Teleop franx" loading="lazy">
+    </div>
+</div>
+
+
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Extending the LeRobot Framework</h3>
+        <p>LeRobot provides a strong foundation of utilities for training and evaluation, but adapting my setup to fit within its framework required some extra work.</p>
+
+        <p>By default, LeRobot officially supports robots primarily developed at Pollen Robotics, along with a handful of lightweight open-source platforms. To use it with a commercial-grade robot like the Franka FER, I needed to create custom wrapper classes that expose the interfaces LeRobot expects.</p>
+
+        <p>Another challenge came from my input data: both hand and arm tracking originate from the same VR headset. To make them usable, I had to split the incoming messages and route them to the right channels. For this, I built a <code>vr_message_router</code> class that handles the distribution cleanly.</p>
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/lefranx/flow-chart.png" alt="System flowchart" loading="lazy">
+    </div>
+</div>
+
+
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Demonstration: Building Action Datasets</h3>
+        <p>Much like humans, robots can now learn by imitating behavior. To enable this, I designed a series of tasks with gradually increasing complexity, ranging from simple pick-and-place of an orange cube to more structured actions like finding a pie from a closed box. Each task was designed to progressively challenge the robot's ability to generalize and adapt.</p>
+
+        <p>I collected 100 demonstration episodes — not only clean successes, but also runs where the robot failed partway before recovering and finishing the task. Capturing these recoveries is important, as they expose the robot to correction strategies that improve robustness and overall success rate.</p>
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/lefranx/data-collection.gif" alt="data collection" loading="lazy">
+    </div>
+</div>
+
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Incorporating new skills: Fine-Tuning Policies</h3>
+        <p>The pre-trained policy from LeRobot provided a valuable starting point, but it was unable to perform the new tasks out-of-the-box. The model lacked exposure to the project's unique objects, environment, and required skills.</p>
+
+        <p>I fine-tuned the base policy using the custom dataset. This required implementing new training and evaluation scripts to navigate limitations in the Draccus configuration system, ultimately allowing me to successfully deploy new policies capable of executing the desired tasks.</p>
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/lefranx/demonstrations.gif" alt="demonstrations" loading="lazy">
+    </div>
+</div>
+
+
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Model Comparison</h3>
+        <p>I observed quite different behavior from the two pretrained models: ACT, being a smaller and more lightweight model, has much smoother inference to action deployment and decent success rate.</p>
+
+        <p>Diffusion policy, on the other hand, was much harder to deploy. Part of the challenge come from the hardware that I have - RTX 4060 on my workstation does nearly bring about enough compute to perform DP inference efficiently, causing the robot to pause before finishing up action denoising - this massively desync'd actions from observation and caused more unstable behavior.</p>
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/lefranx/act-vs-dp.gif" alt="ACT/DP Comparison" loading="lazy">
+    </div>
+</div>
+
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Asynchronous Inference</h3>
+        <p>To overcome the compute bottleneck at inference time, I set up an asynchronous inference pipeline: a remote GPU server running the policy, with my workstation acting as the robot action client.</p>
+
+        <p>I built the policy server using LeRobot's template, adding a few custom tweaks. This let me deploy trained checkpoints on our RTX 6000 Ada GPUs, which offer far more compute than my modest workstation hardware. With this setup, I was finally able to run diffusion policy at close to real-time speeds.</p>
+
+        <p>While my current DP setup still lags behind ACT in performance, there are many parameters left to tune, and I expect further gains as I refine the approach.</p>
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/lefranx/async-inference.gif" alt="Async Inference" loading="lazy">
+    </div>
+</div>
+
+
+<div class="modal-section overview-section">
+    <div class="overview-text">
+        <h3 class="modal-section-title">Reflections</h3>
+        <p>While we've already achieved some successful deployments of visuoservo policies using this pipeline, there is still much to explore and improve.</p>
+        <ul>
+            <li>Investigate vision-language-action models to enable more flexible, instruction-driven behaviors.</li>
+            <li>Further tune action diffusion policies for improved efficiency and reliability.</li>
+            <li>Scale up training using simulated environments or augmented data to expand the range of tasks the robot can handle.</li>
+        </ul>
+        <p>I'm genuinely excited about the future of robotics. All datasets and LeRobot extensions developed in this project will be open-sourced - please feel free to reach out with questions, suggestions, or feedback!</p>
+    </div>
+    <div class="overview-image">
+        <img src="assets/images/project_images/lefranx/reflections.gif" alt="Reflections" loading="lazy">
+    </div>
+</div>

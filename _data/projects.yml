@@ -143,3 +143,16 @@ bdbach:
   external_links:
     - text: "Project Repo"
       url: "https://github.com/wengmister/midi2json" 
+
+lefranx:
+  title: "LeFranX: Behavior Cloning with Franka and XHand"
+  technology:
+    - "Imitation Learning"
+    - "Action Diffusion"
+    - "Action Chunking with Transformers"
+    - "Robot Policies"
+    - "Dexterous Manipulation"
+    - "Visuoservo Policy"
+  external_links:
+    - text: "Project Repo"
+      url: "https://github.com/wengmister/LeFranka"
