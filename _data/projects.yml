@@ -154,5 +154,7 @@ lefranx:
     - "Dexterous Manipulation"
     - "Visuoservo Policy"
   external_links:
-    - text: "Project Repo"
-      url: "https://github.com/wengmister/LeFranka"
+    - text: "Github Repo"
+      url: "https://github.com/wengmister/LeFranX"
+    - text: "🤗HF Dataset"
+      url: "https://huggingface.co/collections/wengmister/lefranx-dataset-68b4684269dbb97fd3061be0"
