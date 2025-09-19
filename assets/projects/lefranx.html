@@ -1,11 +1,12 @@
 <div class="modal-section overview-section">
     <div class="overview-text">
         <h3 class="modal-section-title">Overview</h3>
-        <p>End-to-end visuoservo policies are becoming a popular way to teach robots new skills.</p>  
-
-        <p>Building on my earlier work in teleoperation and dexterous manipulation, I finally tied these projects together and set up a pipeline for a new arm and hand robot combo.</p>  
         
-        <p>With LeRobot's framework, I collected demonstrations, fine-tuned pretrained policies, and managed to teach my robots a few new tricks - and of course, I am open-sourcing my pipeline on GitHub and dataset on HuggingFace too - but first, I'd like to share how I did it.</p>  
+        <p>Teaching robots dexterous skills requires high-quality demonstrations, but most VR teleoperation tools struggle with dexterous hands and don't connect smoothly to learning pipelines.</p>  
+
+        <p><strong>LeVR</strong> tackles this by combining intuitive VR control with seamless integration into LeRobot. Researchers can collect demonstrations with robot arms and hands and use them directly for imitation learning.</p>  
+
+        <p>As a showcase, I built <strong>LeFranX</strong>, an open-source implementation for the Franka FER and RobotEra XHand. It provides an end-to-end workflow: VR data collection, dataset release, and policy training with 100 expert demonstrations. Both the <a href="https://github.com/wengmister/LeFranX"  target="_blank" rel="noopener noreferrer" class="custom-link">code</a> and <a href="https://huggingface.co/collections/wengmister"  target="_blank" rel="noopener noreferrer" class="custom-link">dataset</a> are open to the community.</p>  
     </div>
     <div class="overview-image">
         <iframe 
@@ -62,7 +63,7 @@
         <p>Another challenge came from my input data: both hand and arm tracking originate from the same VR headset. To make them usable, I had to split the incoming messages and route them to the right channels. For this, I built a <code>vr_message_router</code> class that handles the distribution cleanly.</p>
     </div>
     <div class="overview-image">
-        <img src="assets/images/project_images/lefranx/flow-chart.png" alt="System flowchart" loading="lazy">
+        <img src="assets/images/project_images/lefranx/lefranx-chart.png" alt="system architecture" loading="lazy">
     </div>
 </div>
 

@@ -145,7 +145,7 @@ bdbach:
       url: "https://github.com/wengmister/midi2json" 
 
 lefranx:
-  title: "LeFranX: Behavior Cloning with Franka and XHand"
+  title: "LeFranX: Behavior Cloning Franka and XHand with LeVR Framework"
   technology:
     - "Imitation Learning"
     - "Action Diffusion"
@@ -158,3 +158,5 @@ lefranx:
       url: "https://github.com/wengmister/LeFranX"
     - text: "🤗HF Dataset"
       url: "https://huggingface.co/collections/wengmister/lefranx-dataset-68b4684269dbb97fd3061be0"
+    - text: "arXiv"
+      url: "https://arxiv.org/abs/2509.14349"
