@@ -69,6 +69,8 @@ dexterous-hand:
       url: "https://github.com/wengmister/Dex_Hand_MSR"
     - text: "arXiv"
       url: "https://arxiv.org/abs/2504.14712"
+    - text: "CAD - OnShape"
+      url: "https://cad.onshape.com/documents/01cd86c3e9db901b13d9f00a/w/85362aa967854376c1ce3eaf/e/cdd4272996feef8877266f8c?renderMode=0&uiState=68cf1b877e2df93c37c1cc7c"
 
 robotic-mini-golf:
   title: "Apex Putter - Robotic Mini-golf"
