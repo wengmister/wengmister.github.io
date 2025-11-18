@@ -1,7 +1,7 @@
 <div class="modal-section overview-section">
     <div class="overview-text">
         <h3 class="modal-section-title">Overview</h3>
-        <p>Impedance control is central to enabling safe and compliant robot interaction. I like to think of it as shaping a robot's behavior through a virtual spring-mass-damper system, helping it respond naturally to unexpected forces.</p>
+        <p>Impedance control is central to enabling safe and compliant robot interaction. I like to think of it as shaping a robot's behavior through a virtual spring-mass-damper (MSD) system, helping it respond naturally to unexpected forces.</p>
         <p>This approach is especially important for robots that work closely with people, such as exoskeletons and collaborative arms. The Harmony SHR exoskeleton pictured here is a great example of a system that benefits from impedance-based control.</p>
     </div>
     <div class="overview-image">
@@ -10,15 +10,29 @@
 </div>
 
 <div class="modal-section">
-    <h3 class="modal-section-title">Trajectory Following</h3>
+    <h3 class="modal-section-title">Control Formulation</h3>
     <div class="modal-section overview-section">
         <div class="overview-image">
-            <img src="assets/images/project_images/impedance-control/trajectory-following-ns.gif" alt="EE Trajectory Following with impedance control" loading="lazy">
+            <img src="assets/images/project_images/impedance-control/formulation.png" alt="Control formulation in task space and joint space" loading="lazy">
         </div>
+        <div class="overview-text">
+            <p>A standard Cartesian impedance objective is to enforce a dynamic relationship of the form mass x acceleration + damping x velocity + stiffness x position error = external force.</p>
+            <p>To achieve this, the controller first compensates gravity and other predictable torques so that only the interaction force remains. This interaction force becomes the input to the virtual MSD model, rather than directly moving the robot. The result is force-driven motion that feels compliant but controlled.</p>
+            <p>Internally, the controller relies on the Recursive Newton-Euler (RNE) algorithm to evaluate the robot's inverse dynamics. RNE provides fast estimates of gravity, Coriolis, and inertial torques, allowing the controller to cancel these “bias forces” before applying the impedance law. This separation is what lets the robot respond as a pure MSD system to external interaction forces.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Trajectory Following</h3>
+    <div class="modal-section overview-section">
         <div class="overview-text">
             <p>In this project, I experimented with impedance control in both joint space and task space. Task-space control quickly became the most intuitive to work with.</p>
             <p>It lets the end-effector follow a desired trajectory while still yielding to external forces, making the behavior feel smooth rather than rigid. Disturbances are rejected gracefully, and the robot stays responsive.</p>
             <p>This setup also allows stiff tracking in task space while keeping the null space compliant, enabling more natural and adaptable motion.</p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/impedance-control/trajectory-following-ns.gif" alt="EE Trajectory Following with impedance control" loading="lazy">
         </div>
     </div>
 </div>
@@ -26,13 +40,13 @@
 <div class="modal-section">
     <h3 class="modal-section-title">Bilateral Teleoperation</h3>
     <div class="modal-section overview-section">
+        <div class="overview-image">
+            <img src="assets/images/project_images/impedance-control/bilateral-teleop.gif" alt="Bilateral teleoperation" loading="lazy">
+        </div>
         <div class="overview-text">
             <p>Bilateral teleoperation is a natural application of impedance control. A master device guides a follower robot, and the operator feels the forces the follower encounters.</p>
             <p>Using a joint-space impedance proxy, I was able to create a simple yet effective haptic loop. When the master and follower robots share similar kinematics, this method works surprisingly well and feels intuitive to operate.</p>
             <p>This setup allowed me to prototype haptic behaviors before exploring more challenging robot pairings.</p>
-        </div>
-        <div class="overview-image">
-            <img src="assets/images/project_images/impedance-control/bilateral-teleop.gif" alt="Bilateral teleoperation" loading="lazy">
         </div>
     </div>
 </div> 
@@ -40,12 +54,13 @@
 <div class="modal-section">
     <h3 class="modal-section-title">Bilateral Teleop with Different Robots</h3>
     <div class="modal-section overview-section">
-        <div class="overview-image">
-            <img src="assets/images/project_images/impedance-control/bilateral_diff_kin.gif" alt="Bilateral teleop with different robots" loading="lazy">
-        </div>
         <div class="overview-text">
             <p>When the master and follower robots have different kinematics or degrees of freedom, the joint-space impedance proxy starts to break down.</p>
             <p>To handle these mismatches, I switched to task-space impedance control, with two robots tracking a shared virtual proxy. This formulation is more flexible and lets forces and motions be mapped consistently between very different robots.</p>
             <p>It also allows independent stiffness tuning along each task-space dimension, which becomes useful when coordinating robots with different workspaces or capabilities.</p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/impedance-control/bilateral_diff_kin.gif" alt="Bilateral teleop with different robots" loading="lazy">
+        </div>
     </div>
 </div>
