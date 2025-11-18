@@ -162,3 +162,14 @@ lefranx:
       url: "https://huggingface.co/collections/wengmister/lefranx-dataset-68b4684269dbb97fd3061be0"
     - text: "arXiv"
       url: "https://arxiv.org/abs/2509.14349"
+
+impedance-control:
+  title: "Impedance Control with MuJoCo Simulations"
+  technology:
+    - "MuJoCo"
+    - "Impedance Control"
+    - "Simulation"
+    - "Python"
+  external_links:
+    - text: "Project Repo"
+      url: "https://github.com/wengmister/impedance_control_mujoco"
