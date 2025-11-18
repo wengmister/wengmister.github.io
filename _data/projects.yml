@@ -125,10 +125,8 @@ franka-teleop:
     - "C++"
     - "ROS2"
   external_links:
-    - text: "Project Repo - VR"
+    - text: "Github Repo"
       url: "https://github.com/wengmister/franka-vr-teleop"
-    - text: "Project Repo - Controller"
-      url: "https://github.com/wengmister/franka_joystick_teleop"
     - text: "VR App"
       url: "https://github.com/wengmister/quest-wrist-tracker"
 
@@ -171,5 +169,5 @@ impedance-control:
     - "Simulation"
     - "Python"
   external_links:
-    - text: "Project Repo"
+    - text: "Github Repo"
       url: "https://github.com/wengmister/impedance_control_mujoco"
