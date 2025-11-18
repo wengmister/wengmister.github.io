@@ -463,6 +463,69 @@ nav ul li {
     margin-bottom: 15px;
 }
 
+.impedance-equation {
+    margin: 15px 0 20px;
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid #d6e2eb;
+    background: linear-gradient(135deg, #fafdff, #f1f6fb);
+    font-family: "Courier New", Courier, monospace;
+}
+
+.impedance-equation-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    color: #1f2c3d;
+}
+
+.impedance-term {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.25rem;
+}
+
+.impedance-symbol {
+    font-weight: 600;
+}
+
+.impedance-variable {
+    font-style: italic;
+}
+
+.impedance-operator {
+    font-weight: 600;
+    color: #4a5b6c;
+}
+
+.impedance-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.5rem 1.5rem;
+    margin-top: 12px;
+    font-size: 0.9rem;
+}
+
+.legend-item {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: 0.5rem;
+}
+
+.impedance-legend dt {
+    font-weight: 600;
+    margin: 0;
+    color: #2b779b;
+}
+
+.impedance-legend dd {
+    margin: 0;
+    color: #4a5b6c;
+}
+
 /* Modal technologies list */
 .tech-list {
     display: flex;

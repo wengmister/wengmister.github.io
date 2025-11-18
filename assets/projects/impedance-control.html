@@ -16,7 +16,46 @@
             <img src="assets/images/project_images/impedance-control/formulation.png" alt="Control formulation in task space and joint space" loading="lazy">
         </div>
         <div class="overview-text">
-            <p>A standard Cartesian impedance objective is to enforce a dynamic relationship of the form mass x acceleration + damping x velocity + stiffness x position error = external force.</p>
+            <p>A standard impedance objective is to enforce a dynamic relationship of the form: </p>
+            <div class="impedance-equation" role="img" aria-label="M times x double dot plus B times x dot plus K times position error equals the external force.">
+                <div class="impedance-equation-row">
+                    <span class="impedance-term">
+                        <span class="impedance-symbol">M</span>
+                        <span class="impedance-operator">&times;</span>
+                        <span class="impedance-variable">x&#776;</span>
+                    </span>
+                    <span class="impedance-operator">+</span>
+                    <span class="impedance-term">
+                        <span class="impedance-symbol">B</span>
+                        <span class="impedance-operator">&times;</span>
+                        <span class="impedance-variable">x&#775;</span>
+                    </span>
+                    <span class="impedance-operator">+</span>
+                    <span class="impedance-term">
+                        <span class="impedance-symbol">K</span>
+                        <span class="impedance-operator">&times;</span>
+                        <span class="impedance-variable">(x - x<sub>d</sub>)</span>
+                    </span>
+                    <span class="impedance-operator">=</span>
+                    <span class="impedance-term">
+                        <span class="impedance-symbol">F<sub>ext</sub></span>
+                    </span>
+                </div>
+                <dl class="impedance-legend">
+                    <div class="legend-item">
+                        <dt>M, B, K</dt>
+                        <dd>virtual mass, damping, and stiffness gains</dd>
+                    </div>
+                    <div class="legend-item">
+                        <dt>x&#776;, x&#775;</dt>
+                        <dd>task-space acceleration and velocity</dd>
+                    </div>
+                    <div class="legend-item">
+                        <dt>(x - x<sub>d</sub>)</dt>
+                        <dd>position error relative to the desired pose</dd>
+                    </div>
+                </dl>
+            </div>
             <p>To achieve this, the controller first compensates gravity and other predictable torques so that only the interaction force remains. This interaction force becomes the input to the virtual MSD model, rather than directly moving the robot. The result is force-driven motion that feels compliant but controlled.</p>
             <p>Internally, the controller relies on the Recursive Newton-Euler (RNE) algorithm to evaluate the robot's inverse dynamics. RNE provides fast estimates of gravity, Coriolis, and inertial torques, allowing the controller to cancel these “bias forces” before applying the impedance law. This separation is what lets the robot respond as a pure MSD system to external interaction forces.</p>
         </div>
