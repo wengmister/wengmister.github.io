@@ -17,7 +17,7 @@
         </div>
         <div class="overview-text">
             <p>A standard impedance objective is to enforce a dynamic relationship of the form: </p>
-            <div class="impedance-equation" role="img" aria-label="M times x double dot plus B times x dot plus K times position error equals the external force.">
+            <div class="impedance-equation" role="img" aria-label="M times x double dot plus B times velocity error plus K times position error equals the external force.">
                 <div class="impedance-equation-row">
                     <span class="impedance-term">
                         <span class="impedance-symbol">M</span>
@@ -28,7 +28,7 @@
                     <span class="impedance-term">
                         <span class="impedance-symbol">B</span>
                         <span class="impedance-operator">&times;</span>
-                        <span class="impedance-variable">x&#775;</span>
+                        <span class="impedance-variable">(x&#775; - x&#775;<sub>d</sub>)</span>
                     </span>
                     <span class="impedance-operator">+</span>
                     <span class="impedance-term">
@@ -48,11 +48,15 @@
                     </div>
                     <div class="legend-item">
                         <dt>x&#776;, x&#775;</dt>
-                        <dd>task-space acceleration and velocity</dd>
+                        <dd>task-space acceleration and velocity (with desired velocity x&#775;<sub>d</sub>)</dd>
                     </div>
                     <div class="legend-item">
                         <dt>(x - x<sub>d</sub>)</dt>
                         <dd>position error relative to the desired pose</dd>
+                    </div>
+                    <div class="legend-item">
+                        <dt>x → q</dt>
+                        <dd>swap task-space pose for joint coordinates to run the same law in joint space</dd>
                     </div>
                 </dl>
             </div>
