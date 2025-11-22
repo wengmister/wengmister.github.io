@@ -107,3 +107,18 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal-section"> 
+    <h3 class="modal-section-title">Simulation vs. Reality</h3> 
+    <div class="modal-section overview-section"> 
+        <div class="overview-image"> 
+            <img src="assets/images/project_images/impedance-control/reality.png" alt="Workarounds irl" loading="lazy"> 
+        </div> 
+        <div class="overview-text"> 
+            <p>Simulation makes impedance control look easy: joints are perfectly backdrivable, frictionless, and every commanded torque turns into clean motion.</p> 
+            <p>Real hardware is far less ideal. Gear transmissions add friction, backlash, and large reflected inertia, so the small interaction forces impedance control depends on often vanish inside the drivetrain. That's why a controller that feels smooth in simulation can feel stiff or “numb” on a physical robot - the virtual MSD behavior is still computed, but the mechanics mask it.</p> 
+            <p>Modern approaches tackle this from several angles. Quasi-direct-drive (QDD) actuators cut gear ratios to improve backdrivability and torque transparency. High-end robots pair joint torque sensors with high-rate inner loops to cancel friction and nonlinearities. Robots without torque sensing rely on end-effector F/T sensors or admittance control, which recreates compliance through stiff position control rather than true torque transparency.</p> 
+        </div> 
+    </div> 
+</div>
