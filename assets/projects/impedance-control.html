@@ -122,3 +122,18 @@
         </div> 
     </div> 
 </div>
+
+
+<div class="modal-section">
+    <h3 class="modal-section-title">Aside: Admittance Control</h3> 
+    <div class="modal-section overview-section"> 
+        <div class="overview-text"> 
+            <p>To demonstrate some common workarounds for real hardware, I also implemented a basic admittance controller. Admittance control uses position control to simulate a virtual MSD system, rather than relying on torque transparency.</p>
+            <p>In this setup, the external force is measured at the end-effector using a force/torque sensor. The measured wrench now scales with task space end-effector twist, which is then tracked using a high-gain position controller.</p>
+            <p>This approach helps to generate compliant task space behaviors even when the robot's joints are not backdrivable, enabling safe and intuitive human-robot interaction.</p>
+        </div>
+        <div class="overview-image">
+            <img src="assets/images/project_images/impedance-control/xarm_admittance.gif" alt="Admittance control demo" loading="lazy">
+        </div>
+    </div>
+</div>
