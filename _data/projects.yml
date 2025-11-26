@@ -1,10 +1,13 @@
 monarch:
   title: "Monarch Endoscopic Surgical Platform"
   technology:
+    - "Surgical Robotics"
     - "Robotic Arm Design"
     - "Medical Device"
     - "Robot Arm Calibration" 
-    - "NPS Software Development"
+    - "Minimally Invasive Surgery"
+    - "Admittance Control Prototypes"
+    - "Concept-to-Release Hardware"
   external_links:
     - text: "🫁 Company Website"
       url: "https://www.jnjmedtech.com/en-US/product-family/monarch/"
@@ -12,10 +15,13 @@ monarch:
 yomi:
   title: "Yomi S Dental Surgical Robot"
   technology:
+    - "Dental Surgical Robotics"
     - "Robotic Actuator Design"
     - "Precision Mechatronics"
     - "Robot Calibration"
     - "System Integration"
+    - "Human-Robot Interface"
+    - "System-level Development"
   external_links:
     - text: "🦷 Company Website"
       url: "https://www.neocis.com/"
@@ -29,6 +35,9 @@ harmony:
     - "Rehabilitation Robotics"
     - "Linear Actuators"
     - "Human-Robot Interface"
+    - "Sensor Characterization"
+    - "Finite Element Analysis"
+    - "R&D Infrastructure"
   external_links:
     - text: "💪 Company Website"
       url: "https://harmonicbionics.com/"
