@@ -6,7 +6,7 @@ monarch:
     - "Robot Arm Calibration" 
     - "NPS Software Development"
   external_links:
-    - text: "Company Website"
+    - text: "🫁 Company Website"
       url: "https://www.jnjmedtech.com/en-US/product-family/monarch/"
 
 yomi:
@@ -17,7 +17,7 @@ yomi:
     - "Robot Calibration"
     - "System Integration"
   external_links:
-    - text: "Company Website"
+    - text: "🦷 Company Website"
       url: "https://www.neocis.com/"
     - text: "Media Coverage"
       url: "https://www.bizjournals.com/southflorida/news/2022/05/12/cover-story-the-surgical-robots-are-coming.html?b=1652397044%5E22075697&utm_campaign=Corporate+Communications&utm_content=209394706&utm_medium=social&utm_source=linkedin"
@@ -30,7 +30,7 @@ harmony:
     - "Linear Actuators"
     - "Human-Robot Interface"
   external_links:
-    - text: "Company Website"
+    - text: "💪 Company Website"
       url: "https://harmonicbionics.com/"
 
 athena:
