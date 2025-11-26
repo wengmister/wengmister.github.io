@@ -118,6 +118,24 @@ nav ul li {
     flex: 1;  /* Takes up available space */
 }
 
+.contact-note {
+    font-size: 0.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.1rem;
+    line-height: 0.8rem;
+}
+
+.contact-note a {
+    color: #2b779b;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: inherit;
+}
+
+.contact-note a:hover {
+    color: #007bff;
+}
+
 .carousel-wrapper {
     flex: 1;  /* Takes up available space */
     display: flex;
