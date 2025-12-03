@@ -75,7 +75,7 @@ dexterous-hand:
     - "ROS2"
   external_links:
     - text: "Github Repo"
-      url: "https://github.com/wengmister/Dex_Hand_MSR"
+      url: "https://github.com/wengmister/BiDexHand"
     - text: "arXiv"
       url: "https://arxiv.org/abs/2504.14712"
     - text: "CAD - OnShape"
@@ -151,7 +151,7 @@ bdbach:
     - "C++"
   external_links:
     - text: "Project Repo"
-      url: "https://github.com/wengmister/midi2json" 
+      url: "https://github.com/wengmister/BiDexHand" 
 
 lefranx:
   title: "LeFranX: Behavior Cloning Franka and XHand with LeVR Framework"
