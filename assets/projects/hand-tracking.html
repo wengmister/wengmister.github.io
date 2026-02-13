@@ -1,0 +1,37 @@
+<div class="modal-section overview-section">
+  <div class="overview-text">
+    <h3 class="modal-section-title">Overview</h3>
+    <p><b>Hand Tracking Streamer (HTS)</b> turns a Meta Quest headset into a practical hand-telemetry device for robotics. It streams 21-landmark hand tracking plus a 6-DoF wrist pose to your workstation over Wi-Fi.</p>
+    <p>Use <b>UDP</b> for low-latency teleoperation and <b>TCP</b> for reliable logging and dataset capture. HTS is free on the Meta Quest Store (and SideQuest), with Python + ROS SDKs for fast integration.</p>
+  </div>
+  <div class="overview-image">
+    <img src="assets/images/project_images/hts/hts_intro.gif" alt="Hand Tracking Streamer Overview" loading="lazy">
+  </div>
+</div>
+
+<div class="modal-section">
+  <h3 class="modal-section-title">Why I Built It</h3>
+  <div class="modal-section overview-section">
+    <div class="overview-image">
+      <img src="assets/images/project_images/Hand/vr_control.gif" alt="Hand Tracking Streamer Teleoperation" loading="lazy">
+    </div>
+    <div class="overview-text">
+      <p>HTS started as a need for reliable hand telemetry for teleoperating my dexterous hand (<a href="#dexterous-hand" target="_blank" class="custom-link">BiDexHand</a>) and later became part of my <a href="#lefranx" target="_blank" class="custom-link">LeVR pipeline</a>.</p>
+      <p>I kept seeing the same pattern: researchers and developers reinventing fragile VR-to-robot glue code - often gated behind “developer mode” workflows. HTS packages the boring infrastructure (config, streaming, debugging) into a repeatable tool anyone can install and use with one click.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-section">
+  <h3 class="modal-section-title">SDK & Extensions</h3>
+  <div class="modal-section overview-section">
+    <div class="overview-text">
+      <p>HTS ships with a Python SDK (<a href="https://pypi.org/project/hand-tracking-sdk/" target="_blank" class="custom-link">PyPI</a>) and a <a href="https://github.com/wengmister/hand-tracking-sdk-ros2/" target="_blank" class="custom-link">ROS 2 bridge package</a>, so streamed packets become usable data quickly—typed parsing, logging, and visualization included.</p>
+      <p>The goal is to support teleop, imitation learning, and simulation workflows without bespoke plumbing. Docs and demos are included, and contributions are welcome (issues/PRs for integration, formats, or tooling).</p>
+      <p>Let's build something cool together!</p>
+    </div>
+    <div class="overview-image">
+      <img src="assets/images/project_images/hts/visualizer.gif" alt="SDK visualizations" loading="lazy">
+    </div>
+  </div>
+</div>

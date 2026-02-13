@@ -180,3 +180,21 @@ impedance-control:
   external_links:
     - text: "Github Repo"
       url: "https://github.com/wengmister/impedance_control_mujoco"
+
+hand-tracking:
+  title: "Hand Tracking Streamer: Meta Quest VR App for tracking and streaming hand and wrist landmark telemetry"
+  technology:
+    - "Mixed Reality"
+    - "Hand Tracking"
+    - "Unity Engine"
+    - "Teleoperation"
+    - "C#"
+    - "Python"
+    - "ROS2"
+  external_links:
+    - text: "Github Repo"
+      url: "https://github.com/wengmister/hand-tracking-streamer"
+    - text: "Meta Quest Store"
+      url: "https://www.meta.com/experiences/hand-tracking-streamer/26303946202523164/"
+    - text: "Python SDK"
+      url: "https://pypi.org/project/hand-tracking-sdk/"
