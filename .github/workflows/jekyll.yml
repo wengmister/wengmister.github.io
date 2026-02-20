@@ -37,7 +37,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1.4' # Ensure this matches your site's required Ruby version
+          ruby-version: '3.4.8' # Keep in sync with .ruby-version
           bundler-cache: true # Automatically caches installed gems
 
       - name: Install Dependencies
