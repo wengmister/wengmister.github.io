@@ -1,3 +1,18 @@
+memo:
+  title: "Memo, The Helpful Home Robot"
+  technology:
+    - "Home Robotics"
+    - "Robotics Systems Engineering"
+    - "Hardware & Software Stack Development"
+    - "Manufacturing Tooling"
+    - "Component Evaluation & Integration"
+    - "Robot Performance Validation"
+  external_links:
+    - text: "🤖 Company Website"
+      url: "https://sunday.ai/"
+    - text: "🚀 We're Hiring!"
+      url: "https://sunday.ai/careers"
+
 monarch:
   title: "Monarch Endoscopic Surgical Platform"
   technology:
