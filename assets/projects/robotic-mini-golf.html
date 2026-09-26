@@ -3,7 +3,7 @@
         <h3 class="modal-section-title">Overview</h3>
         <p>Mini golf offers a fascinating challenge for robotics. While children rely on intuition and practice to master it, programming a robot to achieve the same goal demands precise control over its movements and timing. A child needs only a putter, a ball, and a hole to score a hole-in-one, but for a robot, careful planning and execution are key.</p>
         <p>For the Franka Panda robot, this task becomes even more intricate. Although the robot doesn't feel the pressure of competition, a poorly planned Cartesian path can create significant difficulties. In this setup, the robot must putt the ball with just the right amount of force to successfully reach the hole.</p>
-        <p>In this project, I developed the vision module for the robot, designed the mechanical components for the putter end-effector, wrote the demo tasks, and created the ROS2 package for Apex-Putter.</p>
+        <p>In this project, I developed the vision module for the robot, designed the mechanical components for the putter end-effector, wrote the demo tasks, and created the ROS 2 package for Apex-Putter.</p>
     </div>
     <div class="overview-image">
         <img src="assets/images/project_images/Apex-Putter/AP.png" alt="Robotic mini-golf" loading="lazy">
@@ -54,7 +54,7 @@
     <h3 class="modal-section-title">Motion Control</h3>
     <div class="modal-section overview-section">
         <div class="overview-text">
-            <p>The motion control module leverages ROS2 to interface with the robot and the vision module.</p>
+            <p>The motion control module leverages ROS 2 to interface with the robot and the vision module.</p>
             <p>Using data from the vision module, the motion control module calculates the robot's end-effector position and orientation, then plans a precise vector path to move the putter toward the ball and hole.</p>
             <p>As the path is planned, the node uses MoveIt2! package to send the kinematic planning to the robot, which executes the motion accordingly.</p>
         </div>

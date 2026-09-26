@@ -1,42 +1,33 @@
 <h2>Featured Projects</h2>
-    <ul class="project-list">
-        <li class="project-item" data-project-id="dexterous-hand">
-            <div class="project-content">
-                <img src="assets/images/project_images/Hand/hand_preview_v3.gif" alt="Hand build">
-                <div class="project-details">
-                    <div class="project-title">
-                        <h3>
-                            BiDexHand: 16-DoF Open-Source Biomimetic Dexterous Hand
-                        </h3>
-                    </div>
-                    <p>I've always been fascinated by the complexity and dexterity of the human hand, one of our most remarkable tools. In this project, I did full-stack robot development of an anthropomorphic hand that replicates human dexterity using cable-driven mechanisms.</p>
-                    <div class="tech-list">
-                        <span class="tech-item">Dexterous Hand</span>
-                        <span class="tech-item">Cable Driven Actuators</span>
-                        <span class="tech-item">Rapid Prototyping</span>
-                        <span class="tech-item">Computer Vision</span>
-                    </div>
+<ul class="project-list">
+    <li class="project-item" data-project-id="dexterous-hand">
+        <a class="project-content" href="#dexterous-hand" aria-labelledby="title-dexterous-hand">
+            <img src="assets/images/project_images/Hand/hand_preview_v3.gif" alt="BiDexHand demonstrating hand movements">
+            <div class="project-details">
+                <h3 id="title-dexterous-hand">BiDexHand</h3>
+                <p class="project-subtitle">Open-source, 16-DoF dexterous hand</p>
+                <p>I&#x27;ve always been fascinated by the dexterity of the human hand. I designed and built BiDexHand across mechanics, electronics, and controls, using cable-driven fingers to explore low-cost robotic dexterity.</p>
+                <div class="tech-list">
+                    <span class="tech-item">Dexterous manipulation</span>
+                    <span class="tech-item">Cable-driven actuators</span>
+                    <span class="tech-item">ROS 2</span>
                 </div>
             </div>
-        </li>
-        <!-- Project 2 -->
-        <li class="project-item" data-project-id="lefranx">
-            <div class="project-content">
-                <img src="assets/images/project_images/lefranx.gif" alt="LeFranX Overview">
-                <div class="project-details">
-                    <div class="project-title">
-                        <h3> 
-                            LeFranX: Behavior Cloning Franka & XHand with LeRobot
-                        </h3>
-                    </div>
-                    <p>Imitation learning has been gaining popularity for robot motor skill acquisition. In this project, I explored different policy architectures, and created a framework for training visuoservo policy on my Franka FER and XHand robot combo based on the LeRobot library.</p>
-                    <div class="tech-list">
-                        <span class="tech-item">Imitation Learning</span>
-                        <span class="tech-item">Action Chuncking with Transformers</span>
-                        <span class="tech-item">Diffusion Policy</span>
-                        <span class="tech-item">Python</span>
-                    </div>
+        </a>
+    </li>
+    <li class="project-item" data-project-id="lefranx">
+        <a class="project-content" href="#lefranx" aria-labelledby="title-lefranx">
+            <img src="assets/images/project_images/lefranx.gif" alt="Collecting demonstrations with Franka and XHand">
+            <div class="project-details">
+                <h3 id="title-lefranx">LeFranX</h3>
+                <p class="project-subtitle">Imitation learning with Franka and XHand</p>
+                <p>Imitation learning lets robots acquire motor skills from demonstrations. In this project, I explored ACT and diffusion policies and built a LeRobot-based framework for training and deploying visuomotor policies on a Franka FER arm and XHand.</p>
+                <div class="tech-list">
+                    <span class="tech-item">Imitation learning</span>
+                    <span class="tech-item">ACT / Diffusion</span>
+                    <span class="tech-item">Teleoperation</span>
                 </div>
             </div>
-        </li>
-    </ul>
+        </a>
+    </li>
+</ul>

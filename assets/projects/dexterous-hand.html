@@ -12,11 +12,11 @@
             <li>Anthropomorphic phalanx design with <strong>16 total DoF</strong> and 21 Joints</li>
             <li><strong>Cable-driven</strong> mechanism for precise control and minimal inertia</li>
             <li>Motion shadowing to mimic hand gestures with multi-modal input</li>
-            <li><strong>ROS2</strong> based control framework for seamless integration</li>
+            <li><strong>ROS 2</strong> based control framework for seamless integration</li>
         </ul>
         
         <p>
-            Released open source, this project aim to provide researchers and engineers alike a platform 
+            Released open source, this project aims to provide researchers and engineers alike a platform
             to experiment and explore low-cost dexterity.
         </p>
     </div>
@@ -108,7 +108,7 @@
                 human gestures with high precision.
             </p>
             <p>
-                To implement this feature, I wrote a ROS2 node that uses Google's 
+                To implement this feature, I wrote a ROS 2 node that uses Google's
                 <a href="https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker" 
                    target="_blank" 
                    rel="noopener noreferrer" 
@@ -126,7 +126,7 @@
     <h3 class="modal-section-title">VR Headset Teleoperation Control</h3>
     <div class="modal-section overview-section">
         <div class="overview-text">
-            <p>While the Hand can shadow human movements, it also supports different input modalities. With Unity Editor, I created <a href="https://github.com/NU-MECH-ENG-495/project-wengmister-vr-hand-tracking" target="_blank" rel="noopener noreferrer" class="custom-link">an VR app</a> for a Meta Quest 3S headset that calculates and broadcasts tracked hand joint angles, enabling very intuitive control over the robotic hand with HUD debugging info and synthetic overlay.</p> 
+            <p>While the Hand can shadow human movements, it also supports different input modalities. With Unity Editor, I created <a href="https://github.com/NU-MECH-ENG-495/project-wengmister-vr-hand-tracking" target="_blank" rel="noopener noreferrer" class="custom-link">a VR app</a> for a Meta Quest 3S headset that calculates and broadcasts tracked hand joint angles, enabling very intuitive control over the robotic hand with HUD debugging info and synthetic overlay.</p>
             <p>With this feature, the Hand can be used in a variety of applications, from teleoperation to virtual reality experiences. The Hand's flexibility in input modalities ensures seamless integration into diverse environments and use cases.</p>
         </div>
         <div class="overview-image">
@@ -142,7 +142,7 @@
             <img src="assets/images/project_images/Hand/v2_improvements.gif" alt="V2 Improvements" loading="lazy">
         </div>
         <div class="overview-text">
-            <p>In the later half of the project, I revemped the mechanical architecture to improve joint range of motion and accuracy. <p>
+            <p>In the latter half of the project, I revamped the mechanical architecture to improve joint range of motion and accuracy.</p>
             <p>By redesigning cable routing inside the phalanx linkages, I was able to expand the MCP joint range of motion by more than 100%. This improvement significantly enhances the Hand's dexterity and control bandwidth, making it more versatile for a wide range of applications.</p>
             <p>Also, I realized during builds that <strong>greater tendon path variability leads to greater joint angle hysteresis</strong>. Therefore, I implemented a novel cable tensioning system that maintains consistent tension across the tendon path in addition to constraining the PTFE tubes, greatly reducing hysteresis and improving joint accuracy.</p>  
         </div>
@@ -153,7 +153,7 @@
     <h3 class="modal-section-title">URDF: Simulation and Visualization</h3>
     <div class="modal-section overview-section">
         <div class="overview-text">
-            <p>For simulation and visualization, I created a URDF model of the Hand in ROS2. This model accurately represents the Hand's mechanical structure and kinematics, enabling realistic simulation and visualization of the Hand's movements.</p>
+            <p>For simulation and visualization, I created a URDF model of the Hand in ROS 2. This model accurately represents the Hand's mechanical structure and kinematics, enabling realistic simulation and visualization of the Hand's movements.</p>
             <p>By integrating the URDF model with Rviz, I can simulate and visualize the Hand's motion and test its performance in real time. This capability allows me to refine the Hand's design and control scheme before implementing them on the physical prototype.</p>
         </div>
         <div class="overview-image">
@@ -170,7 +170,7 @@
         </div>
         <div class="overview-text">
             <p>As the very natural next step, I integrated my robotic hand with a robotic arm - the <a href="https://franka.de/" target="_blank" rel="noopener noreferrer" class="custom-link">Franka Emika Research robot</a>. This integration allows the Hand to be used for more complex tasks, such as dexterous manipulation and object grasping.</p>
-            <p>In addition, I designed a Intel RealSense D405 wrist camera in the hand-arm coupling, which enables the Hand to perform vision-based tasks and interact with the environment more effectively.</p>
+            <p>In addition, I integrated an Intel RealSense D405 wrist camera into the hand-arm coupling, which enables the Hand to perform vision-based tasks and interact with the environment more effectively.</p>
             <p>With the popularity of the FER arm, and the open-source nature of this project, I created a relatively low-cost yet easily accessible dexterity platform for research and development in robotics and automation.</p>
         </div>
     </div>  
@@ -204,7 +204,7 @@
                 This allows for more intuitive control of the arm and hand, enabling the robot to perform complex tasks with ease.
             </p>
             <p>
-                You can red more about the teleoperation in my <a href="https://wengmister.github.io/#franka-teleop" class="custom-link">Franka Teleoperation project</a> post.
+                You can read more about the teleoperation in my <a href="https://wengmister.github.io/#franka-teleop" class="custom-link">Franka Teleoperation project</a> post.
             </p>
         </div>
     </div>
@@ -231,8 +231,8 @@
             <img src="assets/images/project_images/Hand/control_architecture.png" alt="Control Architecture" loading="lazy">
         </div>
         <div class="overview-text">
-            <p>The control architecture for the Hand is designed and implemented with ROS2, allowing for easy integration with the pub-sub framework across distributed systems.</p>
-            <p>A few ROS2 nodes work together to implement the control: vision node integrates motion input sources and processes camera input; application node processes joint angles and compensates them according to robot calibration; and finally the servo node sends the corresponding commands to the Hand's servo controller via serial comms.</p>
+            <p>The control architecture for the Hand is designed and implemented with ROS 2, allowing for easy integration with the pub-sub framework across distributed systems.</p>
+            <p>A few ROS 2 nodes work together to implement the control: vision node integrates motion input sources and processes camera input; application node processes joint angles and compensates them according to robot calibration; and finally the servo node sends the corresponding commands to the Hand's servo controller via serial comms.</p>
             <p>The control architecture is very extensible, allowing many functionalities to be added with ease.</p>
         </div>
     </div>
