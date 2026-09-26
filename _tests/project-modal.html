@@ -19,8 +19,9 @@ const waitFor = async (condition, message) => {
     }
 };
 let loadIndex = 0;
+const runId = Date.now();
 const load = async (hash = '') => {
-    frame.src = '/?regression=' + (++loadIndex) + hash;
+    frame.src = '/?regression=' + runId + '-' + (++loadIndex) + hash;
     await new Promise(resolve => frame.onload = resolve);
     return frame.contentWindow;
 };
@@ -42,6 +43,43 @@ const tests = [
             link.focus();
             assert(win.document.activeElement === link, 'Project link cannot receive focus');
         }
+    }],
+    ['Project animations autoplay and loop in cards and dialogs', async () => {
+        const win = await load();
+        const checkPlayback = async video => {
+            assert(video, 'Project animation is not a video');
+            assert(video.autoplay && video.loop && video.muted && video.playsInline, 'Animation playback settings are missing');
+            assert(video.preload === 'auto' && !video.hasAttribute('loading'), 'Animation is not set to preload');
+            video.scrollIntoView({ block: 'center' });
+            await waitFor(() => !video.paused && video.currentTime > 0 && video.duration > 0, 'Visible animation did not autoplay');
+            video.currentTime = video.duration - 0.1;
+            await waitFor(() => video.currentTime < video.duration - 0.1, 'Animation did not loop');
+        };
+        await checkPlayback(card(win.document, 'dexterous-hand').querySelector('video'));
+        await open(win, 'hand-tracking');
+        await checkPlayback(win.document.querySelector('.modal video'));
+    }],
+    ['Returning to a visible tab restores card and dialog animations', async () => {
+        const win = await load();
+        await open(win, 'hand-tracking');
+        const videos = [...win.document.querySelectorAll('video[autoplay][loop][muted]')];
+        assert(videos.some(video => video.closest('.modal')), 'Dialog videos were not loaded');
+        let state = 'hidden';
+        Object.defineProperty(win.document, 'visibilityState', { configurable: true, get: () => state });
+        let reloads = 0;
+        for (const video of videos) {
+            const load = video.load.bind(video);
+            video.load = () => { reloads++; load(); };
+        }
+        win.document.dispatchEvent(new win.Event('visibilitychange'));
+        assert(reloads === 0, 'Videos reloaded while the tab was hidden');
+        state = 'visible';
+        win.document.dispatchEvent(new win.Event('visibilitychange'));
+        assert(reloads === videos.length, 'Returning to the tab did not restore every animation');
+        delete win.document.visibilityState;
+        const video = win.document.querySelector('.modal video');
+        video.scrollIntoView({ block: 'center' });
+        await waitFor(() => !video.paused && video.currentTime > 0, 'Restored animation did not autoplay');
     }],
     ['Back and Forward preserve project history', async () => {
         const win = await load();
@@ -153,12 +191,14 @@ const tests = [
             frame.style.width = width + 'px';
             await new Promise(resolve => requestAnimationFrame(resolve));
             assert(modal.scrollWidth <= modal.clientWidth, `Dialog overflows at ${width}px`);
-            for (const video of modal.querySelectorAll('iframe')) {
+            for (const video of modal.querySelectorAll('iframe, video')) {
                 const bounds = video.getBoundingClientRect();
                 const section = video.closest('.overview-section');
                 assert(bounds.right <= modal.getBoundingClientRect().right, `Video exceeds dialog width at ${width}px`);
                 assert(bounds.bottom <= section.getBoundingClientRect().bottom + 1, `Video exceeds its section height at ${width}px`);
-                assert(bounds.bottom <= section.nextElementSibling.getBoundingClientRect().top, `Video overlaps the next section at ${width}px`);
+                if (section.nextElementSibling) {
+                    assert(bounds.bottom <= section.nextElementSibling.getBoundingClientRect().top, `Video overlaps the next section at ${width}px`);
+                }
             }
         }
     }]
