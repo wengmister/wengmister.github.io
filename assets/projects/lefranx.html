@@ -98,7 +98,7 @@
         <h3 class="modal-section-title">Model Comparison</h3>
         <p>I observed quite different behavior from the two pretrained models: ACT, being a smaller and more lightweight model, has much smoother inference to action deployment and decent success rate.</p>
 
-        <p>Diffusion policy, on the other hand, was much harder to deploy. Part of the challenge come from the hardware that I have - RTX 4060 on my workstation does nearly bring about enough compute to perform DP inference efficiently, causing the robot to pause before finishing up action denoising - this massively desync'd actions from observation and caused more unstable behavior.</p>
+        <p>Diffusion policy, on the other hand, was much harder to deploy. My workstation's RTX 4060 could not run diffusion policy inference fast enough for continuous control. The robot paused while waiting for action denoising, leaving the actions out of sync with observations and making its behavior less stable.</p>
     </div>
     <div class="overview-image">
         <img src="assets/images/project_images/lefranx/act-vs-dp.gif" alt="ACT/DP Comparison" loading="lazy">
@@ -129,7 +129,7 @@
             <li>Further tune action diffusion policies for improved efficiency and reliability.</li>
             <li>Scale up training using simulated environments or augmented data to expand the range of tasks the robot can handle.</li>
         </ul>
-        <p>I'm genuinely excited about the future of robotics. All datasets and LeRobot extensions developed in this project will be open-sourced - please feel free to reach out with questions, suggestions, or feedback!</p>
+        <p>I'm genuinely excited about the future of robotics. The LeFranX code and demonstration dataset are available through the links above - please feel free to reach out with questions, suggestions, or feedback!</p>
     </div>
     <div class="overview-image">
         <img src="assets/images/project_images/lefranx/toast.gif" alt="Reflections" loading="lazy">

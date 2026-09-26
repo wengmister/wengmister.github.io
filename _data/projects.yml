@@ -90,9 +90,9 @@ dexterous-hand:
     - "Rapid Prototyping"
     - "Computer Vision"
     - "Virtual Reality"
-    - "ROS2"
+    - "ROS 2"
   external_links:
-    - text: "Github Repo"
+    - text: "GitHub Repo"
       url: "https://github.com/wengmister/BiDexHand"
     - text: "arXiv"
       url: "https://arxiv.org/abs/2504.14712"
@@ -150,9 +150,9 @@ franka-teleop:
     - "Robot Teleoperation"
     - "Kinematic Control"
     - "C++"
-    - "ROS2"
+    - "ROS 2"
   external_links:
-    - text: "Github Repo"
+    - text: "GitHub Repo"
       url: "https://github.com/wengmister/franka-vr-teleop"
     - text: "VR App"
       url: "https://github.com/wengmister/quest-wrist-tracker"
@@ -163,7 +163,7 @@ bdbach:
     - "Robot Calibration"
     - "Kinematic Control"
     - "Rapid Prototyping"
-    - "ROS2"
+    - "ROS 2"
     - "Computer Vision"
     - "Mechatronics Design"
     - "C++"
@@ -181,7 +181,7 @@ lefranx:
     - "Dexterous Manipulation"
     - "Visuoservo Policy"
   external_links:
-    - text: "Github Repo"
+    - text: "GitHub Repo"
       url: "https://github.com/wengmister/LeFranX"
     - text: "🤗HF Dataset"
       url: "https://huggingface.co/collections/wengmister/lefranx-dataset-68b4684269dbb97fd3061be0"
@@ -196,7 +196,7 @@ impedance-control:
     - "Simulation"
     - "Python"
   external_links:
-    - text: "Github Repo"
+    - text: "GitHub Repo"
       url: "https://github.com/wengmister/impedance_control_mujoco"
 
 hand-tracking:
@@ -208,9 +208,9 @@ hand-tracking:
     - "Teleoperation"
     - "C#"
     - "Python"
-    - "ROS2"
+    - "ROS 2"
   external_links:
-    - text: "Github Repo"
+    - text: "GitHub Repo"
       url: "https://github.com/wengmister/hand-tracking-streamer"
     - text: "Meta Quest Store"
       url: "https://www.meta.com/experiences/hand-tracking-streamer/26303946202523164/"

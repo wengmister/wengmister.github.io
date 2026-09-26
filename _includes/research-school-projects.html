@@ -1,188 +1,123 @@
 <h2>Research & Explorations</h2>
-    <ul class="project-list">
-        <!-- Project 1 -->
-        <li class="project-item" data-project-id="bdbach">
-            <div class="project-content">
-                <img src="assets/images/project_images/bdbach.gif" alt="B.D.Bach">
-                <div class="project-details">
-                    <div class="project-title">
-                        <h3>
-                            B.D. Bach: BiDexHand Plays Bach
-                        </h3>
-                    </div>
-                    <p>Playing a musical instrument is the epitome of human dexterity, requiring precision control, coordination, and real-time manipulation with feedback. In this project, I teach BiDexHand to play Baroque music with me, starting from J.S. Bach's Well-Tempered Klavier. </p>
-                    <div class="tech-list">
-                        <span class="tech-item">Dexterous Manipulation</span>
-                        <span class="tech-item">Kinematic Control</span>
-                        <span class="tech-item">Robot Calibration</span>
-                        <span class="tech-item">C++</span>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <!-- Project 2 -->
-        <li class="project-item" data-project-id="impedance-control">
-            <div class="project-content">
-                <img src="assets/images/project_images/impedance-control/impedance_cover.gif" alt="Impedance Control in MuJoCo">
-                <div class="project-details">
-                    <div class="project-title">
-                        <h3>
-                            Impedance Control with MuJoCo Simulations
-                        </h3>
-                    </div>
-                    <p>Impedance control lets robots interact more naturally by shaping how they respond to forces during contact. In this project, I use MuJoCo to simulate and compare different impedance-control strategies, examining how each affects compliance and manipulation performance.</p>
-                    <div class="tech-list">
-                        <span class="tech-item">MuJoCo</span>
-                        <span class="tech-item">Impedance Control</span>
-                        <span class="tech-item">Admittance Control</span>
-                        <span class="tech-item">Simulation</span>
-                        <span class="tech-item">Python</span>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <!-- Project 2.5 -->
-        <li class="project-item" data-project-id="franka-teleop">
-            <div class="project-content">
-                <img src="assets/images/project_images/franka-vr-teleop.gif" alt="Robotic Arm">
-                <div class="project-details">
-                    <div class="project-title">
-                        <h3> 
-                            FrankaVRTeleop: Teleoperating Franka Robot with VR Headsets
-                        </h3>
-                    </div>
-                    <p>Open-source, high-performance teleoperation library for the Franka FER robots and more.</p>
-                    <div class="tech-list">
-                        <span class="tech-item">Robot Teleoperation</span>
-                        <span class="tech-item">Inverse Kinematics</span>
-                        <span class="tech-item">Mixed Reality</span>
-                        <span class="tech-item">C++</span>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <!-- Project 3 -->
-        <li class="project-item" data-project-id="robotic-mini-golf">
-            <div class="project-content">
-                <img src="assets/images/project_images/apex-putter-shots.gif" alt="Robotic Mini-golf">
-                <div class="project-details">
-                    <div class="project-title">
-                        <h3>
-                           Apex Putter: Robotic Mini-Golf
-                        </h3>
-                    </div>
-                    <p>Love a game of putt-putt? Check out how machine learning, computer vision, and kinematic control turn the Franka FER Robot into a mini-golf ace - sinking hole-in-ones from anywhere like a champ.</p>
-                    <!-- <p><a href="https://github.com/wengmister/Apex-Putter" target="_blank" class="contact-item">Project Repo</a></p> -->                    
-                    <div class="tech-list">
-                        <span class="tech-item">ROS2</span>
-                        <span class="tech-item">Robot Calibration</span>
-                        <span class="tech-item">Computer Vision</span>
-                        <span class="tech-item">Machine Learning</span>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <!-- Project 4 -->
-        <li class="project-item" data-project-id="grab-a-pen">
-            <div class="project-content">
-                <img src="assets/images/project_images/hackathon_pen_s.gif" alt="PincherX Grab-A-Pen">
-                <div class="project-details">
-                    <div class="project-title">
-                        <h3>
-                            PenStealer: PincherX100 Grab-A-Pen
-                        </h3>
-                    </div>
-                    <p>It's not every day you get to teach a robot how to pass a pen like a teammate. In this project, I calibrated a Trossen Robotics PincherX100 robot arm using an RGB-D camera. The arm was tasked to locate, pick up a pen, and hand it off to other robots.</p>
-                    <!-- <p><a href="https://github.com/wengmister/msr_PincherX" target="_blank" class="contact-item">Project Repo</a></p> -->
-                    <div class="tech-list">
-                        <span class="tech-item">Robot Calibration</span>
-                        <span class="tech-item">Computer Vision</span>
-                        <span class="tech-item">Kinematic Control</span>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <!-- Project 5 -->
-        <li class="project-item" data-project-id="point-cloud-classification">
-            <div class="project-content">
-                <img src="assets/images/project_images/point_cloud.gif" alt="Point Cloud Classification">
-                <div class="project-details">
-                    <div class="project-title">
-                        <h3>
-                            RGBPointNet: RGB Point Cloud Based Object Classification
-                        </h3>
-                    </div>
-                    <p>Point clouds are common data format used in robotics. In this project, we implemented a custom PointNet architecture and augmented it with RGB color on the point cloud to classify objects in a custom dataset we generated.</p> 
+<ul class="project-list">
+    <li class="project-item" data-project-id="bdbach">
+        <a class="project-content" href="#bdbach" aria-labelledby="title-bdbach">
+            <img src="assets/images/project_images/bdbach.gif" alt="BiDexHand playing piano">
+            <div class="project-details">
+                <h3 id="title-bdbach">B.D. Bach</h3>
+                <p class="project-subtitle">BiDexHand plays Bach</p>
+                <p>As a lifelong piano player, I wanted to build a robot that could share the keyboard with me. I taught BiDexHand to interpret MIDI scores and play Baroque music, starting with Bach&#x27;s Well-Tempered Klavier.</p>
                 <div class="tech-list">
-                    <span class="tech-item">Machine Learning</span>
-                    <span class="tech-item">Multilayer Perceptron</span>
+                    <span class="tech-item">Dexterous manipulation</span>
+                    <span class="tech-item">Kinematic control</span>
+                    <span class="tech-item">C++</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="project-item" data-project-id="impedance-control">
+        <a class="project-content" href="#impedance-control" aria-labelledby="title-impedance-control">
+            <img src="assets/images/project_images/impedance-control/impedance_cover.gif" alt="Impedance control simulations in MuJoCo">
+            <div class="project-details">
+                <h3 id="title-impedance-control">Impedance Control</h3>
+                <p class="project-subtitle">Contact and compliance in MuJoCo</p>
+                <p>I use MuJoCo to compare impedance-control strategies and explore how they affect compliance and manipulation during contact.</p>
+                <div class="tech-list">
+                    <span class="tech-item">MuJoCo</span>
+                    <span class="tech-item">Impedance control</span>
+                    <span class="tech-item">Python</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="project-item" data-project-id="franka-teleop">
+        <a class="project-content" href="#franka-teleop" aria-labelledby="title-franka-teleop">
+            <img src="assets/images/project_images/franka-vr-teleop.gif" alt="Teleoperating a Franka robot with VR">
+            <div class="project-details">
+                <h3 id="title-franka-teleop">FrankaVRTeleop</h3>
+                <p class="project-subtitle">VR teleoperation for Franka robots</p>
+                <p>An open-source teleoperation library that connects VR headsets to Franka FER robots, with inverse kinematics implemented in C++.</p>
+                <div class="tech-list">
+                    <span class="tech-item">Teleoperation</span>
+                    <span class="tech-item">Inverse kinematics</span>
+                    <span class="tech-item">C++</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="project-item" data-project-id="robotic-mini-golf">
+        <a class="project-content" href="#robotic-mini-golf" aria-labelledby="title-robotic-mini-golf">
+            <img src="assets/images/project_images/apex-putter-shots.gif" alt="Franka robot putting a golf ball">
+            <div class="project-details">
+                <h3 id="title-robotic-mini-golf">Apex Putter</h3>
+                <p class="project-subtitle">Robotic mini-golf</p>
+                <p>Love a game of putt-putt? I combined computer vision, machine learning, and kinematic control to teach a Franka FER robot to line up and take a shot.</p>
+                <div class="tech-list">
+                    <span class="tech-item">ROS 2</span>
+                    <span class="tech-item">Computer vision</span>
+                    <span class="tech-item">Machine learning</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="project-item" data-project-id="grab-a-pen">
+        <a class="project-content" href="#grab-a-pen" aria-labelledby="title-grab-a-pen">
+            <img src="assets/images/project_images/hackathon_pen_s.gif" alt="PincherX100 picking up a pen">
+            <div class="project-details">
+                <h3 id="title-grab-a-pen">PenStealer</h3>
+                <p class="project-subtitle">PincherX100 pen handoff</p>
+                <p>It&#x27;s not every day you teach a robot to pass a pen like a teammate. I calibrated a PincherX100 arm with an RGB-D camera to locate a pen, pick it up, and hand it to another robot.</p>
+                <div class="tech-list">
+                    <span class="tech-item">Robot calibration</span>
+                    <span class="tech-item">Computer vision</span>
+                    <span class="tech-item">Kinematic control</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="project-item" data-project-id="point-cloud-classification">
+        <a class="project-content" href="#point-cloud-classification" aria-labelledby="title-point-cloud-classification">
+            <img src="assets/images/project_images/point_cloud.gif" alt="Point cloud object classification">
+            <div class="project-details">
+                <h3 id="title-point-cloud-classification">RGBPointNet</h3>
+                <p class="project-subtitle">Object classification with RGB point clouds</p>
+                <p>We augmented PointNet with RGB color to classify objects from point clouds, using a custom dataset we collected.</p>
+                <div class="tech-list">
                     <span class="tech-item">PointNet</span>
-                    <span class="tech-item">RGB Augmentation</span>
+                    <span class="tech-item">RGB augmentation</span>
+                    <span class="tech-item">Machine learning</span>
                 </div>
             </div>
-        </li>
-        <!-- Project 6 -->
-        <!-- <li class="project-item" data-project-id="mobile-manipulation">
-            <div class="project-content">
-                <img src="assets/images/project_images/mobile_manipulation.gif" alt="Mobile Manipulation">
-                <div class="project-details">
-                    <div class="project-title">
-                        <h3>
-                            KUKA youBot Mobile Manipulation
-                        </h3>
-                    </div>
-                    <p>Applying concepts like robotic manipulation, forward kinematics, and linear control, I created a CoppeliaSim simulation that showed a KUKA youBot moving a box from one location to another with precision and efficiency.</p>
-                    <div class="tech-list">
-                        <span class="tech-item">Robotic Manipulation</span>
-                        <span class="tech-item">Forward Kinematics</span>
-                        <span class="tech-item">Linear Control</span>
-                        <span class="tech-item">Simulation</span>
-                    </div>
+        </a>
+    </li>
+    <li class="project-item" data-project-id="athena">
+        <a class="project-content" href="#athena" aria-labelledby="title-athena">
+            <img src="assets/images/project_images/athena.jpg" alt="Athena upper-body robot">
+            <div class="project-details">
+                <h3 id="title-athena">Athena</h3>
+                <p class="project-subtitle">Biomimetic robotics · Georgia Tech LIDAR Lab</p>
+                <p>I led seven undergraduate students in designing, fabricating, and integrating mechatronic systems that emulate human muscle architecture for the Athena upper-body robot.</p>
+                <div class="tech-list">
+                    <span class="tech-item">Biomimetic robots</span>
+                    <span class="tech-item">Mechatronics</span>
+                    <span class="tech-item">System integration</span>
                 </div>
             </div>
-        </li> -->
-
-        <!-- Research stuff now -->
-        <!-- Research 1 -->
-        <li class="project-item" data-project-id="athena">
-            <div class="project-content">
-                <img src="assets/images/project_images/athena.jpg" alt="Research at LIDAR Lab">
-                <div class="project-details">
-                    <div class="project-title">
-                        <h3>
-                            Athena - Laboratory for Intelligent Decision and Autonomous Robots - Georgia Tech
-                        </h3>
-                    </div>
-                    <p>The Laboratory for Intelligent Decision and Autonomous Robots (LIDAR Lab) led by Prof. Ye Zhao at GaTech focuses research on robotic system and interactions.</p>
-                    <p>While in LIDAR, I led a sub-team of 7 undergraduate students and worked on designing, fabricating and integrating a biomimetic upper body robot, Athena. My team focused on designing and characterizing mechatronics systems that emulate human muscle architecture.</p>
-                    <!-- <p><a href="https://lab-idar.gatech.edu/" target="_blank" class="contact-item">Lab Homepage</a></p> -->
-                    <div class="tech-list">
-                        <span class="tech-item">Biomimetic Robot</span>
-                        <span class="tech-item">Mechatronics</span>
-                        <span class="tech-item">CAD Optimization</span>
-                        <span class="tech-item">System Integration</span>
+        </a>
+    </li>
+    <li class="project-item" data-project-id="hip-exo">
+        <a class="project-content" href="#hip-exo" aria-labelledby="title-hip-exo">
+            <img src="assets/images/project_images/hip-exo.gif" alt="Assistive hip exoskeleton">
+            <div class="project-details">
+                <h3 id="title-hip-exo">Assistive Hip Exoskeleton</h3>
+                <p class="project-subtitle">Wearable robotics · Georgia Tech EPIC Lab</p>
+                <p>As an undergraduate research assistant, I designed and machined housings and major components for the hip exoskeleton’s series elastic actuators.</p>
+                <div class="tech-list">
+                    <span class="tech-item">Exoskeletons</span>
+                    <span class="tech-item">Series elastic actuators</span>
+                    <span class="tech-item">Mechanical design</span>
                 </div>
             </div>
-        </li>
-        
-        <!-- Research 2 -->
-        <li class="project-item" data-project-id="hip-exo">
-            <div class="project-content">
-                <img src="assets/images/project_images/hip-exo.gif" alt="Research at EPIC Lab">
-                <div class="project-details">
-                    <div class="project-title">
-                        <h3>
-                            Assistive Hip Exoskeleton - Exoskeleton and Prosthetics Intelligent Control Lab - Georgia Tech
-                        </h3>
-                    </div>
-                    <p>The Exoskeleton and Prosthetic Intelligent Controls (EPIC) Lab at Georgia Tech, led by Professor Aaron Young, is devoted to the design and improvement of powered orthotic and prosthetic control systems.</p>
-                    <p>While in EPIC, I worked on the Assistive Hip Exoskeleton project as an undergraduate RA. I designed and machined the housings and most major components on the series elastic actuators of the hip exo. </p>
-                    <!-- <p><a href="https://www.epic.gatech.edu/" target="_blank" class="contact-item">Lab Homepage</a></p> -->
-                    <div class="tech-list">
-                        <span class="tech-item">Exoskeleton</span>
-                        <span class="tech-item">Series Elastic Actuators</span>
-                        <span class="tech-item">Mechanical Design</span>
-                </div>
-            </div>
-        </li>
-    </ul>
+        </a>
+    </li>
+</ul>

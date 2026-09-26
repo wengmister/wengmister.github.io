@@ -23,7 +23,7 @@
                 I implemented a simple controller teleoperation with a XBox controller. 
             </p>
             <p>
-                ROS2 provides a simple interface to provide joystick input to the robot - <code>joy_node</code>.
+                ROS 2 provides a simple interface to provide joystick input to the robot - <code>joy_node</code>.
                 This node allows me to bridge the input from the joystick (using 2x joystick and d-pad input) to
                 differential commands - which is then mapped to the robot's end-effector movement.
             </p>
@@ -45,7 +45,7 @@
                 and added the ability to track the wrist vector in terms of position and orientation in quaternion format.
             </p>
             <p>
-                This wrist vector is then streamed over to ROS2 using UDP sockets, which can then be used to command the
+                This wrist vector is then streamed over to ROS 2 using UDP sockets, which can then be used to command the
                 robot's end-effector movement. While the tracked wrist vector is absolute in world frame, it is converted 
                 differential movement upon initial pose registration to make teleoperation more intuitive.
             </p>
@@ -62,7 +62,7 @@
         <div class="overview-text">
         <h2 class="modal-section-sub-title">Prototype: MoveIt! Servo</h2>
             <p>
-                This early prototype was built with <code>moveit-servo</code> package in ROS2 following Graham's work. Since this isn't
+                This early prototype was built with <code>moveit-servo</code> package in ROS 2 following Graham's work. Since this isn't
                 deployed on a realtime computer, it's performance is suboptimal. In addition, MoveIt Servo provides 
                 rather limited capability over the robot's control. Therefore, I decided to redesign the app using lower level control API.
             </p>

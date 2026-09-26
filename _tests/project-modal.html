@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Portfolio browser regression tests</title>
+<style>body { font: 16px/1.5 system-ui; } iframe { width: 390px; height: 844px; border: 1px solid #aaa; } .pass { color: #176b35; } .fail { color: #b21c1c; }</style>
+<h1>Portfolio browser regression tests</h1>
+<p>Build the site, copy this file into <code>_site/project-modal-tests.html</code>, and open it through the local server.</p>
+<ol id="results"></ol>
+<iframe title="Portfolio under test"></iframe>
+<script>
+const frame = document.querySelector('iframe');
+const results = document.querySelector('#results');
+const assert = (condition, message) => { if (!condition) throw new Error(message); };
+const waitFor = async (condition, message) => {
+    const deadline = Date.now() + 4000;
+    while (!condition()) {
+        if (Date.now() > deadline) throw new Error(message);
+        await new Promise(resolve => setTimeout(resolve, 20));
+    }
+};
+let loadIndex = 0;
+const load = async (hash = '') => {
+    frame.src = '/?regression=' + (++loadIndex) + hash;
+    await new Promise(resolve => frame.onload = resolve);
+    return frame.contentWindow;
+};
+const card = (doc, id) => doc.querySelector(`[data-project-id="${id}"]`);
+const open = async (win, id) => {
+    const item = card(win.document, id);
+    (item.querySelector('a') || item).click();
+    await waitFor(() => win.location.hash === '#' + id, 'Project URL did not update');
+    await waitFor(() => win.document.querySelector('.modal-description .modal-section'), 'Project did not load');
+};
+const close = win => win.document.querySelector('.modal-close').click();
+const visible = win => win.getComputedStyle(win.document.querySelector('.modal')).display !== 'none';
+const tests = [
+    ['Every project has a keyboard-accessible link', async () => {
+        const win = await load();
+        for (const item of win.document.querySelectorAll('.project-item')) {
+            const link = item.querySelector('a[href]');
+            assert(link && link.tabIndex === 0, `Missing link for ${item.dataset.projectId}`);
+            link.focus();
+            assert(win.document.activeElement === link, 'Project link cannot receive focus');
+        }
+    }],
+    ['Back and Forward preserve project history', async () => {
+        const win = await load();
+        await open(win, 'memo');
+        const length = win.history.length;
+        win.history.back();
+        await waitFor(() => !visible(win), 'Back did not close the project');
+        assert(win.history.length === length, 'Back added a history entry');
+        win.history.forward();
+        await waitFor(() => visible(win) && win.location.hash === '#memo', 'Forward did not reopen the project');
+        assert(win.history.length === length, 'Forward added a history entry');
+    }],
+    ['Dialog manages focus and restores it on close', async () => {
+        const win = await load();
+        const trigger = card(win.document, 'memo').querySelector('a');
+        assert(trigger, 'Project has no focusable trigger');
+        trigger.focus();
+        await open(win, 'memo');
+        const modal = win.document.querySelector('.modal');
+        assert(modal.matches(':modal'), 'Project is not a native modal dialog');
+        assert(modal.contains(win.document.activeElement), 'Focus stayed behind the modal');
+        close(win);
+        await waitFor(() => !visible(win), 'Close did not dismiss the project');
+        assert(win.document.activeElement === trigger, 'Focus was not restored to the project link');
+    }],
+    ['A direct project link closes without leaving the site', async () => {
+        const win = await load('#memo');
+        await waitFor(() => visible(win), 'Deep link did not open');
+        const length = win.history.length;
+        close(win);
+        await waitFor(() => !visible(win), 'Deep link could not close');
+        assert(win.location.pathname === '/' && win.location.hash === '', 'Close navigated away from home');
+        assert(win.history.length === length, 'Closing a deep link added history');
+    }],
+    ['A late response cannot reopen a closed project', async () => {
+        const win = await load();
+        const fetch = win.fetch.bind(win);
+        let release;
+        win.fetch = async (...args) => {
+            const response = await fetch(...args);
+            await new Promise(resolve => release = resolve);
+            return response;
+        };
+        const item = card(win.document, 'memo');
+        (item.querySelector('a') || item).click();
+        await waitFor(() => release, 'Request did not start');
+        close(win);
+        release();
+        await new Promise(resolve => setTimeout(resolve, 100));
+        assert(!visible(win), 'Late response reopened the closed project');
+    }],
+    ['An old failure cannot overwrite a reopened project', async () => {
+        const win = await load();
+        const fetch = win.fetch.bind(win);
+        let rejectOld;
+        win.fetch = () => new Promise((resolve, reject) => rejectOld = reject);
+        const item = card(win.document, 'memo');
+        item.querySelector('a').click();
+        await waitFor(() => rejectOld, 'First request did not start');
+        close(win);
+        await waitFor(() => win.location.hash === '', 'Close did not restore the URL');
+        win.fetch = fetch;
+        await open(win, 'memo');
+        rejectOld(new Error('Old request failed'));
+        await new Promise(resolve => setTimeout(resolve, 100));
+        assert(win.document.querySelector('.modal-description .overview-section'), 'Old failure replaced the reopened project');
+    }],
+    ['Following a related project keeps keyboard focus inside the dialog', async () => {
+        const win = await load();
+        await open(win, 'dexterous-hand');
+        const link = win.document.querySelector('.modal a[href$="#franka-teleop"]');
+        // Keep the production-domain link in the local test origin.
+        link.href = '#franka-teleop';
+        link.focus();
+        link.click();
+        await waitFor(() => win.location.hash === '#franka-teleop', 'Related project did not open');
+        await waitFor(() => win.document.querySelector('.modal-description .overview-section'), 'Related project did not load');
+        assert(win.document.querySelector('.modal').contains(win.document.activeElement), 'Focus was lost when the article was replaced');
+    }],
+    ['A failed request leaves an accessible, dismissible error', async () => {
+        const win = await load();
+        win.fetch = async () => new Response('', { status: 404 });
+        const item = card(win.document, 'memo');
+        (item.querySelector('a') || item).click();
+        await waitFor(() => win.document.querySelector('.modal-description').textContent.includes('error'), 'No error was shown');
+        assert(visible(win), 'Error dialog is hidden');
+        assert(win.document.querySelector('.modal').contains(win.document.activeElement), 'Error did not receive focus');
+        close(win);
+        await waitFor(() => !visible(win), 'Error dialog could not close');
+    }],
+    ['Mobile header and affiliations fit at 320 and 390 pixels', async () => {
+        const win = await load();
+        for (const width of [320, 390]) {
+            frame.style.width = width + 'px';
+            await new Promise(resolve => requestAnimationFrame(resolve));
+            const doc = win.document;
+            assert(doc.querySelector('h1').getBoundingClientRect().top >= doc.querySelector('header').getBoundingClientRect().bottom, 'Header covers About');
+            assert(doc.documentElement.scrollWidth <= width, 'Page overflows horizontally');
+            for (const logo of doc.querySelectorAll('.affiliation-logo')) {
+                assert(logo.getBoundingClientRect().right <= width - 12, 'Logo has no right gutter');
+            }
+        }
+    }],
+    ['Project videos fit the mobile dialog', async () => {
+        const win = await load();
+        await open(win, 'dexterous-hand');
+        const modal = win.document.querySelector('.modal');
+        assert(modal.scrollWidth <= modal.clientWidth, 'Dialog overflows horizontally');
+        for (const video of modal.querySelectorAll('iframe')) {
+            assert(video.getBoundingClientRect().right <= modal.getBoundingClientRect().right, 'Video extends past the dialog');
+        }
+    }]
+];
+(async () => {
+    let failed = 0;
+    for (const [name, run] of tests) {
+        const result = document.createElement('li');
+        results.append(result);
+        try { await run(); result.className = 'pass'; result.textContent = 'PASS: ' + name; }
+        catch (error) { failed++; result.className = 'fail'; result.textContent = 'FAIL: ' + name + ' — ' + error.message; }
+    }
+    document.title = `${tests.length - failed}/${tests.length} passed — Portfolio tests`;
+    document.body.dataset.complete = 'true';
+})();
+</script>
+</html>
