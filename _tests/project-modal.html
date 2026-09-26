@@ -59,6 +59,28 @@ const tests = [
         await open(win, 'hand-tracking');
         await checkPlayback(win.document.querySelector('.modal video'));
     }],
+    ['Returning to a visible tab restores card and dialog animations', async () => {
+        const win = await load();
+        await open(win, 'hand-tracking');
+        const videos = [...win.document.querySelectorAll('video[autoplay][loop][muted]')];
+        assert(videos.some(video => video.closest('.modal')), 'Dialog videos were not loaded');
+        let state = 'hidden';
+        Object.defineProperty(win.document, 'visibilityState', { configurable: true, get: () => state });
+        let reloads = 0;
+        for (const video of videos) {
+            const load = video.load.bind(video);
+            video.load = () => { reloads++; load(); };
+        }
+        win.document.dispatchEvent(new win.Event('visibilitychange'));
+        assert(reloads === 0, 'Videos reloaded while the tab was hidden');
+        state = 'visible';
+        win.document.dispatchEvent(new win.Event('visibilitychange'));
+        assert(reloads === videos.length, 'Returning to the tab did not restore every animation');
+        delete win.document.visibilityState;
+        const video = win.document.querySelector('.modal video');
+        video.scrollIntoView({ block: 'center' });
+        await waitFor(() => !video.paused && video.currentTime > 0, 'Restored animation did not autoplay');
+    }],
     ['Back and Forward preserve project history', async () => {
         const win = await load();
         await open(win, 'memo');
