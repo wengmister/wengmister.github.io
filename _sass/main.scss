@@ -269,10 +269,12 @@ nav ul li {
 
 .project-item {
     border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-item:hover {
-    background-color: #f7f9fa;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .project-details h3 {
@@ -317,7 +319,6 @@ nav ul li {
     color: #626b73;
 }
 
-.project-content:hover h3,
 .project-content:focus-visible h3 {
     text-decoration: underline;
     text-underline-offset: 4px;
