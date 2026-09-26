@@ -652,6 +652,8 @@ body.modal-open {
     }
 
     .overview-image {
+        // Resolve media width before the column flex layout calculates its height.
+        width: 100%;
         max-width: 100%;
     }
 }

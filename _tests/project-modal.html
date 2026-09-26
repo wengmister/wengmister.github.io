@@ -145,13 +145,21 @@ const tests = [
             }
         }
     }],
-    ['Project videos fit the mobile dialog', async () => {
+    ['Project videos fit without overlapping the next section', async () => {
         const win = await load();
         await open(win, 'dexterous-hand');
         const modal = win.document.querySelector('.modal');
-        assert(modal.scrollWidth <= modal.clientWidth, 'Dialog overflows horizontally');
-        for (const video of modal.querySelectorAll('iframe')) {
-            assert(video.getBoundingClientRect().right <= modal.getBoundingClientRect().right, 'Video extends past the dialog');
+        for (const width of [320, 390, 480, 600, 768, 1024]) {
+            frame.style.width = width + 'px';
+            await new Promise(resolve => requestAnimationFrame(resolve));
+            assert(modal.scrollWidth <= modal.clientWidth, `Dialog overflows at ${width}px`);
+            for (const video of modal.querySelectorAll('iframe')) {
+                const bounds = video.getBoundingClientRect();
+                const section = video.closest('.overview-section');
+                assert(bounds.right <= modal.getBoundingClientRect().right, `Video exceeds dialog width at ${width}px`);
+                assert(bounds.bottom <= section.getBoundingClientRect().bottom + 1, `Video exceeds its section height at ${width}px`);
+                assert(bounds.bottom <= section.nextElementSibling.getBoundingClientRect().top, `Video overlaps the next section at ${width}px`);
+            }
         }
     }]
 ];
