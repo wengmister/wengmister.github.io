@@ -14,7 +14,8 @@
     <h3 class="modal-section-title">Vision and Calibration</h3>
     <div class="modal-section overview-section">
         <div class="overview-image">
-            <img src="assets/images/project_images/grab-a-pen/calibration.gif" alt="Optical calibration" loading="lazy">
+            <video src="assets/images/project_images/grab-a-pen/calibration.mp4" autoplay loop muted playsinline preload="auto"
+                   width="540" height="392" aria-label="Optical calibration"></video>
         </div>
         <div class="overview-text">
             <p>To determine the position of the pen in the camera's frame, I used the OpenCV library to process the camera image and locate the pen using HSV color thresholding. This enabled me to deproject the centroid of the pen (highlighted in purple) into 3D space.</p>
@@ -32,7 +33,8 @@
             <p>Once the robot arm reached the pen, I programmed it to grasp the pen and pass it to another robot arm. This required precise control over both the end-effector and joint positions.</p>
         </div>
         <div class="overview-image">
-            <img src="assets/images/project_images/grab-a-pen/execute.gif" alt="Motion Control" loading="lazy">
+            <video src="assets/images/project_images/grab-a-pen/execute.mp4" autoplay loop muted playsinline preload="auto"
+                   width="540" height="392" aria-label="Motion Control"></video>
         </div>
     </div>
 </div> 

@@ -294,8 +294,10 @@ nav ul li {
     border-radius: 8px;
 }
 
-.project-content img {
+.project-content img,
+.project-content video {
     width: 300px;
+    height: auto;
     aspect-ratio: 4 / 3;
     object-fit: contain;
     background-color: #f0f4f7;
@@ -394,7 +396,8 @@ a:focus-visible, button:focus-visible {
     max-width: 45%;
 }
 
-.overview-image img {
+.overview-image img,
+.overview-image video {
     width: 100%;
     height: auto;
     border-radius: 10px;
@@ -635,7 +638,8 @@ body.modal-open {
         padding: 12px;
     }
 
-    .project-content img {
+    .project-content img,
+    .project-content video {
         width: 100%;
     }
 

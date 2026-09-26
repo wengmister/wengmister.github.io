@@ -63,7 +63,7 @@ class ProjectModal {
         document.body.classList.add('modal-open');
         this.modal.scrollTop = 0;
 
-        const request = fetch(`assets/projects/${projectId}.html`);
+        const request = fetch(`assets/projects/${projectId}.html`, { cache: 'no-cache' });
         this.request = request;
         try {
             const response = await request;

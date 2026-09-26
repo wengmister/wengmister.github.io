@@ -48,7 +48,8 @@
         <p>The setup yields a 54-dimensional observation space: 7 arm positions, 7 arm velocities, 16 end-effector pose values, 12 hand joint positions, and 12 hand joint torques. Control is applied through a 19-dimensional position action space.</p>
     </div>
     <div class="overview-image">
-        <img src="assets/images/project_images/lefranx/lefranx-teleop.gif" alt="Teleop franx" loading="lazy">
+        <video src="assets/images/project_images/lefranx/lefranx-teleop.mp4" autoplay loop muted playsinline preload="auto"
+               width="400" height="240" aria-label="Teleop franx"></video>
     </div>
 </div>
 
@@ -76,7 +77,8 @@
         <p>I collected 100 demonstration episodes — not only clean successes, but also runs where the robot failed partway before recovering and finishing the task. Capturing these recoveries is important, as they expose the robot to correction strategies that improve robustness and overall success rate.</p>
     </div>
     <div class="overview-image">
-        <img src="assets/images/project_images/lefranx/data-collection.gif" alt="data collection" loading="lazy">
+        <video src="assets/images/project_images/lefranx/data-collection.mp4" autoplay loop muted playsinline preload="auto"
+               width="400" height="240" aria-label="data collection"></video>
     </div>
 </div>
 
@@ -88,7 +90,8 @@
         <p>I fine-tuned the base policy using the custom dataset. This required implementing new training and evaluation scripts to navigate limitations in the Draccus configuration system, ultimately allowing me to successfully deploy new policies capable of executing the desired tasks.</p>
     </div>
     <div class="overview-image">
-        <img src="assets/images/project_images/lefranx/demonstrations.gif" alt="demonstrations" loading="lazy">
+        <video src="assets/images/project_images/lefranx/demonstrations.mp4" autoplay loop muted playsinline preload="auto"
+               width="400" height="240" aria-label="demonstrations"></video>
     </div>
 </div>
 
@@ -101,7 +104,8 @@
         <p>Diffusion policy, on the other hand, was much harder to deploy. My workstation's RTX 4060 could not run diffusion policy inference fast enough for continuous control. The robot paused while waiting for action denoising, leaving the actions out of sync with observations and making its behavior less stable.</p>
     </div>
     <div class="overview-image">
-        <img src="assets/images/project_images/lefranx/act-vs-dp.gif" alt="ACT/DP Comparison" loading="lazy">
+        <video src="assets/images/project_images/lefranx/act-vs-dp.mp4" autoplay loop muted playsinline preload="auto"
+               width="400" height="240" aria-label="ACT/DP Comparison"></video>
     </div>
 </div>
 
@@ -115,7 +119,8 @@
         <p>While my current DP setup still lags behind ACT in performance, there are many parameters left to tune, and I expect further gains as I refine the approach.</p>
     </div>
     <div class="overview-image">
-        <img src="assets/images/project_images/lefranx/async-inference.gif" alt="Async Inference" loading="lazy">
+        <video src="assets/images/project_images/lefranx/async-inference.mp4" autoplay loop muted playsinline preload="auto"
+               width="400" height="240" aria-label="Async Inference"></video>
     </div>
 </div>
 
@@ -132,6 +137,7 @@
         <p>I'm genuinely excited about the future of robotics. The LeFranX code and demonstration dataset are available through the links above - please feel free to reach out with questions, suggestions, or feedback!</p>
     </div>
     <div class="overview-image">
-        <img src="assets/images/project_images/lefranx/toast.gif" alt="Reflections" loading="lazy">
+        <video src="assets/images/project_images/lefranx/toast.mp4" autoplay loop muted playsinline preload="auto"
+               width="500" height="400" aria-label="Reflections"></video>
     </div>
 </div>
