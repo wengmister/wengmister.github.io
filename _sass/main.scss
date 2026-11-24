@@ -598,6 +598,65 @@ body.modal-open {
     padding: 3px 8px;
 }
 
+// Links that sit under a project card; nested inside the card link would be invalid HTML.
+.project-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin: -4px 0 0;
+    padding: 0 16px 16px 340px; // card padding + media width + gap
+    font-size: 0.875rem;
+}
+
+.project-cta a,
+.earlier-list a,
+.publication-meta a {
+    color: #2b779b;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.project-cta a:hover,
+.earlier-list a:hover,
+.publication-meta a:hover {
+    color: #007bff;
+}
+
+.earlier-heading {
+    margin: 8px 0 4px;
+    padding: 0 16px;
+    font-size: 1rem;
+    color: #4a5b6c;
+}
+
+.earlier-list,
+.publication-list {
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0 16px;
+}
+
+.earlier-list li {
+    margin: 6px 0;
+    color: #4d555b;
+}
+
+.publication-list li {
+    margin: 0 0 16px;
+}
+
+.publication-title {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.publication-meta {
+    margin: 2px 0 0;
+    font-size: 0.875rem;
+    color: #626b73;
+}
+
 @media (max-width: 768px) {
     main, .header-container {
         padding-left: 20px;
@@ -641,6 +700,16 @@ body.modal-open {
     .project-content img,
     .project-content video {
         width: 100%;
+    }
+
+    .project-cta {
+        padding: 0 12px 12px;
+    }
+
+    .earlier-heading,
+    .earlier-list,
+    .publication-list {
+        padding: 0 12px;
     }
 
     .modal-content {
