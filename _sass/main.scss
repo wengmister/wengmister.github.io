@@ -598,13 +598,42 @@ body.modal-open {
     padding: 3px 8px;
 }
 
-// Links that sit under a project card; nested inside the card link would be invalid HTML.
-.project-cta {
+// A card with its own links: the title link's ::after covers the whole card, so the
+// card stays clickable, and the extra links sit above that layer.
+.project-content.has-links {
+    position: relative;
+}
+
+.project-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.project-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+}
+
+.project-link:focus-visible {
+    outline: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.project-link:focus-visible::after {
+    outline: 3px solid #2b779b;
+    outline-offset: 2px;
+}
+
+.project-details .project-cta {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-wrap: wrap;
     gap: 8px 24px;
-    margin: -4px 0 0;
-    padding: 0 16px 16px 340px; // card padding + media width + gap
+    margin: 10px 0 0;
     font-size: 0.875rem;
 }
 
@@ -700,10 +729,6 @@ body.modal-open {
     .project-content img,
     .project-content video {
         width: 100%;
-    }
-
-    .project-cta {
-        padding: 0 12px 12px;
     }
 
     .earlier-heading,
