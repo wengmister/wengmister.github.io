@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if page.url == '/' %}{% assign full_title = site.title | append: ' · ' | append: site.tagline %}{% else %}{% assign full_title = page.title | append: ' - ' | append: site.title %}{% endif %}
+    {% if page.url == '/' %}{% assign full_title = site.title %}{% else %}{% assign full_title = page.title | append: ' - ' | append: site.title %}{% endif %}
     {% assign meta_description = site.description | strip_newlines | strip | escape %}
     <title>{{ full_title }}</title>
     <meta name="description" content="{{ meta_description }}">
